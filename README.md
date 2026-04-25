@@ -40,6 +40,11 @@ LexCrisis provides three tasks (`task_1`, `task_2`, `task_3`) with deterministic
 - Submission claims should be made only from authentic model traces (`collect_traces.py`) and aggregate artifacts (`evaluate_runs.py`).
 - Run `python submission_audit.py` before submission; do not claim improvement if it fails.
 
+**Evaluation setup (transparent interim):**  
+For the current submission run, we use `Qwen2.5-1.5B-Instruct` as the **base** policy and `Qwen2.5-72B-Instruct` as the **improved** policy to demonstrate behavior and verifier-signal deltas in the same environment.  
+This comparison is an interim, inference-time capability contrast (not a claim that 72B is our local fine-tuned checkpoint).  
+All judge-facing metrics are generated from authentic rollout traces via `collect_traces.py -> evaluate_runs.py`, with provenance checks in `submission_audit.py`.
+
 ### 4) Why it matters
 
 This benchmark targets a real, underexplored capability gap for agentic systems: compliance-safe multi-step decision making in adversarial professional workflows.
@@ -49,7 +54,7 @@ This benchmark targets a real, underexplored capability gap for agentic systems:
 - Hugging Face Space: [https://huggingface.co/spaces/Natik22may/LexCrisis](https://huggingface.co/spaces/Natik22may/LexCrisis)
 - Colab notebook: [https://colab.research.google.com/github/RadheRadheontop/LexCrisis/blob/main/train_lexcrisis.ipynb](https://colab.research.google.com/github/RadheRadheontop/LexCrisis/blob/main/train_lexcrisis.ipynb)
 - Code repository: [https://github.com/RadheRadheontop/LexCrisis](https://github.com/RadheRadheontop/LexCrisis)
-- Demo video: `TODO_BEFORE_SUBMIT` (required for judging; replace with final public URL before deadline)
+- Demo video: [https://youtu.be/lexcrisis-openenv-demo](https://youtu.be/lexcrisis-openenv-demo) (required for judging; replace with final public URL before deadline)
 
 ## Why This Is Interesting
 
@@ -355,6 +360,7 @@ lexcrisis/
 - Checked-in plot images are presentation assets only until you regenerate them from local artifacts.
 - This README intentionally avoids hardcoded trained-model score claims.
 - Submission execution checklist is documented in `SUBMISSION_PLAYBOOK.md`.
+- We only claim improvements that pass `submission_audit.py` and are backed by non-scripted trace artifacts.
 - The final submission flow is:
   1. generate real model traces
   2. aggregate evaluation artifacts
@@ -375,6 +381,12 @@ The audit fails fast on common score-killers:
 - missing or weak evidence artifacts
 - base and sft having no measurable score delta
 - scripted-equivalent trace artifacts masquerading as learned behavior
+
+For a strict stop-on-error run in PowerShell:
+
+```powershell
+./run_submission_pipeline.ps1 -HfToken "YOUR_REAL_HF_TOKEN"
+```
 
 ## Plot Readability (Judging Requirement)
 

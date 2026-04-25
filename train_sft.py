@@ -140,10 +140,9 @@ def build_trainer(
 ) -> Any:
     """Construct a TRL SFTTrainer without depending on one specific minor version."""
 
-    from transformers import TrainingArguments
-    from trl import SFTTrainer
+    from trl import SFTConfig, SFTTrainer
 
-    training_args = TrainingArguments(
+    training_args = SFTConfig(
         output_dir=str(args.output_dir),
         per_device_train_batch_size=args.batch_size,
         gradient_accumulation_steps=args.gradient_accumulation,
@@ -157,9 +156,14 @@ def build_trainer(
         weight_decay=0.01,
         optim="adamw_8bit" if backend_info["backend"] == "unsloth" else "adamw_torch",
         seed=args.seed,
-        remove_unused_columns=False,
+        # Keep only model-relevant columns during collation to avoid
+        # string metadata (task_id/action_type) tensorization crashes.
+        remove_unused_columns=True,
         fp16=backend_info["fp16"],
         bf16=backend_info["bf16"],
+        dataset_text_field="text",
+        max_seq_length=args.max_seq_length,
+        packing=False,
     )
 
     trainer_signature = inspect.signature(SFTTrainer.__init__).parameters
@@ -168,12 +172,6 @@ def build_trainer(
         "train_dataset": dataset,
         "args": training_args,
     }
-    if "packing" in trainer_signature:
-        trainer_kwargs["packing"] = False
-    if "dataset_text_field" in trainer_signature:
-        trainer_kwargs["dataset_text_field"] = "text"
-    if "max_seq_length" in trainer_signature:
-        trainer_kwargs["max_seq_length"] = args.max_seq_length
     if "tokenizer" in trainer_signature:
         trainer_kwargs["tokenizer"] = tokenizer
     if "processing_class" in trainer_signature:
@@ -208,10 +206,30 @@ def main() -> None:
     parser.add_argument("--seed", type=int, default=42)
     parser.add_argument("--lora-rank", type=int, default=16)
     parser.add_argument("--lora-alpha", type=int, default=16)
+    parser.add_argument(
+        "--allow-cpu",
+        action="store_true",
+        help="Allow CPU-only training (very slow, not recommended for competition runs).",
+    )
     args = parser.parse_args()
+
+    try:
+        import torch
+    except ImportError:
+        torch = None
+
+    has_cuda = bool(torch is not None and torch.cuda.is_available())
+    if not has_cuda and not args.allow_cpu:
+        raise RuntimeError(
+            "No CUDA GPU detected. SFT on CPU is extremely slow and appears stalled at 0%% for long periods.\n"
+            "Best action for hackathon quality and speed: run on Colab/HF GPU and rerun this exact command there.\n"
+            "If you still want a local smoke test, append --allow-cpu --max-steps 5 --max-seq-length 512."
+        )
 
     rows = load_jsonl(args.data)
     model, tokenizer, backend_info = load_model_and_tokenizer(args)
+    # Right-padding is recommended for half precision SFT in TRL.
+    tokenizer.padding_side = "right"
 
     try:
         from datasets import Dataset
@@ -220,14 +238,7 @@ def main() -> None:
 
     formatted_rows = []
     for row in rows:
-        formatted_rows.append(
-            {
-                "text": conversations_to_text(row, tokenizer),
-                "task_id": row.get("metadata", {}).get("task_id", "unknown"),
-                "step": row.get("metadata", {}).get("step", 0),
-                "action_type": row.get("metadata", {}).get("action_type", "unknown"),
-            }
-        )
+        formatted_rows.append({"text": conversations_to_text(row, tokenizer)})
     dataset = Dataset.from_list(formatted_rows)
     trainer = build_trainer(
         model=model,
