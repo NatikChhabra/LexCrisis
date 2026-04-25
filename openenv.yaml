@@ -1,0 +1,66 @@
+spec_version: 1
+name: lexcrisis
+type: space
+runtime: fastapi
+app: main:app
+port: 7860
+version: "1.0.0"
+description: >
+  LexCrisis is an OpenEnv benchmark for legal operations incident response during
+  high-stakes pharmaceutical product-liability litigation. The environment evaluates
+  an AI agent's ability to perform conflict screening (BCI Rules 22 and 33),
+  attorney-client privilege review (IEA Sections 126, 129), and multi-front litigation
+  triage under deadline pressure, adversarial discovery traps, and ethics constraints.
+  Task 3 contains a deliberate privilege-waiver trap that requires adversarial
+  theory-of-mind reasoning to detect and counter.
+metadata:
+  benchmark: lexcrisis
+  domain: legal-operations
+  tags:
+    - openenv
+    - law
+    - litigation
+    - legal-ops
+    - product-liability
+    - privilege-review
+    - conflict-of-interest
+    - adversarial
+    - theory-of-mind
+    - india
+  reward_type: dense-shaped-delta
+  observation_type: partially-observable
+  grader_type: deterministic
+  tasks:
+    - id: task_1
+      name: Conflict-Safe Client Intake
+      difficulty: easy
+      max_steps: 24
+      grader_weights:
+        pair_f1: 0.45
+        decision_accuracy: 0.35
+        rule_accuracy: 0.20
+    - id: task_2
+      name: Privilege Review Under Litigation Pressure
+      difficulty: medium
+      max_steps: 30
+      grader_weights:
+        classification_accuracy: 0.35
+        doctrine_accuracy: 0.20
+        waiver_f1: 0.20
+        exception_accuracy: 0.10
+        recommendation_accuracy: 0.15
+    - id: task_3
+      name: Litigation Incident Command
+      difficulty: hard
+      max_steps: 20
+      grader_weights:
+        deadline_accuracy: 0.30
+        ethical_score: 0.20
+        adversarial_f1: 0.15
+        discovery_score: 0.15
+        expert_score: 0.10
+        ordering_score: 0.10
+  baseline_scores:
+    task_1: 0.9990
+    task_2: 0.9242
+    task_3: 0.9891
