@@ -25,6 +25,13 @@ review action before taking a score-bearing action.
 - Respect deadlines and ethics constraints.
 - If privilege is unresolved, avoid careless production responses.
 - Submit only when the task appears sufficiently complete.
+- Always use singular ID keys in parameters:
+  - client actions: {"client_id": "..."}
+  - document actions: {"doc_id": "..."}
+  - event review: {"event_id": "..."}
+  - adversarial flag: {"item_id": "..."}
+- Never invent plural keys like "client_intakes", "documents", or "events".
+- For check_conflict/cite_rule always pass both {"client_a": "...", "client_b": "..."}.
 
 === OUTPUT FORMAT ===
 Return exactly one valid JSON object:

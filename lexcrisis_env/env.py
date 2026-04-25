@@ -550,8 +550,22 @@ class LexCrisisEngine:
         normalized = normalize(motion_type)
         if any(term in normalized for term in ("injunction", "tro", "opposition")):
             return "EVENT-002"
+        if any(term in normalized for term in ("regulatory", "show-cause", "show cause", "stay")):
+            return "EVENT-006"
         if any(term in normalized for term in ("transfer", "consolidation", "forum")):
             return "EVENT-005"
+        return ""
+
+    def _first_param_value(self, params: Dict[str, Any], *keys: str) -> str:
+        """Return the first non-empty scalar/list-derived value among keys."""
+        for key in keys:
+            value = params.get(key)
+            if isinstance(value, str) and value.strip():
+                return value.strip()
+            if isinstance(value, (list, tuple)):
+                for item in value:
+                    if isinstance(item, str) and item.strip():
+                        return item.strip()
         return ""
 
     def _require_reviewed_clients(self, client_ids: Iterable[str]) -> Optional[StepOutcome]:
@@ -634,7 +648,16 @@ class LexCrisisEngine:
         return handler(action)
 
     def _review_client(self, action: Action) -> StepOutcome:
-        client_id = str(action.parameters.get("client_id", "")).upper()
+        client_id = self._first_param_value(
+            action.parameters,
+            "client_id",
+            "client_ids",
+            "client",
+            "client_intake",
+            "client_intakes",
+            "item_id",
+            "id",
+        ).upper()
         client = self._client_lookup.get(client_id)
         if client is None:
             return self._make_outcome(
@@ -744,7 +767,16 @@ class LexCrisisEngine:
         )
 
     def _decide_client(self, action: Action) -> StepOutcome:
-        client_id = str(action.parameters.get("client_id", "")).upper()
+        client_id = self._first_param_value(
+            action.parameters,
+            "client_id",
+            "client_ids",
+            "client",
+            "client_intake",
+            "client_intakes",
+            "item_id",
+            "id",
+        ).upper()
         if not client_id:
             return self._make_outcome(
                 penalty=-0.03,
@@ -822,7 +854,7 @@ class LexCrisisEngine:
                 deadline_or_latency=1.0,
                 safety_or_anti_cheat=1.0,
             )
-        required_events = {"EVENT-001", "EVENT-002", "EVENT-003", "EVENT-004", "EVENT-005"}
+        required_events = {"EVENT-001", "EVENT-002", "EVENT-003", "EVENT-004", "EVENT-005", "EVENT-006"}
         action_events = {
             entry.get("event_id")
             for entry in self._findings["actions_taken"]
@@ -853,7 +885,17 @@ class LexCrisisEngine:
         )
 
     def _review_document(self, action: Action) -> StepOutcome:
-        doc_id = str(action.parameters.get("doc_id", "")).upper()
+        doc_id = self._first_param_value(
+            action.parameters,
+            "doc_id",
+            "doc_ids",
+            "document_id",
+            "document_ids",
+            "document",
+            "documents",
+            "item_id",
+            "id",
+        ).upper()
         document = self._document_lookup.get(doc_id)
         if document is None:
             return self._make_outcome(
@@ -882,7 +924,17 @@ class LexCrisisEngine:
         )
 
     def _classify_privilege(self, action: Action) -> StepOutcome:
-        doc_id = str(action.parameters.get("doc_id", "")).upper()
+        doc_id = self._first_param_value(
+            action.parameters,
+            "doc_id",
+            "doc_ids",
+            "document_id",
+            "document_ids",
+            "document",
+            "documents",
+            "item_id",
+            "id",
+        ).upper()
         classification = normalize(action.parameters.get("classification"))
         doctrine = str(action.parameters.get("doctrine", ""))
         valid = {"attorney_client", "work_product", "both", "none", "waived"}
@@ -945,7 +997,17 @@ class LexCrisisEngine:
         )
 
     def _identify_waiver(self, action: Action) -> StepOutcome:
-        doc_id = str(action.parameters.get("doc_id", "")).upper()
+        doc_id = self._first_param_value(
+            action.parameters,
+            "doc_id",
+            "doc_ids",
+            "document_id",
+            "document_ids",
+            "document",
+            "documents",
+            "item_id",
+            "id",
+        ).upper()
         waiver_type = normalize(action.parameters.get("waiver_type"))
         if not doc_id or not waiver_type:
             return self._make_outcome(
@@ -993,7 +1055,17 @@ class LexCrisisEngine:
         )
 
     def _identify_exception(self, action: Action) -> StepOutcome:
-        doc_id = str(action.parameters.get("doc_id", "")).upper()
+        doc_id = self._first_param_value(
+            action.parameters,
+            "doc_id",
+            "doc_ids",
+            "document_id",
+            "document_ids",
+            "document",
+            "documents",
+            "item_id",
+            "id",
+        ).upper()
         exception_type = normalize(action.parameters.get("exception_type"))
         if not doc_id or not exception_type:
             return self._make_outcome(
@@ -1036,7 +1108,17 @@ class LexCrisisEngine:
         )
 
     def _recommend_action(self, action: Action) -> StepOutcome:
-        doc_id = str(action.parameters.get("doc_id", "")).upper()
+        doc_id = self._first_param_value(
+            action.parameters,
+            "doc_id",
+            "doc_ids",
+            "document_id",
+            "document_ids",
+            "document",
+            "documents",
+            "item_id",
+            "id",
+        ).upper()
         recommendation = normalize(action.parameters.get("action"))
         if doc_id not in PRIVILEGE_GROUND_TRUTH or not recommendation:
             return self._make_outcome(
@@ -1074,7 +1156,15 @@ class LexCrisisEngine:
         )
 
     def _review_event(self, action: Action) -> StepOutcome:
-        event_id = str(action.parameters.get("event_id", "")).upper()
+        event_id = self._first_param_value(
+            action.parameters,
+            "event_id",
+            "event_ids",
+            "event",
+            "events",
+            "item_id",
+            "id",
+        ).upper()
         event = self._event_lookup.get(event_id)
         if event is None:
             return self._make_outcome(
@@ -1328,7 +1418,14 @@ class LexCrisisEngine:
         )
 
     def _flag_adversarial(self, action: Action) -> StepOutcome:
-        item_id = str(action.parameters.get("item_id", "")).upper()
+        item_id = self._first_param_value(
+            action.parameters,
+            "item_id",
+            "event_id",
+            "event",
+            "events",
+            "id",
+        ).upper()
         threat_type = str(action.parameters.get("threat_type", ""))
         if not item_id or not threat_type:
             return self._make_outcome(

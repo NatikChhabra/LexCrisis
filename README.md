@@ -37,13 +37,14 @@ LexCrisis provides three tasks (`task_1`, `task_2`, `task_3`) with deterministic
 ### 3) Results
 
 - The repository includes reproducible evaluation artifacts and plot generation utilities.
-- Submission claims should be made only from authentic model traces (`collect_traces.py`) and aggregate artifacts (`evaluate_runs.py`).
+- Submission claims are grounded only in authentic model traces (`collect_traces.py`) and aggregate artifacts (`evaluate_runs.py`).
 - Run `python submission_audit.py` before submission; do not claim improvement if it fails.
 
-**Evaluation setup (transparent interim):**  
-For the current submission run, we use `Qwen2.5-1.5B-Instruct` as the **base** policy and `Qwen2.5-72B-Instruct` as the **improved** policy to demonstrate behavior and verifier-signal deltas in the same environment.  
-This comparison is an interim, inference-time capability contrast (not a claim that 72B is our local fine-tuned checkpoint).  
-All judge-facing metrics are generated from authentic rollout traces via `collect_traces.py -> evaluate_runs.py`, with provenance checks in `submission_audit.py`.
+**Current evidence snapshot (from `outputs/evals/summary.json`):**
+- `base` fixed-suite scores: `task_1=0.001`, `task_2=0.001`, `task_3=0.001`
+- `sft` fixed-suite scores: `task_1=0.001`, `task_2=0.0609`, `task_3=0.001`
+- `oracle` fixed-suite scores: `task_1=0.999`, `task_2=0.9335`, `task_3=0.9825`
+- This shows measurable uplift on `task_2` in the current artifact set and clear headroom to oracle.
 
 ### 4) Why it matters
 
@@ -54,7 +55,7 @@ This benchmark targets a real, underexplored capability gap for agentic systems:
 - Hugging Face Space: [https://huggingface.co/spaces/Natik22may/LexCrisis](https://huggingface.co/spaces/Natik22may/LexCrisis)
 - Colab notebook: [https://colab.research.google.com/github/RadheRadheontop/LexCrisis/blob/main/train_lexcrisis.ipynb](https://colab.research.google.com/github/RadheRadheontop/LexCrisis/blob/main/train_lexcrisis.ipynb)
 - Code repository: [https://github.com/RadheRadheontop/LexCrisis](https://github.com/RadheRadheontop/LexCrisis)
-- Demo video: [https://youtu.be/lexcrisis-openenv-demo](https://youtu.be/lexcrisis-openenv-demo) (required for judging; replace with final public URL before deadline)
+- Demo video: **[ADD YOUR FINAL YOUTUBE/LOOM URL HERE before submission]** (< 2 minutes; required for judging — see `VIDEO_SCRIPT.md`)
 
 ## Why This Is Interesting
 
@@ -77,15 +78,26 @@ This benchmark targets a real, underexplored capability gap for agentic systems:
 
 ### `task_2` - Privilege Review Under Litigation Pressure
 
-- Horizon: `30`
+- Horizon: `34`
 - Actions: `review_document`, `classify_privilege`, `identify_waiver`, `identify_exception`, `recommend_action`, `submit_review`
 - Verifier focus: classification accuracy, doctrine accuracy, waiver F1, exception accuracy, production recommendation accuracy
 
 ### `task_3` - Litigation Incident Command
 
-- Horizon: `20`
+- Horizon: `24`
 - Actions: `review_event`, `issue_litigation_hold`, `file_motion`, `respond_discovery`, `assess_expert`, `flag_adversarial`, `flag_ethical_issue`, `submit_triage`, `noop`
 - Verifier focus: deadline accuracy, ethics handling, adversarial detection, discovery safety, expert assessment, ordering
+
+## 2-Minute Demo Video Script (Judges)
+
+See `VIDEO_SCRIPT.md` for the full time-coded recording script. Summary:
+
+1. Problem: why legal-ops RL matters.
+2. Environment mechanics — tasks, reward table, anti-hacking design.
+3. Before/after evidence from `summary.json` and plots.
+4. Reproducibility: one command (`python submission_audit.py`) verifies all artifacts.
+
+All narration claims are grounded in `outputs/evals/summary.json` and `outputs/training_metrics.json`.
 
 ## Reward Design
 

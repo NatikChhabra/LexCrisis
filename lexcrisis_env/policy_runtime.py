@@ -97,8 +97,58 @@ def parse_action_payload(text: str, available_actions: List[str]) -> Optional[Di
             continue
         action_type = obj.get("action_type")
         if action_type in available_actions and isinstance(obj.get("parameters", {}), dict):
-            return {"action_type": action_type, "parameters": obj.get("parameters", {})}
+            return _canonicalize_action({"action_type": action_type, "parameters": obj.get("parameters", {})})
     return None
+
+
+def _first_scalar_or_list_item(value: Any) -> Optional[str]:
+    """Return first non-empty scalar/list string token."""
+    if isinstance(value, str):
+        token = value.strip()
+        return token or None
+    if isinstance(value, (list, tuple)):
+        for item in value:
+            if isinstance(item, str):
+                token = item.strip()
+                if token:
+                    return token
+    return None
+
+
+def _canonicalize_action(action: Dict[str, Any]) -> Dict[str, Any]:
+    """
+    Normalize common near-miss parameter keys into canonical environment keys.
+    This makes trace collection robust when models emit semantically-correct
+    but schema-variant JSON.
+    """
+    action_type = str(action.get("action_type", "")).strip()
+    params = dict(action.get("parameters", {}) or {})
+
+    def pick(*keys: str) -> Optional[str]:
+        for key in keys:
+            value = _first_scalar_or_list_item(params.get(key))
+            if value:
+                return value
+        return None
+
+    if action_type in {"review_client", "accept_client", "decline_client"}:
+        client_id = pick("client_id", "client", "client_ids", "client_intake", "client_intakes", "item_id", "id")
+        if client_id:
+            params["client_id"] = client_id
+    elif action_type in {"review_document", "classify_privilege", "identify_waiver", "identify_exception", "recommend_action"}:
+        doc_id = pick("doc_id", "document_id", "document", "documents", "doc_ids", "item_id", "id")
+        if doc_id:
+            params["doc_id"] = doc_id
+    elif action_type in {"review_event", "flag_adversarial"}:
+        event_id = pick("event_id", "event", "events", "event_ids", "item_id", "id")
+        if event_id:
+            # review_event expects event_id; flag_adversarial expects item_id.
+            if action_type == "review_event":
+                params["event_id"] = event_id
+            else:
+                params["item_id"] = event_id
+
+    return {"action_type": action_type, "parameters": params}
 
 
 class RemoteChatBackend:
@@ -172,13 +222,13 @@ class LocalChatBackend:
     def __init__(self, *, model_path: str, logger: Logger = None) -> None:
         self.model_path = str(model_path)
         self.logger = logger
-        self.tokenizer, self.model = self._load_model(Path(model_path))
+        self.tokenizer, self.model = self._load_model(self.model_path)
 
     def _log(self, message: str) -> None:
         if self.logger is not None:
             self.logger(message)
 
-    def _load_model(self, model_path: Path) -> Any:
+    def _load_model(self, model_path: str) -> Any:
         try:
             import torch
             from transformers import AutoModelForCausalLM, AutoTokenizer
@@ -188,28 +238,32 @@ class LocalChatBackend:
                 "Install them in the training environment before using --model-path."
             ) from exc
 
-        tokenizer = AutoTokenizer.from_pretrained(model_path, trust_remote_code=True)
+        path_obj = Path(model_path)
+        local_exists = path_obj.exists()
+        source = str(path_obj) if local_exists else model_path
+
+        tokenizer = AutoTokenizer.from_pretrained(source, trust_remote_code=True)
         if tokenizer.pad_token is None:
             tokenizer.pad_token = tokenizer.eos_token
 
-        if (model_path / "adapter_config.json").exists():
+        if local_exists and (path_obj / "adapter_config.json").exists():
             try:
                 from peft import PeftConfig, PeftModel
             except ImportError as exc:
                 raise RuntimeError(
                     "This checkpoint looks like a PEFT adapter. Install peft to load it."
                 ) from exc
-            peft_config = PeftConfig.from_pretrained(model_path)
+            peft_config = PeftConfig.from_pretrained(source)
             base_model = AutoModelForCausalLM.from_pretrained(
                 peft_config.base_model_name_or_path,
                 trust_remote_code=True,
                 device_map="auto",
                 torch_dtype="auto",
             )
-            model = PeftModel.from_pretrained(base_model, model_path)
+            model = PeftModel.from_pretrained(base_model, source)
         else:
             model = AutoModelForCausalLM.from_pretrained(
-                model_path,
+                source,
                 trust_remote_code=True,
                 device_map="auto",
                 torch_dtype="auto",

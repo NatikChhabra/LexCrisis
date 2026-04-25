@@ -211,6 +211,24 @@ PRIVILEGE_DOCUMENTS: List[PrivilegeDocument] = [
             "memorializing the original approval of Veridex."
         ),
     ),
+    PrivilegeDocument(
+        doc_id="DOC-009",
+        title="Joint Defense Coordination Minutes",
+        doctrine="IEA Sections 126 and 129",
+        content=(
+            "Minutes from a joint-defense call between NovaChem and co-defendant counsel discussing "
+            "shared defense themes, expert sequencing, and common-interest confidentiality boundaries."
+        ),
+    ),
+    PrivilegeDocument(
+        doc_id="DOC-010",
+        title="Root Cause CAPA Spreadsheet",
+        doctrine="None",
+        content=(
+            "Operations CAPA tracker listing manufacturing deviations, corrective actions, and lot-level "
+            "quality remediation owners prepared for internal compliance review."
+        ),
+    ),
 ]
 
 PRIVILEGE_GROUND_TRUTH: Dict[str, Dict[str, str]] = {
@@ -257,6 +275,18 @@ PRIVILEGE_GROUND_TRUTH: Dict[str, Dict[str, str]] = {
         "exception": "at_issue",
     },
     "DOC-008": {
+        "classification": "none",
+        "doctrine": "",
+        "action": "produce",
+        "exception": "none",
+    },
+    "DOC-009": {
+        "classification": "both",
+        "doctrine": "IEA Sections 126 and 129",
+        "action": "withhold",
+        "exception": "none",
+    },
+    "DOC-010": {
         "classification": "none",
         "doctrine": "",
         "action": "produce",
@@ -325,6 +355,17 @@ CRISIS_EVENTS: List[CrisisEvent] = [
             "consolidation options while preserving expert strategy."
         ),
     ),
+    CrisisEvent(
+        event_id="EVENT-006",
+        title="Regulatory Show-Cause Notice",
+        event_type="regulatory",
+        deadline_step=15,
+        consequence="Weak response can trigger plant suspension and prejudicial findings in civil litigation.",
+        content=(
+            "The CDSCO issued a show-cause notice demanding immediate legal and factual response on "
+            "pharmacovigilance controls, requiring parallel court-safe positioning."
+        ),
+    ),
 ]
 
 CRISIS_GROUND_TRUTH: Dict[str, Any] = {
@@ -332,11 +373,12 @@ CRISIS_GROUND_TRUTH: Dict[str, Any] = {
         "EVENT-001": {"deadline_step": 6, "required_action": "issue_litigation_hold"},
         "EVENT-002": {"deadline_step": 9, "required_action": "file_motion"},
         "EVENT-003": {"deadline_step": 12, "required_action": "respond_discovery"},
+        "EVENT-006": {"deadline_step": 15, "required_action": "file_motion"},
         "EVENT-005": {"deadline_step": 18, "required_action": "file_motion"},
     },
     "ethical_issues": {"EVENT-004"},
     "adversarial_items": {"EVENT-003"},
-    "priority_order": ["EVENT-001", "EVENT-004", "EVENT-002", "EVENT-003", "EVENT-005"],
+    "priority_order": ["EVENT-001", "EVENT-004", "EVENT-002", "EVENT-003", "EVENT-006", "EVENT-005"],
 }
 
 TASK_DEFINITIONS: Dict[str, TaskDefinition] = {
@@ -370,7 +412,7 @@ TASK_DEFINITIONS: Dict[str, TaskDefinition] = {
             "needs to classify privilege correctly, spot waiver or exception risks, and decide whether each "
             "document should be produced, withheld, clawed back, or redacted."
         ),
-        max_steps=30,
+        max_steps=34,
         relevant_actions=[
             "review_document",
             "classify_privilege",
@@ -389,10 +431,10 @@ TASK_DEFINITIONS: Dict[str, TaskDefinition] = {
             "current scenario is pharmaceutical, but the trade-offs are intended to transfer to broader "
             "regulated litigation work. The "
             "agent must balance preservation deadlines, an ethics conflict, adversarial discovery, motion "
-            "practice, and expert strategy. Solving it well requires prioritization under time pressure and "
+            "practice, regulatory response posture, and expert strategy. Solving it well requires prioritization under time pressure and "
             "avoiding hidden privilege-waiver traps."
         ),
-        max_steps=20,
+        max_steps=24,
         relevant_actions=[
             "review_event",
             "issue_litigation_hold",
@@ -633,6 +675,28 @@ SCRIPTED_BASELINES: Dict[str, List[Dict[str, Any]]] = {
             },
         },
         {"action_type": "recommend_action", "parameters": {"doc_id": "DOC-008", "action": "produce"}},
+        # DOC-009: both, withhold
+        {"action_type": "review_document", "parameters": {"doc_id": "DOC-009"}},
+        {
+            "action_type": "classify_privilege",
+            "parameters": {
+                "doc_id": "DOC-009",
+                "classification": "both",
+                "doctrine": "IEA Sections 126 and 129",
+            },
+        },
+        {"action_type": "recommend_action", "parameters": {"doc_id": "DOC-009", "action": "withhold"}},
+        # DOC-010: none, produce
+        {"action_type": "review_document", "parameters": {"doc_id": "DOC-010"}},
+        {
+            "action_type": "classify_privilege",
+            "parameters": {
+                "doc_id": "DOC-010",
+                "classification": "none",
+                "doctrine": "",
+            },
+        },
+        {"action_type": "recommend_action", "parameters": {"doc_id": "DOC-010", "action": "produce"}},
         {"action_type": "submit_review", "parameters": {}},
     ],
     "task_3": [
@@ -685,6 +749,15 @@ SCRIPTED_BASELINES: Dict[str, List[Dict[str, Any]]] = {
             "parameters": {
                 "expert_id": "EXP-TOX-01",
                 "qualification": "Special skill in toxicology and regulatory science, with relevant expertise under IEA Section 45.",
+            },
+        },
+        {"action_type": "review_event", "parameters": {"event_id": "EVENT-006"}},
+        {
+            "action_type": "file_motion",
+            "parameters": {
+                "motion_type": "regulatory_stay_petition",
+                "court": "Delhi High Court (Regulatory Writ)",
+                "arguments": "Seek calibrated relief while preserving statutory compliance narrative and avoiding adverse admissions.",
             },
         },
         {
