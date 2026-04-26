@@ -1,0 +1,3980 @@
+[
+  {
+    "run_name": "oracle",
+    "run_kind": "scripted",
+    "task_id": "task_1",
+    "suite": "fixed",
+    "seed": null,
+    "trace_source": "",
+    "episode_config": {
+      "seed": null,
+      "content_style": "default",
+      "client_order": [
+        "CLIENT-001",
+        "CLIENT-002",
+        "CLIENT-003",
+        "CLIENT-004",
+        "CLIENT-005",
+        "CLIENT-006"
+      ],
+      "document_order": [
+        "DOC-001",
+        "DOC-002",
+        "DOC-003",
+        "DOC-004",
+        "DOC-005",
+        "DOC-006",
+        "DOC-007",
+        "DOC-008",
+        "DOC-009",
+        "DOC-010"
+      ],
+      "event_order": [
+        "EVENT-001",
+        "EVENT-002",
+        "EVENT-003",
+        "EVENT-004",
+        "EVENT-005",
+        "EVENT-006"
+      ],
+      "deadline_overrides": {
+        "EVENT-001": 6,
+        "EVENT-002": 9,
+        "EVENT-003": 12,
+        "EVENT-006": 15,
+        "EVENT-005": 18
+      }
+    },
+    "final_score": 0.999,
+    "cumulative_reward": 1.518,
+    "done": true,
+    "steps": 23,
+    "grader_breakdown": {
+      "pair_f1": 0.999,
+      "decision_accuracy": 0.999,
+      "rule_accuracy": 0.999
+    },
+    "verifier_pass": true,
+    "full_episode_solve": true,
+    "deadline_hit_rate": 1.0,
+    "privilege_trap_avoidance": 1,
+    "review_before_act_rate": 1.0,
+    "invalid_action_rate": 0.0,
+    "mean_successful_steps": 1.0,
+    "unique_action_trace_count": 23,
+    "trace_integrity": {
+      "run_kind": "scripted",
+      "exact_scripted_match": false
+    },
+    "outcome_correctness": 1.0,
+    "process_compliance": 1.0,
+    "deadline_or_latency": 1.0,
+    "safety_or_anti_cheat": 1.0
+  },
+  {
+    "run_name": "oracle",
+    "run_kind": "scripted",
+    "task_id": "task_1",
+    "suite": "randomized",
+    "seed": 11,
+    "trace_source": "",
+    "episode_config": {
+      "seed": 11,
+      "content_style": "ops_brief",
+      "client_order": [
+        "CLIENT-003",
+        "CLIENT-001",
+        "CLIENT-002",
+        "CLIENT-006",
+        "CLIENT-005",
+        "CLIENT-004"
+      ],
+      "document_order": [
+        "DOC-004",
+        "DOC-010",
+        "DOC-007",
+        "DOC-001",
+        "DOC-002",
+        "DOC-005",
+        "DOC-006",
+        "DOC-008",
+        "DOC-009",
+        "DOC-003"
+      ],
+      "event_order": [
+        "EVENT-004",
+        "EVENT-006",
+        "EVENT-003",
+        "EVENT-005",
+        "EVENT-001",
+        "EVENT-002"
+      ],
+      "deadline_overrides": {
+        "EVENT-001": 6,
+        "EVENT-002": 9,
+        "EVENT-003": 12,
+        "EVENT-006": 15,
+        "EVENT-005": 18
+      }
+    },
+    "final_score": 0.999,
+    "cumulative_reward": 1.518,
+    "done": true,
+    "steps": 23,
+    "grader_breakdown": {
+      "pair_f1": 0.999,
+      "decision_accuracy": 0.999,
+      "rule_accuracy": 0.999
+    },
+    "verifier_pass": true,
+    "full_episode_solve": true,
+    "deadline_hit_rate": 1.0,
+    "privilege_trap_avoidance": 1,
+    "review_before_act_rate": 1.0,
+    "invalid_action_rate": 0.0,
+    "mean_successful_steps": 1.0,
+    "unique_action_trace_count": 23,
+    "trace_integrity": {
+      "run_kind": "scripted",
+      "exact_scripted_match": false
+    },
+    "outcome_correctness": 1.0,
+    "process_compliance": 1.0,
+    "deadline_or_latency": 1.0,
+    "safety_or_anti_cheat": 1.0
+  },
+  {
+    "run_name": "oracle",
+    "run_kind": "scripted",
+    "task_id": "task_1",
+    "suite": "randomized",
+    "seed": 23,
+    "trace_source": "",
+    "episode_config": {
+      "seed": 23,
+      "content_style": "ops_brief",
+      "client_order": [
+        "CLIENT-004",
+        "CLIENT-002",
+        "CLIENT-006",
+        "CLIENT-005",
+        "CLIENT-001",
+        "CLIENT-003"
+      ],
+      "document_order": [
+        "DOC-004",
+        "DOC-001",
+        "DOC-005",
+        "DOC-003",
+        "DOC-009",
+        "DOC-008",
+        "DOC-002",
+        "DOC-006",
+        "DOC-010",
+        "DOC-007"
+      ],
+      "event_order": [
+        "EVENT-006",
+        "EVENT-003",
+        "EVENT-001",
+        "EVENT-004",
+        "EVENT-005",
+        "EVENT-002"
+      ],
+      "deadline_overrides": {
+        "EVENT-001": 6,
+        "EVENT-002": 9,
+        "EVENT-003": 12,
+        "EVENT-006": 15,
+        "EVENT-005": 18
+      }
+    },
+    "final_score": 0.999,
+    "cumulative_reward": 1.518,
+    "done": true,
+    "steps": 23,
+    "grader_breakdown": {
+      "pair_f1": 0.999,
+      "decision_accuracy": 0.999,
+      "rule_accuracy": 0.999
+    },
+    "verifier_pass": true,
+    "full_episode_solve": true,
+    "deadline_hit_rate": 1.0,
+    "privilege_trap_avoidance": 1,
+    "review_before_act_rate": 1.0,
+    "invalid_action_rate": 0.0,
+    "mean_successful_steps": 1.0,
+    "unique_action_trace_count": 23,
+    "trace_integrity": {
+      "run_kind": "scripted",
+      "exact_scripted_match": false
+    },
+    "outcome_correctness": 1.0,
+    "process_compliance": 1.0,
+    "deadline_or_latency": 1.0,
+    "safety_or_anti_cheat": 1.0
+  },
+  {
+    "run_name": "oracle",
+    "run_kind": "scripted",
+    "task_id": "task_1",
+    "suite": "randomized",
+    "seed": 37,
+    "trace_source": "",
+    "episode_config": {
+      "seed": 37,
+      "content_style": "ops_brief",
+      "client_order": [
+        "CLIENT-002",
+        "CLIENT-004",
+        "CLIENT-003",
+        "CLIENT-001",
+        "CLIENT-005",
+        "CLIENT-006"
+      ],
+      "document_order": [
+        "DOC-001",
+        "DOC-007",
+        "DOC-009",
+        "DOC-003",
+        "DOC-005",
+        "DOC-004",
+        "DOC-010",
+        "DOC-002",
+        "DOC-008",
+        "DOC-006"
+      ],
+      "event_order": [
+        "EVENT-003",
+        "EVENT-005",
+        "EVENT-006",
+        "EVENT-001",
+        "EVENT-002",
+        "EVENT-004"
+      ],
+      "deadline_overrides": {
+        "EVENT-001": 6,
+        "EVENT-002": 9,
+        "EVENT-003": 12,
+        "EVENT-006": 15,
+        "EVENT-005": 18
+      }
+    },
+    "final_score": 0.999,
+    "cumulative_reward": 1.518,
+    "done": true,
+    "steps": 23,
+    "grader_breakdown": {
+      "pair_f1": 0.999,
+      "decision_accuracy": 0.999,
+      "rule_accuracy": 0.999
+    },
+    "verifier_pass": true,
+    "full_episode_solve": true,
+    "deadline_hit_rate": 1.0,
+    "privilege_trap_avoidance": 1,
+    "review_before_act_rate": 1.0,
+    "invalid_action_rate": 0.0,
+    "mean_successful_steps": 1.0,
+    "unique_action_trace_count": 23,
+    "trace_integrity": {
+      "run_kind": "scripted",
+      "exact_scripted_match": false
+    },
+    "outcome_correctness": 1.0,
+    "process_compliance": 1.0,
+    "deadline_or_latency": 1.0,
+    "safety_or_anti_cheat": 1.0
+  },
+  {
+    "run_name": "oracle",
+    "run_kind": "scripted",
+    "task_id": "task_1",
+    "suite": "randomized",
+    "seed": 41,
+    "trace_source": "",
+    "episode_config": {
+      "seed": 41,
+      "content_style": "ops_brief",
+      "client_order": [
+        "CLIENT-005",
+        "CLIENT-006",
+        "CLIENT-001",
+        "CLIENT-002",
+        "CLIENT-003",
+        "CLIENT-004"
+      ],
+      "document_order": [
+        "DOC-002",
+        "DOC-003",
+        "DOC-007",
+        "DOC-001",
+        "DOC-008",
+        "DOC-006",
+        "DOC-004",
+        "DOC-009",
+        "DOC-005",
+        "DOC-010"
+      ],
+      "event_order": [
+        "EVENT-001",
+        "EVENT-006",
+        "EVENT-003",
+        "EVENT-005",
+        "EVENT-002",
+        "EVENT-004"
+      ],
+      "deadline_overrides": {
+        "EVENT-001": 6,
+        "EVENT-002": 9,
+        "EVENT-003": 12,
+        "EVENT-006": 15,
+        "EVENT-005": 18
+      }
+    },
+    "final_score": 0.999,
+    "cumulative_reward": 1.518,
+    "done": true,
+    "steps": 23,
+    "grader_breakdown": {
+      "pair_f1": 0.999,
+      "decision_accuracy": 0.999,
+      "rule_accuracy": 0.999
+    },
+    "verifier_pass": true,
+    "full_episode_solve": true,
+    "deadline_hit_rate": 1.0,
+    "privilege_trap_avoidance": 1,
+    "review_before_act_rate": 1.0,
+    "invalid_action_rate": 0.0,
+    "mean_successful_steps": 1.0,
+    "unique_action_trace_count": 23,
+    "trace_integrity": {
+      "run_kind": "scripted",
+      "exact_scripted_match": false
+    },
+    "outcome_correctness": 1.0,
+    "process_compliance": 1.0,
+    "deadline_or_latency": 1.0,
+    "safety_or_anti_cheat": 1.0
+  },
+  {
+    "run_name": "oracle",
+    "run_kind": "scripted",
+    "task_id": "task_1",
+    "suite": "randomized",
+    "seed": 53,
+    "trace_source": "",
+    "episode_config": {
+      "seed": 53,
+      "content_style": "ops_brief",
+      "client_order": [
+        "CLIENT-001",
+        "CLIENT-006",
+        "CLIENT-003",
+        "CLIENT-004",
+        "CLIENT-002",
+        "CLIENT-005"
+      ],
+      "document_order": [
+        "DOC-003",
+        "DOC-005",
+        "DOC-004",
+        "DOC-002",
+        "DOC-007",
+        "DOC-001",
+        "DOC-010",
+        "DOC-008",
+        "DOC-006",
+        "DOC-009"
+      ],
+      "event_order": [
+        "EVENT-006",
+        "EVENT-004",
+        "EVENT-005",
+        "EVENT-002",
+        "EVENT-001",
+        "EVENT-003"
+      ],
+      "deadline_overrides": {
+        "EVENT-001": 6,
+        "EVENT-002": 9,
+        "EVENT-003": 12,
+        "EVENT-006": 15,
+        "EVENT-005": 18
+      }
+    },
+    "final_score": 0.999,
+    "cumulative_reward": 1.518,
+    "done": true,
+    "steps": 23,
+    "grader_breakdown": {
+      "pair_f1": 0.999,
+      "decision_accuracy": 0.999,
+      "rule_accuracy": 0.999
+    },
+    "verifier_pass": true,
+    "full_episode_solve": true,
+    "deadline_hit_rate": 1.0,
+    "privilege_trap_avoidance": 1,
+    "review_before_act_rate": 1.0,
+    "invalid_action_rate": 0.0,
+    "mean_successful_steps": 1.0,
+    "unique_action_trace_count": 23,
+    "trace_integrity": {
+      "run_kind": "scripted",
+      "exact_scripted_match": false
+    },
+    "outcome_correctness": 1.0,
+    "process_compliance": 1.0,
+    "deadline_or_latency": 1.0,
+    "safety_or_anti_cheat": 1.0
+  },
+  {
+    "run_name": "oracle",
+    "run_kind": "scripted",
+    "task_id": "task_2",
+    "suite": "fixed",
+    "seed": null,
+    "trace_source": "",
+    "episode_config": {
+      "seed": null,
+      "content_style": "default",
+      "client_order": [
+        "CLIENT-001",
+        "CLIENT-002",
+        "CLIENT-003",
+        "CLIENT-004",
+        "CLIENT-005",
+        "CLIENT-006"
+      ],
+      "document_order": [
+        "DOC-001",
+        "DOC-002",
+        "DOC-003",
+        "DOC-004",
+        "DOC-005",
+        "DOC-006",
+        "DOC-007",
+        "DOC-008",
+        "DOC-009",
+        "DOC-010"
+      ],
+      "event_order": [
+        "EVENT-001",
+        "EVENT-002",
+        "EVENT-003",
+        "EVENT-004",
+        "EVENT-005",
+        "EVENT-006"
+      ],
+      "deadline_overrides": {
+        "EVENT-001": 6,
+        "EVENT-002": 9,
+        "EVENT-003": 12,
+        "EVENT-006": 15,
+        "EVENT-005": 18
+      }
+    },
+    "final_score": 0.9335,
+    "cumulative_reward": 1.6426,
+    "done": true,
+    "steps": 34,
+    "grader_breakdown": {
+      "classification_accuracy": 0.999,
+      "doctrine_accuracy": 0.6714,
+      "waiver_f1": 0.999,
+      "exception_accuracy": 0.999,
+      "recommendation_accuracy": 0.999
+    },
+    "verifier_pass": true,
+    "full_episode_solve": true,
+    "deadline_hit_rate": 1.0,
+    "privilege_trap_avoidance": 1,
+    "review_before_act_rate": 1.0,
+    "invalid_action_rate": 0.0,
+    "mean_successful_steps": 1.0,
+    "unique_action_trace_count": 34,
+    "trace_integrity": {
+      "run_kind": "scripted",
+      "exact_scripted_match": false
+    },
+    "outcome_correctness": 1.0,
+    "process_compliance": 0.9706,
+    "deadline_or_latency": 0.9706,
+    "safety_or_anti_cheat": 0.9706
+  },
+  {
+    "run_name": "oracle",
+    "run_kind": "scripted",
+    "task_id": "task_2",
+    "suite": "randomized",
+    "seed": 11,
+    "trace_source": "",
+    "episode_config": {
+      "seed": 11,
+      "content_style": "ops_brief",
+      "client_order": [
+        "CLIENT-003",
+        "CLIENT-001",
+        "CLIENT-002",
+        "CLIENT-006",
+        "CLIENT-005",
+        "CLIENT-004"
+      ],
+      "document_order": [
+        "DOC-004",
+        "DOC-010",
+        "DOC-007",
+        "DOC-001",
+        "DOC-002",
+        "DOC-005",
+        "DOC-006",
+        "DOC-008",
+        "DOC-009",
+        "DOC-003"
+      ],
+      "event_order": [
+        "EVENT-004",
+        "EVENT-006",
+        "EVENT-003",
+        "EVENT-005",
+        "EVENT-001",
+        "EVENT-002"
+      ],
+      "deadline_overrides": {
+        "EVENT-001": 6,
+        "EVENT-002": 9,
+        "EVENT-003": 12,
+        "EVENT-006": 15,
+        "EVENT-005": 18
+      }
+    },
+    "final_score": 0.9335,
+    "cumulative_reward": 1.6426,
+    "done": true,
+    "steps": 34,
+    "grader_breakdown": {
+      "classification_accuracy": 0.999,
+      "doctrine_accuracy": 0.6714,
+      "waiver_f1": 0.999,
+      "exception_accuracy": 0.999,
+      "recommendation_accuracy": 0.999
+    },
+    "verifier_pass": true,
+    "full_episode_solve": true,
+    "deadline_hit_rate": 1.0,
+    "privilege_trap_avoidance": 1,
+    "review_before_act_rate": 1.0,
+    "invalid_action_rate": 0.0,
+    "mean_successful_steps": 1.0,
+    "unique_action_trace_count": 34,
+    "trace_integrity": {
+      "run_kind": "scripted",
+      "exact_scripted_match": false
+    },
+    "outcome_correctness": 1.0,
+    "process_compliance": 0.9706,
+    "deadline_or_latency": 0.9706,
+    "safety_or_anti_cheat": 0.9706
+  },
+  {
+    "run_name": "oracle",
+    "run_kind": "scripted",
+    "task_id": "task_2",
+    "suite": "randomized",
+    "seed": 23,
+    "trace_source": "",
+    "episode_config": {
+      "seed": 23,
+      "content_style": "ops_brief",
+      "client_order": [
+        "CLIENT-004",
+        "CLIENT-002",
+        "CLIENT-006",
+        "CLIENT-005",
+        "CLIENT-001",
+        "CLIENT-003"
+      ],
+      "document_order": [
+        "DOC-004",
+        "DOC-001",
+        "DOC-005",
+        "DOC-003",
+        "DOC-009",
+        "DOC-008",
+        "DOC-002",
+        "DOC-006",
+        "DOC-010",
+        "DOC-007"
+      ],
+      "event_order": [
+        "EVENT-006",
+        "EVENT-003",
+        "EVENT-001",
+        "EVENT-004",
+        "EVENT-005",
+        "EVENT-002"
+      ],
+      "deadline_overrides": {
+        "EVENT-001": 6,
+        "EVENT-002": 9,
+        "EVENT-003": 12,
+        "EVENT-006": 15,
+        "EVENT-005": 18
+      }
+    },
+    "final_score": 0.9335,
+    "cumulative_reward": 1.6426,
+    "done": true,
+    "steps": 34,
+    "grader_breakdown": {
+      "classification_accuracy": 0.999,
+      "doctrine_accuracy": 0.6714,
+      "waiver_f1": 0.999,
+      "exception_accuracy": 0.999,
+      "recommendation_accuracy": 0.999
+    },
+    "verifier_pass": true,
+    "full_episode_solve": true,
+    "deadline_hit_rate": 1.0,
+    "privilege_trap_avoidance": 1,
+    "review_before_act_rate": 1.0,
+    "invalid_action_rate": 0.0,
+    "mean_successful_steps": 1.0,
+    "unique_action_trace_count": 34,
+    "trace_integrity": {
+      "run_kind": "scripted",
+      "exact_scripted_match": false
+    },
+    "outcome_correctness": 1.0,
+    "process_compliance": 0.9706,
+    "deadline_or_latency": 0.9706,
+    "safety_or_anti_cheat": 0.9706
+  },
+  {
+    "run_name": "oracle",
+    "run_kind": "scripted",
+    "task_id": "task_2",
+    "suite": "randomized",
+    "seed": 37,
+    "trace_source": "",
+    "episode_config": {
+      "seed": 37,
+      "content_style": "ops_brief",
+      "client_order": [
+        "CLIENT-002",
+        "CLIENT-004",
+        "CLIENT-003",
+        "CLIENT-001",
+        "CLIENT-005",
+        "CLIENT-006"
+      ],
+      "document_order": [
+        "DOC-001",
+        "DOC-007",
+        "DOC-009",
+        "DOC-003",
+        "DOC-005",
+        "DOC-004",
+        "DOC-010",
+        "DOC-002",
+        "DOC-008",
+        "DOC-006"
+      ],
+      "event_order": [
+        "EVENT-003",
+        "EVENT-005",
+        "EVENT-006",
+        "EVENT-001",
+        "EVENT-002",
+        "EVENT-004"
+      ],
+      "deadline_overrides": {
+        "EVENT-001": 6,
+        "EVENT-002": 9,
+        "EVENT-003": 12,
+        "EVENT-006": 15,
+        "EVENT-005": 18
+      }
+    },
+    "final_score": 0.9335,
+    "cumulative_reward": 1.6426,
+    "done": true,
+    "steps": 34,
+    "grader_breakdown": {
+      "classification_accuracy": 0.999,
+      "doctrine_accuracy": 0.6714,
+      "waiver_f1": 0.999,
+      "exception_accuracy": 0.999,
+      "recommendation_accuracy": 0.999
+    },
+    "verifier_pass": true,
+    "full_episode_solve": true,
+    "deadline_hit_rate": 1.0,
+    "privilege_trap_avoidance": 1,
+    "review_before_act_rate": 1.0,
+    "invalid_action_rate": 0.0,
+    "mean_successful_steps": 1.0,
+    "unique_action_trace_count": 34,
+    "trace_integrity": {
+      "run_kind": "scripted",
+      "exact_scripted_match": false
+    },
+    "outcome_correctness": 1.0,
+    "process_compliance": 0.9706,
+    "deadline_or_latency": 0.9706,
+    "safety_or_anti_cheat": 0.9706
+  },
+  {
+    "run_name": "oracle",
+    "run_kind": "scripted",
+    "task_id": "task_2",
+    "suite": "randomized",
+    "seed": 41,
+    "trace_source": "",
+    "episode_config": {
+      "seed": 41,
+      "content_style": "ops_brief",
+      "client_order": [
+        "CLIENT-005",
+        "CLIENT-006",
+        "CLIENT-001",
+        "CLIENT-002",
+        "CLIENT-003",
+        "CLIENT-004"
+      ],
+      "document_order": [
+        "DOC-002",
+        "DOC-003",
+        "DOC-007",
+        "DOC-001",
+        "DOC-008",
+        "DOC-006",
+        "DOC-004",
+        "DOC-009",
+        "DOC-005",
+        "DOC-010"
+      ],
+      "event_order": [
+        "EVENT-001",
+        "EVENT-006",
+        "EVENT-003",
+        "EVENT-005",
+        "EVENT-002",
+        "EVENT-004"
+      ],
+      "deadline_overrides": {
+        "EVENT-001": 6,
+        "EVENT-002": 9,
+        "EVENT-003": 12,
+        "EVENT-006": 15,
+        "EVENT-005": 18
+      }
+    },
+    "final_score": 0.9335,
+    "cumulative_reward": 1.6426,
+    "done": true,
+    "steps": 34,
+    "grader_breakdown": {
+      "classification_accuracy": 0.999,
+      "doctrine_accuracy": 0.6714,
+      "waiver_f1": 0.999,
+      "exception_accuracy": 0.999,
+      "recommendation_accuracy": 0.999
+    },
+    "verifier_pass": true,
+    "full_episode_solve": true,
+    "deadline_hit_rate": 1.0,
+    "privilege_trap_avoidance": 1,
+    "review_before_act_rate": 1.0,
+    "invalid_action_rate": 0.0,
+    "mean_successful_steps": 1.0,
+    "unique_action_trace_count": 34,
+    "trace_integrity": {
+      "run_kind": "scripted",
+      "exact_scripted_match": false
+    },
+    "outcome_correctness": 1.0,
+    "process_compliance": 0.9706,
+    "deadline_or_latency": 0.9706,
+    "safety_or_anti_cheat": 0.9706
+  },
+  {
+    "run_name": "oracle",
+    "run_kind": "scripted",
+    "task_id": "task_2",
+    "suite": "randomized",
+    "seed": 53,
+    "trace_source": "",
+    "episode_config": {
+      "seed": 53,
+      "content_style": "ops_brief",
+      "client_order": [
+        "CLIENT-001",
+        "CLIENT-006",
+        "CLIENT-003",
+        "CLIENT-004",
+        "CLIENT-002",
+        "CLIENT-005"
+      ],
+      "document_order": [
+        "DOC-003",
+        "DOC-005",
+        "DOC-004",
+        "DOC-002",
+        "DOC-007",
+        "DOC-001",
+        "DOC-010",
+        "DOC-008",
+        "DOC-006",
+        "DOC-009"
+      ],
+      "event_order": [
+        "EVENT-006",
+        "EVENT-004",
+        "EVENT-005",
+        "EVENT-002",
+        "EVENT-001",
+        "EVENT-003"
+      ],
+      "deadline_overrides": {
+        "EVENT-001": 6,
+        "EVENT-002": 9,
+        "EVENT-003": 12,
+        "EVENT-006": 15,
+        "EVENT-005": 18
+      }
+    },
+    "final_score": 0.9335,
+    "cumulative_reward": 1.6426,
+    "done": true,
+    "steps": 34,
+    "grader_breakdown": {
+      "classification_accuracy": 0.999,
+      "doctrine_accuracy": 0.6714,
+      "waiver_f1": 0.999,
+      "exception_accuracy": 0.999,
+      "recommendation_accuracy": 0.999
+    },
+    "verifier_pass": true,
+    "full_episode_solve": true,
+    "deadline_hit_rate": 1.0,
+    "privilege_trap_avoidance": 1,
+    "review_before_act_rate": 1.0,
+    "invalid_action_rate": 0.0,
+    "mean_successful_steps": 1.0,
+    "unique_action_trace_count": 34,
+    "trace_integrity": {
+      "run_kind": "scripted",
+      "exact_scripted_match": false
+    },
+    "outcome_correctness": 1.0,
+    "process_compliance": 0.9706,
+    "deadline_or_latency": 0.9706,
+    "safety_or_anti_cheat": 0.9706
+  },
+  {
+    "run_name": "oracle",
+    "run_kind": "scripted",
+    "task_id": "task_3",
+    "suite": "fixed",
+    "seed": null,
+    "trace_source": "",
+    "episode_config": {
+      "seed": null,
+      "content_style": "default",
+      "client_order": [
+        "CLIENT-001",
+        "CLIENT-002",
+        "CLIENT-003",
+        "CLIENT-004",
+        "CLIENT-005",
+        "CLIENT-006"
+      ],
+      "document_order": [
+        "DOC-001",
+        "DOC-002",
+        "DOC-003",
+        "DOC-004",
+        "DOC-005",
+        "DOC-006",
+        "DOC-007",
+        "DOC-008",
+        "DOC-009",
+        "DOC-010"
+      ],
+      "event_order": [
+        "EVENT-001",
+        "EVENT-002",
+        "EVENT-003",
+        "EVENT-004",
+        "EVENT-005",
+        "EVENT-006"
+      ],
+      "deadline_overrides": {
+        "EVENT-001": 6,
+        "EVENT-002": 9,
+        "EVENT-003": 12,
+        "EVENT-006": 15,
+        "EVENT-005": 18
+      }
+    },
+    "final_score": 0.9825,
+    "cumulative_reward": 1.5215,
+    "done": true,
+    "steps": 15,
+    "grader_breakdown": {
+      "deadline_accuracy": 0.999,
+      "ethical_score": 0.9493,
+      "adversarial_f1": 0.999,
+      "discovery_score": 0.999,
+      "expert_score": 0.999,
+      "ordering_score": 0.9333
+    },
+    "verifier_pass": true,
+    "full_episode_solve": true,
+    "deadline_hit_rate": 0.999,
+    "privilege_trap_avoidance": 1,
+    "review_before_act_rate": 1.0,
+    "invalid_action_rate": 0.0,
+    "mean_successful_steps": 1.0,
+    "unique_action_trace_count": 15,
+    "trace_integrity": {
+      "run_kind": "scripted",
+      "exact_scripted_match": false
+    },
+    "outcome_correctness": 1.0,
+    "process_compliance": 1.0,
+    "deadline_or_latency": 1.0,
+    "safety_or_anti_cheat": 1.0
+  },
+  {
+    "run_name": "oracle",
+    "run_kind": "scripted",
+    "task_id": "task_3",
+    "suite": "randomized",
+    "seed": 11,
+    "trace_source": "",
+    "episode_config": {
+      "seed": 11,
+      "content_style": "ops_brief",
+      "client_order": [
+        "CLIENT-003",
+        "CLIENT-001",
+        "CLIENT-002",
+        "CLIENT-006",
+        "CLIENT-005",
+        "CLIENT-004"
+      ],
+      "document_order": [
+        "DOC-004",
+        "DOC-010",
+        "DOC-007",
+        "DOC-001",
+        "DOC-002",
+        "DOC-005",
+        "DOC-006",
+        "DOC-008",
+        "DOC-009",
+        "DOC-003"
+      ],
+      "event_order": [
+        "EVENT-004",
+        "EVENT-006",
+        "EVENT-003",
+        "EVENT-005",
+        "EVENT-001",
+        "EVENT-002"
+      ],
+      "deadline_overrides": {
+        "EVENT-001": 7,
+        "EVENT-002": 11,
+        "EVENT-003": 11,
+        "EVENT-006": 17,
+        "EVENT-005": 16
+      }
+    },
+    "final_score": 0.9825,
+    "cumulative_reward": 1.5215,
+    "done": true,
+    "steps": 15,
+    "grader_breakdown": {
+      "deadline_accuracy": 0.999,
+      "ethical_score": 0.9493,
+      "adversarial_f1": 0.999,
+      "discovery_score": 0.999,
+      "expert_score": 0.999,
+      "ordering_score": 0.9333
+    },
+    "verifier_pass": true,
+    "full_episode_solve": true,
+    "deadline_hit_rate": 0.999,
+    "privilege_trap_avoidance": 1,
+    "review_before_act_rate": 1.0,
+    "invalid_action_rate": 0.0,
+    "mean_successful_steps": 1.0,
+    "unique_action_trace_count": 15,
+    "trace_integrity": {
+      "run_kind": "scripted",
+      "exact_scripted_match": false
+    },
+    "outcome_correctness": 1.0,
+    "process_compliance": 1.0,
+    "deadline_or_latency": 1.0,
+    "safety_or_anti_cheat": 1.0
+  },
+  {
+    "run_name": "oracle",
+    "run_kind": "scripted",
+    "task_id": "task_3",
+    "suite": "randomized",
+    "seed": 23,
+    "trace_source": "",
+    "episode_config": {
+      "seed": 23,
+      "content_style": "ops_brief",
+      "client_order": [
+        "CLIENT-004",
+        "CLIENT-002",
+        "CLIENT-006",
+        "CLIENT-005",
+        "CLIENT-001",
+        "CLIENT-003"
+      ],
+      "document_order": [
+        "DOC-004",
+        "DOC-001",
+        "DOC-005",
+        "DOC-003",
+        "DOC-009",
+        "DOC-008",
+        "DOC-002",
+        "DOC-006",
+        "DOC-010",
+        "DOC-007"
+      ],
+      "event_order": [
+        "EVENT-006",
+        "EVENT-003",
+        "EVENT-001",
+        "EVENT-004",
+        "EVENT-005",
+        "EVENT-002"
+      ],
+      "deadline_overrides": {
+        "EVENT-001": 4,
+        "EVENT-002": 10,
+        "EVENT-003": 13,
+        "EVENT-006": 13,
+        "EVENT-005": 20
+      }
+    },
+    "final_score": 0.9825,
+    "cumulative_reward": 1.5215,
+    "done": true,
+    "steps": 15,
+    "grader_breakdown": {
+      "deadline_accuracy": 0.999,
+      "ethical_score": 0.9493,
+      "adversarial_f1": 0.999,
+      "discovery_score": 0.999,
+      "expert_score": 0.999,
+      "ordering_score": 0.9333
+    },
+    "verifier_pass": true,
+    "full_episode_solve": true,
+    "deadline_hit_rate": 0.999,
+    "privilege_trap_avoidance": 1,
+    "review_before_act_rate": 1.0,
+    "invalid_action_rate": 0.0,
+    "mean_successful_steps": 1.0,
+    "unique_action_trace_count": 15,
+    "trace_integrity": {
+      "run_kind": "scripted",
+      "exact_scripted_match": false
+    },
+    "outcome_correctness": 1.0,
+    "process_compliance": 1.0,
+    "deadline_or_latency": 1.0,
+    "safety_or_anti_cheat": 1.0
+  },
+  {
+    "run_name": "oracle",
+    "run_kind": "scripted",
+    "task_id": "task_3",
+    "suite": "randomized",
+    "seed": 37,
+    "trace_source": "",
+    "episode_config": {
+      "seed": 37,
+      "content_style": "ops_brief",
+      "client_order": [
+        "CLIENT-002",
+        "CLIENT-004",
+        "CLIENT-003",
+        "CLIENT-001",
+        "CLIENT-005",
+        "CLIENT-006"
+      ],
+      "document_order": [
+        "DOC-001",
+        "DOC-007",
+        "DOC-009",
+        "DOC-003",
+        "DOC-005",
+        "DOC-004",
+        "DOC-010",
+        "DOC-002",
+        "DOC-008",
+        "DOC-006"
+      ],
+      "event_order": [
+        "EVENT-003",
+        "EVENT-005",
+        "EVENT-006",
+        "EVENT-001",
+        "EVENT-002",
+        "EVENT-004"
+      ],
+      "deadline_overrides": {
+        "EVENT-001": 4,
+        "EVENT-002": 11,
+        "EVENT-003": 12,
+        "EVENT-006": 15,
+        "EVENT-005": 19
+      }
+    },
+    "final_score": 0.9825,
+    "cumulative_reward": 1.5215,
+    "done": true,
+    "steps": 15,
+    "grader_breakdown": {
+      "deadline_accuracy": 0.999,
+      "ethical_score": 0.9493,
+      "adversarial_f1": 0.999,
+      "discovery_score": 0.999,
+      "expert_score": 0.999,
+      "ordering_score": 0.9333
+    },
+    "verifier_pass": true,
+    "full_episode_solve": true,
+    "deadline_hit_rate": 0.999,
+    "privilege_trap_avoidance": 1,
+    "review_before_act_rate": 1.0,
+    "invalid_action_rate": 0.0,
+    "mean_successful_steps": 1.0,
+    "unique_action_trace_count": 15,
+    "trace_integrity": {
+      "run_kind": "scripted",
+      "exact_scripted_match": false
+    },
+    "outcome_correctness": 1.0,
+    "process_compliance": 1.0,
+    "deadline_or_latency": 1.0,
+    "safety_or_anti_cheat": 1.0
+  },
+  {
+    "run_name": "oracle",
+    "run_kind": "scripted",
+    "task_id": "task_3",
+    "suite": "randomized",
+    "seed": 41,
+    "trace_source": "",
+    "episode_config": {
+      "seed": 41,
+      "content_style": "ops_brief",
+      "client_order": [
+        "CLIENT-005",
+        "CLIENT-006",
+        "CLIENT-001",
+        "CLIENT-002",
+        "CLIENT-003",
+        "CLIENT-004"
+      ],
+      "document_order": [
+        "DOC-002",
+        "DOC-003",
+        "DOC-007",
+        "DOC-001",
+        "DOC-008",
+        "DOC-006",
+        "DOC-004",
+        "DOC-009",
+        "DOC-005",
+        "DOC-010"
+      ],
+      "event_order": [
+        "EVENT-001",
+        "EVENT-006",
+        "EVENT-003",
+        "EVENT-005",
+        "EVENT-002",
+        "EVENT-004"
+      ],
+      "deadline_overrides": {
+        "EVENT-001": 5,
+        "EVENT-002": 9,
+        "EVENT-003": 14,
+        "EVENT-006": 17,
+        "EVENT-005": 16
+      }
+    },
+    "final_score": 0.9825,
+    "cumulative_reward": 1.5215,
+    "done": true,
+    "steps": 15,
+    "grader_breakdown": {
+      "deadline_accuracy": 0.999,
+      "ethical_score": 0.9493,
+      "adversarial_f1": 0.999,
+      "discovery_score": 0.999,
+      "expert_score": 0.999,
+      "ordering_score": 0.9333
+    },
+    "verifier_pass": true,
+    "full_episode_solve": true,
+    "deadline_hit_rate": 0.999,
+    "privilege_trap_avoidance": 1,
+    "review_before_act_rate": 1.0,
+    "invalid_action_rate": 0.0,
+    "mean_successful_steps": 1.0,
+    "unique_action_trace_count": 15,
+    "trace_integrity": {
+      "run_kind": "scripted",
+      "exact_scripted_match": false
+    },
+    "outcome_correctness": 1.0,
+    "process_compliance": 1.0,
+    "deadline_or_latency": 1.0,
+    "safety_or_anti_cheat": 1.0
+  },
+  {
+    "run_name": "oracle",
+    "run_kind": "scripted",
+    "task_id": "task_3",
+    "suite": "randomized",
+    "seed": 53,
+    "trace_source": "",
+    "episode_config": {
+      "seed": 53,
+      "content_style": "ops_brief",
+      "client_order": [
+        "CLIENT-001",
+        "CLIENT-006",
+        "CLIENT-003",
+        "CLIENT-004",
+        "CLIENT-002",
+        "CLIENT-005"
+      ],
+      "document_order": [
+        "DOC-003",
+        "DOC-005",
+        "DOC-004",
+        "DOC-002",
+        "DOC-007",
+        "DOC-001",
+        "DOC-010",
+        "DOC-008",
+        "DOC-006",
+        "DOC-009"
+      ],
+      "event_order": [
+        "EVENT-006",
+        "EVENT-004",
+        "EVENT-005",
+        "EVENT-002",
+        "EVENT-001",
+        "EVENT-003"
+      ],
+      "deadline_overrides": {
+        "EVENT-001": 5,
+        "EVENT-002": 10,
+        "EVENT-003": 11,
+        "EVENT-006": 14,
+        "EVENT-005": 17
+      }
+    },
+    "final_score": 0.9825,
+    "cumulative_reward": 1.5215,
+    "done": true,
+    "steps": 15,
+    "grader_breakdown": {
+      "deadline_accuracy": 0.999,
+      "ethical_score": 0.9493,
+      "adversarial_f1": 0.999,
+      "discovery_score": 0.999,
+      "expert_score": 0.999,
+      "ordering_score": 0.9333
+    },
+    "verifier_pass": true,
+    "full_episode_solve": true,
+    "deadline_hit_rate": 0.999,
+    "privilege_trap_avoidance": 1,
+    "review_before_act_rate": 1.0,
+    "invalid_action_rate": 0.0,
+    "mean_successful_steps": 1.0,
+    "unique_action_trace_count": 15,
+    "trace_integrity": {
+      "run_kind": "scripted",
+      "exact_scripted_match": false
+    },
+    "outcome_correctness": 1.0,
+    "process_compliance": 1.0,
+    "deadline_or_latency": 1.0,
+    "safety_or_anti_cheat": 1.0
+  },
+  {
+    "run_name": "base",
+    "run_kind": "trace_dir",
+    "task_id": "task_1",
+    "suite": "fixed",
+    "seed": null,
+    "trace_source": "outputs\\policies\\base\\task_1__fixed.json",
+    "episode_config": {
+      "seed": null,
+      "content_style": "default",
+      "client_order": [
+        "CLIENT-001",
+        "CLIENT-002",
+        "CLIENT-003",
+        "CLIENT-004",
+        "CLIENT-005",
+        "CLIENT-006"
+      ],
+      "document_order": [
+        "DOC-001",
+        "DOC-002",
+        "DOC-003",
+        "DOC-004",
+        "DOC-005",
+        "DOC-006",
+        "DOC-007",
+        "DOC-008",
+        "DOC-009",
+        "DOC-010"
+      ],
+      "event_order": [
+        "EVENT-001",
+        "EVENT-002",
+        "EVENT-003",
+        "EVENT-004",
+        "EVENT-005",
+        "EVENT-006"
+      ],
+      "deadline_overrides": {
+        "EVENT-001": 6,
+        "EVENT-002": 9,
+        "EVENT-003": 12,
+        "EVENT-006": 15,
+        "EVENT-005": 18
+      }
+    },
+    "final_score": 0.001,
+    "cumulative_reward": 0,
+    "done": false,
+    "steps": 0,
+    "grader_breakdown": {
+      "pair_f1": 0.001,
+      "decision_accuracy": 0.001,
+      "rule_accuracy": 0.001
+    },
+    "verifier_pass": false,
+    "full_episode_solve": false,
+    "deadline_hit_rate": 1.0,
+    "privilege_trap_avoidance": 1,
+    "review_before_act_rate": 1.0,
+    "invalid_action_rate": 0.0,
+    "mean_successful_steps": 0.0,
+    "unique_action_trace_count": 0,
+    "trace_integrity": {
+      "run_kind": "trace_dir",
+      "exact_scripted_match": false
+    },
+    "outcome_correctness": 0.0,
+    "process_compliance": 0.0,
+    "deadline_or_latency": 0.0,
+    "safety_or_anti_cheat": 0.0
+  },
+  {
+    "run_name": "base",
+    "run_kind": "trace_dir",
+    "task_id": "task_1",
+    "suite": "randomized",
+    "seed": 11,
+    "trace_source": "outputs\\policies\\base\\task_1__randomized__11.json",
+    "episode_config": {
+      "seed": 11,
+      "content_style": "ops_brief",
+      "client_order": [
+        "CLIENT-003",
+        "CLIENT-001",
+        "CLIENT-002",
+        "CLIENT-006",
+        "CLIENT-005",
+        "CLIENT-004"
+      ],
+      "document_order": [
+        "DOC-004",
+        "DOC-010",
+        "DOC-007",
+        "DOC-001",
+        "DOC-002",
+        "DOC-005",
+        "DOC-006",
+        "DOC-008",
+        "DOC-009",
+        "DOC-003"
+      ],
+      "event_order": [
+        "EVENT-004",
+        "EVENT-006",
+        "EVENT-003",
+        "EVENT-005",
+        "EVENT-001",
+        "EVENT-002"
+      ],
+      "deadline_overrides": {
+        "EVENT-001": 6,
+        "EVENT-002": 9,
+        "EVENT-003": 12,
+        "EVENT-006": 15,
+        "EVENT-005": 18
+      }
+    },
+    "final_score": 0.001,
+    "cumulative_reward": 0,
+    "done": false,
+    "steps": 0,
+    "grader_breakdown": {
+      "pair_f1": 0.001,
+      "decision_accuracy": 0.001,
+      "rule_accuracy": 0.001
+    },
+    "verifier_pass": false,
+    "full_episode_solve": false,
+    "deadline_hit_rate": 1.0,
+    "privilege_trap_avoidance": 1,
+    "review_before_act_rate": 1.0,
+    "invalid_action_rate": 0.0,
+    "mean_successful_steps": 0.0,
+    "unique_action_trace_count": 0,
+    "trace_integrity": {
+      "run_kind": "trace_dir",
+      "exact_scripted_match": false
+    },
+    "outcome_correctness": 0.0,
+    "process_compliance": 0.0,
+    "deadline_or_latency": 0.0,
+    "safety_or_anti_cheat": 0.0
+  },
+  {
+    "run_name": "base",
+    "run_kind": "trace_dir",
+    "task_id": "task_1",
+    "suite": "randomized",
+    "seed": 23,
+    "trace_source": "outputs\\policies\\base\\task_1__randomized__23.json",
+    "episode_config": {
+      "seed": 23,
+      "content_style": "ops_brief",
+      "client_order": [
+        "CLIENT-004",
+        "CLIENT-002",
+        "CLIENT-006",
+        "CLIENT-005",
+        "CLIENT-001",
+        "CLIENT-003"
+      ],
+      "document_order": [
+        "DOC-004",
+        "DOC-001",
+        "DOC-005",
+        "DOC-003",
+        "DOC-009",
+        "DOC-008",
+        "DOC-002",
+        "DOC-006",
+        "DOC-010",
+        "DOC-007"
+      ],
+      "event_order": [
+        "EVENT-006",
+        "EVENT-003",
+        "EVENT-001",
+        "EVENT-004",
+        "EVENT-005",
+        "EVENT-002"
+      ],
+      "deadline_overrides": {
+        "EVENT-001": 6,
+        "EVENT-002": 9,
+        "EVENT-003": 12,
+        "EVENT-006": 15,
+        "EVENT-005": 18
+      }
+    },
+    "final_score": 0.001,
+    "cumulative_reward": 0,
+    "done": false,
+    "steps": 0,
+    "grader_breakdown": {
+      "pair_f1": 0.001,
+      "decision_accuracy": 0.001,
+      "rule_accuracy": 0.001
+    },
+    "verifier_pass": false,
+    "full_episode_solve": false,
+    "deadline_hit_rate": 1.0,
+    "privilege_trap_avoidance": 1,
+    "review_before_act_rate": 1.0,
+    "invalid_action_rate": 0.0,
+    "mean_successful_steps": 0.0,
+    "unique_action_trace_count": 0,
+    "trace_integrity": {
+      "run_kind": "trace_dir",
+      "exact_scripted_match": false
+    },
+    "outcome_correctness": 0.0,
+    "process_compliance": 0.0,
+    "deadline_or_latency": 0.0,
+    "safety_or_anti_cheat": 0.0
+  },
+  {
+    "run_name": "base",
+    "run_kind": "trace_dir",
+    "task_id": "task_1",
+    "suite": "randomized",
+    "seed": 37,
+    "trace_source": "outputs\\policies\\base\\task_1__randomized__37.json",
+    "episode_config": {
+      "seed": 37,
+      "content_style": "ops_brief",
+      "client_order": [
+        "CLIENT-002",
+        "CLIENT-004",
+        "CLIENT-003",
+        "CLIENT-001",
+        "CLIENT-005",
+        "CLIENT-006"
+      ],
+      "document_order": [
+        "DOC-001",
+        "DOC-007",
+        "DOC-009",
+        "DOC-003",
+        "DOC-005",
+        "DOC-004",
+        "DOC-010",
+        "DOC-002",
+        "DOC-008",
+        "DOC-006"
+      ],
+      "event_order": [
+        "EVENT-003",
+        "EVENT-005",
+        "EVENT-006",
+        "EVENT-001",
+        "EVENT-002",
+        "EVENT-004"
+      ],
+      "deadline_overrides": {
+        "EVENT-001": 6,
+        "EVENT-002": 9,
+        "EVENT-003": 12,
+        "EVENT-006": 15,
+        "EVENT-005": 18
+      }
+    },
+    "final_score": 0.001,
+    "cumulative_reward": 0,
+    "done": false,
+    "steps": 0,
+    "grader_breakdown": {
+      "pair_f1": 0.001,
+      "decision_accuracy": 0.001,
+      "rule_accuracy": 0.001
+    },
+    "verifier_pass": false,
+    "full_episode_solve": false,
+    "deadline_hit_rate": 1.0,
+    "privilege_trap_avoidance": 1,
+    "review_before_act_rate": 1.0,
+    "invalid_action_rate": 0.0,
+    "mean_successful_steps": 0.0,
+    "unique_action_trace_count": 0,
+    "trace_integrity": {
+      "run_kind": "trace_dir",
+      "exact_scripted_match": false
+    },
+    "outcome_correctness": 0.0,
+    "process_compliance": 0.0,
+    "deadline_or_latency": 0.0,
+    "safety_or_anti_cheat": 0.0
+  },
+  {
+    "run_name": "base",
+    "run_kind": "trace_dir",
+    "task_id": "task_1",
+    "suite": "randomized",
+    "seed": 41,
+    "trace_source": "outputs\\policies\\base\\task_1__randomized__41.json",
+    "episode_config": {
+      "seed": 41,
+      "content_style": "ops_brief",
+      "client_order": [
+        "CLIENT-005",
+        "CLIENT-006",
+        "CLIENT-001",
+        "CLIENT-002",
+        "CLIENT-003",
+        "CLIENT-004"
+      ],
+      "document_order": [
+        "DOC-002",
+        "DOC-003",
+        "DOC-007",
+        "DOC-001",
+        "DOC-008",
+        "DOC-006",
+        "DOC-004",
+        "DOC-009",
+        "DOC-005",
+        "DOC-010"
+      ],
+      "event_order": [
+        "EVENT-001",
+        "EVENT-006",
+        "EVENT-003",
+        "EVENT-005",
+        "EVENT-002",
+        "EVENT-004"
+      ],
+      "deadline_overrides": {
+        "EVENT-001": 6,
+        "EVENT-002": 9,
+        "EVENT-003": 12,
+        "EVENT-006": 15,
+        "EVENT-005": 18
+      }
+    },
+    "final_score": 0.001,
+    "cumulative_reward": 0,
+    "done": false,
+    "steps": 0,
+    "grader_breakdown": {
+      "pair_f1": 0.001,
+      "decision_accuracy": 0.001,
+      "rule_accuracy": 0.001
+    },
+    "verifier_pass": false,
+    "full_episode_solve": false,
+    "deadline_hit_rate": 1.0,
+    "privilege_trap_avoidance": 1,
+    "review_before_act_rate": 1.0,
+    "invalid_action_rate": 0.0,
+    "mean_successful_steps": 0.0,
+    "unique_action_trace_count": 0,
+    "trace_integrity": {
+      "run_kind": "trace_dir",
+      "exact_scripted_match": false
+    },
+    "outcome_correctness": 0.0,
+    "process_compliance": 0.0,
+    "deadline_or_latency": 0.0,
+    "safety_or_anti_cheat": 0.0
+  },
+  {
+    "run_name": "base",
+    "run_kind": "trace_dir",
+    "task_id": "task_1",
+    "suite": "randomized",
+    "seed": 53,
+    "trace_source": "outputs\\policies\\base\\task_1__randomized__53.json",
+    "episode_config": {
+      "seed": 53,
+      "content_style": "ops_brief",
+      "client_order": [
+        "CLIENT-001",
+        "CLIENT-006",
+        "CLIENT-003",
+        "CLIENT-004",
+        "CLIENT-002",
+        "CLIENT-005"
+      ],
+      "document_order": [
+        "DOC-003",
+        "DOC-005",
+        "DOC-004",
+        "DOC-002",
+        "DOC-007",
+        "DOC-001",
+        "DOC-010",
+        "DOC-008",
+        "DOC-006",
+        "DOC-009"
+      ],
+      "event_order": [
+        "EVENT-006",
+        "EVENT-004",
+        "EVENT-005",
+        "EVENT-002",
+        "EVENT-001",
+        "EVENT-003"
+      ],
+      "deadline_overrides": {
+        "EVENT-001": 6,
+        "EVENT-002": 9,
+        "EVENT-003": 12,
+        "EVENT-006": 15,
+        "EVENT-005": 18
+      }
+    },
+    "final_score": 0.001,
+    "cumulative_reward": 0,
+    "done": false,
+    "steps": 0,
+    "grader_breakdown": {
+      "pair_f1": 0.001,
+      "decision_accuracy": 0.001,
+      "rule_accuracy": 0.001
+    },
+    "verifier_pass": false,
+    "full_episode_solve": false,
+    "deadline_hit_rate": 1.0,
+    "privilege_trap_avoidance": 1,
+    "review_before_act_rate": 1.0,
+    "invalid_action_rate": 0.0,
+    "mean_successful_steps": 0.0,
+    "unique_action_trace_count": 0,
+    "trace_integrity": {
+      "run_kind": "trace_dir",
+      "exact_scripted_match": false
+    },
+    "outcome_correctness": 0.0,
+    "process_compliance": 0.0,
+    "deadline_or_latency": 0.0,
+    "safety_or_anti_cheat": 0.0
+  },
+  {
+    "run_name": "base",
+    "run_kind": "trace_dir",
+    "task_id": "task_2",
+    "suite": "fixed",
+    "seed": null,
+    "trace_source": "outputs\\policies\\base\\task_2__fixed.json",
+    "episode_config": {
+      "seed": null,
+      "content_style": "default",
+      "client_order": [
+        "CLIENT-001",
+        "CLIENT-002",
+        "CLIENT-003",
+        "CLIENT-004",
+        "CLIENT-005",
+        "CLIENT-006"
+      ],
+      "document_order": [
+        "DOC-001",
+        "DOC-002",
+        "DOC-003",
+        "DOC-004",
+        "DOC-005",
+        "DOC-006",
+        "DOC-007",
+        "DOC-008",
+        "DOC-009",
+        "DOC-010"
+      ],
+      "event_order": [
+        "EVENT-001",
+        "EVENT-002",
+        "EVENT-003",
+        "EVENT-004",
+        "EVENT-005",
+        "EVENT-006"
+      ],
+      "deadline_overrides": {
+        "EVENT-001": 6,
+        "EVENT-002": 9,
+        "EVENT-003": 12,
+        "EVENT-006": 15,
+        "EVENT-005": 18
+      }
+    },
+    "final_score": 0.001,
+    "cumulative_reward": 0,
+    "done": false,
+    "steps": 0,
+    "grader_breakdown": {
+      "classification_accuracy": 0.001,
+      "doctrine_accuracy": 0.3007,
+      "waiver_f1": 0.001,
+      "exception_accuracy": 0.001,
+      "recommendation_accuracy": 0.001
+    },
+    "verifier_pass": false,
+    "full_episode_solve": false,
+    "deadline_hit_rate": 1.0,
+    "privilege_trap_avoidance": 1,
+    "review_before_act_rate": 1.0,
+    "invalid_action_rate": 0.0,
+    "mean_successful_steps": 0.0,
+    "unique_action_trace_count": 0,
+    "trace_integrity": {
+      "run_kind": "trace_dir",
+      "exact_scripted_match": false
+    },
+    "outcome_correctness": 0.0,
+    "process_compliance": 0.0,
+    "deadline_or_latency": 0.0,
+    "safety_or_anti_cheat": 0.0
+  },
+  {
+    "run_name": "base",
+    "run_kind": "trace_dir",
+    "task_id": "task_2",
+    "suite": "randomized",
+    "seed": 11,
+    "trace_source": "outputs\\policies\\base\\task_2__randomized__11.json",
+    "episode_config": {
+      "seed": 11,
+      "content_style": "ops_brief",
+      "client_order": [
+        "CLIENT-003",
+        "CLIENT-001",
+        "CLIENT-002",
+        "CLIENT-006",
+        "CLIENT-005",
+        "CLIENT-004"
+      ],
+      "document_order": [
+        "DOC-004",
+        "DOC-010",
+        "DOC-007",
+        "DOC-001",
+        "DOC-002",
+        "DOC-005",
+        "DOC-006",
+        "DOC-008",
+        "DOC-009",
+        "DOC-003"
+      ],
+      "event_order": [
+        "EVENT-004",
+        "EVENT-006",
+        "EVENT-003",
+        "EVENT-005",
+        "EVENT-001",
+        "EVENT-002"
+      ],
+      "deadline_overrides": {
+        "EVENT-001": 6,
+        "EVENT-002": 9,
+        "EVENT-003": 12,
+        "EVENT-006": 15,
+        "EVENT-005": 18
+      }
+    },
+    "final_score": 0.001,
+    "cumulative_reward": 0,
+    "done": false,
+    "steps": 0,
+    "grader_breakdown": {
+      "classification_accuracy": 0.001,
+      "doctrine_accuracy": 0.3007,
+      "waiver_f1": 0.001,
+      "exception_accuracy": 0.001,
+      "recommendation_accuracy": 0.001
+    },
+    "verifier_pass": false,
+    "full_episode_solve": false,
+    "deadline_hit_rate": 1.0,
+    "privilege_trap_avoidance": 1,
+    "review_before_act_rate": 1.0,
+    "invalid_action_rate": 0.0,
+    "mean_successful_steps": 0.0,
+    "unique_action_trace_count": 0,
+    "trace_integrity": {
+      "run_kind": "trace_dir",
+      "exact_scripted_match": false
+    },
+    "outcome_correctness": 0.0,
+    "process_compliance": 0.0,
+    "deadline_or_latency": 0.0,
+    "safety_or_anti_cheat": 0.0
+  },
+  {
+    "run_name": "base",
+    "run_kind": "trace_dir",
+    "task_id": "task_2",
+    "suite": "randomized",
+    "seed": 23,
+    "trace_source": "outputs\\policies\\base\\task_2__randomized__23.json",
+    "episode_config": {
+      "seed": 23,
+      "content_style": "ops_brief",
+      "client_order": [
+        "CLIENT-004",
+        "CLIENT-002",
+        "CLIENT-006",
+        "CLIENT-005",
+        "CLIENT-001",
+        "CLIENT-003"
+      ],
+      "document_order": [
+        "DOC-004",
+        "DOC-001",
+        "DOC-005",
+        "DOC-003",
+        "DOC-009",
+        "DOC-008",
+        "DOC-002",
+        "DOC-006",
+        "DOC-010",
+        "DOC-007"
+      ],
+      "event_order": [
+        "EVENT-006",
+        "EVENT-003",
+        "EVENT-001",
+        "EVENT-004",
+        "EVENT-005",
+        "EVENT-002"
+      ],
+      "deadline_overrides": {
+        "EVENT-001": 6,
+        "EVENT-002": 9,
+        "EVENT-003": 12,
+        "EVENT-006": 15,
+        "EVENT-005": 18
+      }
+    },
+    "final_score": 0.001,
+    "cumulative_reward": 0,
+    "done": false,
+    "steps": 0,
+    "grader_breakdown": {
+      "classification_accuracy": 0.001,
+      "doctrine_accuracy": 0.3007,
+      "waiver_f1": 0.001,
+      "exception_accuracy": 0.001,
+      "recommendation_accuracy": 0.001
+    },
+    "verifier_pass": false,
+    "full_episode_solve": false,
+    "deadline_hit_rate": 1.0,
+    "privilege_trap_avoidance": 1,
+    "review_before_act_rate": 1.0,
+    "invalid_action_rate": 0.0,
+    "mean_successful_steps": 0.0,
+    "unique_action_trace_count": 0,
+    "trace_integrity": {
+      "run_kind": "trace_dir",
+      "exact_scripted_match": false
+    },
+    "outcome_correctness": 0.0,
+    "process_compliance": 0.0,
+    "deadline_or_latency": 0.0,
+    "safety_or_anti_cheat": 0.0
+  },
+  {
+    "run_name": "base",
+    "run_kind": "trace_dir",
+    "task_id": "task_2",
+    "suite": "randomized",
+    "seed": 37,
+    "trace_source": "outputs\\policies\\base\\task_2__randomized__37.json",
+    "episode_config": {
+      "seed": 37,
+      "content_style": "ops_brief",
+      "client_order": [
+        "CLIENT-002",
+        "CLIENT-004",
+        "CLIENT-003",
+        "CLIENT-001",
+        "CLIENT-005",
+        "CLIENT-006"
+      ],
+      "document_order": [
+        "DOC-001",
+        "DOC-007",
+        "DOC-009",
+        "DOC-003",
+        "DOC-005",
+        "DOC-004",
+        "DOC-010",
+        "DOC-002",
+        "DOC-008",
+        "DOC-006"
+      ],
+      "event_order": [
+        "EVENT-003",
+        "EVENT-005",
+        "EVENT-006",
+        "EVENT-001",
+        "EVENT-002",
+        "EVENT-004"
+      ],
+      "deadline_overrides": {
+        "EVENT-001": 6,
+        "EVENT-002": 9,
+        "EVENT-003": 12,
+        "EVENT-006": 15,
+        "EVENT-005": 18
+      }
+    },
+    "final_score": 0.001,
+    "cumulative_reward": 0,
+    "done": false,
+    "steps": 0,
+    "grader_breakdown": {
+      "classification_accuracy": 0.001,
+      "doctrine_accuracy": 0.3007,
+      "waiver_f1": 0.001,
+      "exception_accuracy": 0.001,
+      "recommendation_accuracy": 0.001
+    },
+    "verifier_pass": false,
+    "full_episode_solve": false,
+    "deadline_hit_rate": 1.0,
+    "privilege_trap_avoidance": 1,
+    "review_before_act_rate": 1.0,
+    "invalid_action_rate": 0.0,
+    "mean_successful_steps": 0.0,
+    "unique_action_trace_count": 0,
+    "trace_integrity": {
+      "run_kind": "trace_dir",
+      "exact_scripted_match": false
+    },
+    "outcome_correctness": 0.0,
+    "process_compliance": 0.0,
+    "deadline_or_latency": 0.0,
+    "safety_or_anti_cheat": 0.0
+  },
+  {
+    "run_name": "base",
+    "run_kind": "trace_dir",
+    "task_id": "task_2",
+    "suite": "randomized",
+    "seed": 41,
+    "trace_source": "outputs\\policies\\base\\task_2__randomized__41.json",
+    "episode_config": {
+      "seed": 41,
+      "content_style": "ops_brief",
+      "client_order": [
+        "CLIENT-005",
+        "CLIENT-006",
+        "CLIENT-001",
+        "CLIENT-002",
+        "CLIENT-003",
+        "CLIENT-004"
+      ],
+      "document_order": [
+        "DOC-002",
+        "DOC-003",
+        "DOC-007",
+        "DOC-001",
+        "DOC-008",
+        "DOC-006",
+        "DOC-004",
+        "DOC-009",
+        "DOC-005",
+        "DOC-010"
+      ],
+      "event_order": [
+        "EVENT-001",
+        "EVENT-006",
+        "EVENT-003",
+        "EVENT-005",
+        "EVENT-002",
+        "EVENT-004"
+      ],
+      "deadline_overrides": {
+        "EVENT-001": 6,
+        "EVENT-002": 9,
+        "EVENT-003": 12,
+        "EVENT-006": 15,
+        "EVENT-005": 18
+      }
+    },
+    "final_score": 0.001,
+    "cumulative_reward": 0,
+    "done": false,
+    "steps": 0,
+    "grader_breakdown": {
+      "classification_accuracy": 0.001,
+      "doctrine_accuracy": 0.3007,
+      "waiver_f1": 0.001,
+      "exception_accuracy": 0.001,
+      "recommendation_accuracy": 0.001
+    },
+    "verifier_pass": false,
+    "full_episode_solve": false,
+    "deadline_hit_rate": 1.0,
+    "privilege_trap_avoidance": 1,
+    "review_before_act_rate": 1.0,
+    "invalid_action_rate": 0.0,
+    "mean_successful_steps": 0.0,
+    "unique_action_trace_count": 0,
+    "trace_integrity": {
+      "run_kind": "trace_dir",
+      "exact_scripted_match": false
+    },
+    "outcome_correctness": 0.0,
+    "process_compliance": 0.0,
+    "deadline_or_latency": 0.0,
+    "safety_or_anti_cheat": 0.0
+  },
+  {
+    "run_name": "base",
+    "run_kind": "trace_dir",
+    "task_id": "task_2",
+    "suite": "randomized",
+    "seed": 53,
+    "trace_source": "outputs\\policies\\base\\task_2__randomized__53.json",
+    "episode_config": {
+      "seed": 53,
+      "content_style": "ops_brief",
+      "client_order": [
+        "CLIENT-001",
+        "CLIENT-006",
+        "CLIENT-003",
+        "CLIENT-004",
+        "CLIENT-002",
+        "CLIENT-005"
+      ],
+      "document_order": [
+        "DOC-003",
+        "DOC-005",
+        "DOC-004",
+        "DOC-002",
+        "DOC-007",
+        "DOC-001",
+        "DOC-010",
+        "DOC-008",
+        "DOC-006",
+        "DOC-009"
+      ],
+      "event_order": [
+        "EVENT-006",
+        "EVENT-004",
+        "EVENT-005",
+        "EVENT-002",
+        "EVENT-001",
+        "EVENT-003"
+      ],
+      "deadline_overrides": {
+        "EVENT-001": 6,
+        "EVENT-002": 9,
+        "EVENT-003": 12,
+        "EVENT-006": 15,
+        "EVENT-005": 18
+      }
+    },
+    "final_score": 0.001,
+    "cumulative_reward": 0,
+    "done": false,
+    "steps": 0,
+    "grader_breakdown": {
+      "classification_accuracy": 0.001,
+      "doctrine_accuracy": 0.3007,
+      "waiver_f1": 0.001,
+      "exception_accuracy": 0.001,
+      "recommendation_accuracy": 0.001
+    },
+    "verifier_pass": false,
+    "full_episode_solve": false,
+    "deadline_hit_rate": 1.0,
+    "privilege_trap_avoidance": 1,
+    "review_before_act_rate": 1.0,
+    "invalid_action_rate": 0.0,
+    "mean_successful_steps": 0.0,
+    "unique_action_trace_count": 0,
+    "trace_integrity": {
+      "run_kind": "trace_dir",
+      "exact_scripted_match": false
+    },
+    "outcome_correctness": 0.0,
+    "process_compliance": 0.0,
+    "deadline_or_latency": 0.0,
+    "safety_or_anti_cheat": 0.0
+  },
+  {
+    "run_name": "base",
+    "run_kind": "trace_dir",
+    "task_id": "task_3",
+    "suite": "fixed",
+    "seed": null,
+    "trace_source": "outputs\\policies\\base\\task_3__fixed.json",
+    "episode_config": {
+      "seed": null,
+      "content_style": "default",
+      "client_order": [
+        "CLIENT-001",
+        "CLIENT-002",
+        "CLIENT-003",
+        "CLIENT-004",
+        "CLIENT-005",
+        "CLIENT-006"
+      ],
+      "document_order": [
+        "DOC-001",
+        "DOC-002",
+        "DOC-003",
+        "DOC-004",
+        "DOC-005",
+        "DOC-006",
+        "DOC-007",
+        "DOC-008",
+        "DOC-009",
+        "DOC-010"
+      ],
+      "event_order": [
+        "EVENT-001",
+        "EVENT-002",
+        "EVENT-003",
+        "EVENT-004",
+        "EVENT-005",
+        "EVENT-006"
+      ],
+      "deadline_overrides": {
+        "EVENT-001": 6,
+        "EVENT-002": 9,
+        "EVENT-003": 12,
+        "EVENT-006": 15,
+        "EVENT-005": 18
+      }
+    },
+    "final_score": 0.001,
+    "cumulative_reward": 0,
+    "done": false,
+    "steps": 0,
+    "grader_breakdown": {
+      "deadline_accuracy": 0.001,
+      "ethical_score": 0.0007,
+      "adversarial_f1": 0.001,
+      "discovery_score": 0.0,
+      "expert_score": 0.0,
+      "ordering_score": 0.001
+    },
+    "verifier_pass": false,
+    "full_episode_solve": false,
+    "deadline_hit_rate": 0.001,
+    "privilege_trap_avoidance": 1,
+    "review_before_act_rate": 1.0,
+    "invalid_action_rate": 0.0,
+    "mean_successful_steps": 0.0,
+    "unique_action_trace_count": 0,
+    "trace_integrity": {
+      "run_kind": "trace_dir",
+      "exact_scripted_match": false
+    },
+    "outcome_correctness": 0.0,
+    "process_compliance": 0.0,
+    "deadline_or_latency": 0.0,
+    "safety_or_anti_cheat": 0.0
+  },
+  {
+    "run_name": "base",
+    "run_kind": "trace_dir",
+    "task_id": "task_3",
+    "suite": "randomized",
+    "seed": 11,
+    "trace_source": "outputs\\policies\\base\\task_3__randomized__11.json",
+    "episode_config": {
+      "seed": 11,
+      "content_style": "ops_brief",
+      "client_order": [
+        "CLIENT-003",
+        "CLIENT-001",
+        "CLIENT-002",
+        "CLIENT-006",
+        "CLIENT-005",
+        "CLIENT-004"
+      ],
+      "document_order": [
+        "DOC-004",
+        "DOC-010",
+        "DOC-007",
+        "DOC-001",
+        "DOC-002",
+        "DOC-005",
+        "DOC-006",
+        "DOC-008",
+        "DOC-009",
+        "DOC-003"
+      ],
+      "event_order": [
+        "EVENT-004",
+        "EVENT-006",
+        "EVENT-003",
+        "EVENT-005",
+        "EVENT-001",
+        "EVENT-002"
+      ],
+      "deadline_overrides": {
+        "EVENT-001": 7,
+        "EVENT-002": 11,
+        "EVENT-003": 11,
+        "EVENT-006": 17,
+        "EVENT-005": 16
+      }
+    },
+    "final_score": 0.001,
+    "cumulative_reward": 0,
+    "done": false,
+    "steps": 0,
+    "grader_breakdown": {
+      "deadline_accuracy": 0.001,
+      "ethical_score": 0.0007,
+      "adversarial_f1": 0.001,
+      "discovery_score": 0.0,
+      "expert_score": 0.0,
+      "ordering_score": 0.001
+    },
+    "verifier_pass": false,
+    "full_episode_solve": false,
+    "deadline_hit_rate": 0.001,
+    "privilege_trap_avoidance": 1,
+    "review_before_act_rate": 1.0,
+    "invalid_action_rate": 0.0,
+    "mean_successful_steps": 0.0,
+    "unique_action_trace_count": 0,
+    "trace_integrity": {
+      "run_kind": "trace_dir",
+      "exact_scripted_match": false
+    },
+    "outcome_correctness": 0.0,
+    "process_compliance": 0.0,
+    "deadline_or_latency": 0.0,
+    "safety_or_anti_cheat": 0.0
+  },
+  {
+    "run_name": "base",
+    "run_kind": "trace_dir",
+    "task_id": "task_3",
+    "suite": "randomized",
+    "seed": 23,
+    "trace_source": "outputs\\policies\\base\\task_3__randomized__23.json",
+    "episode_config": {
+      "seed": 23,
+      "content_style": "ops_brief",
+      "client_order": [
+        "CLIENT-004",
+        "CLIENT-002",
+        "CLIENT-006",
+        "CLIENT-005",
+        "CLIENT-001",
+        "CLIENT-003"
+      ],
+      "document_order": [
+        "DOC-004",
+        "DOC-001",
+        "DOC-005",
+        "DOC-003",
+        "DOC-009",
+        "DOC-008",
+        "DOC-002",
+        "DOC-006",
+        "DOC-010",
+        "DOC-007"
+      ],
+      "event_order": [
+        "EVENT-006",
+        "EVENT-003",
+        "EVENT-001",
+        "EVENT-004",
+        "EVENT-005",
+        "EVENT-002"
+      ],
+      "deadline_overrides": {
+        "EVENT-001": 4,
+        "EVENT-002": 10,
+        "EVENT-003": 13,
+        "EVENT-006": 13,
+        "EVENT-005": 20
+      }
+    },
+    "final_score": 0.001,
+    "cumulative_reward": 0,
+    "done": false,
+    "steps": 0,
+    "grader_breakdown": {
+      "deadline_accuracy": 0.001,
+      "ethical_score": 0.0007,
+      "adversarial_f1": 0.001,
+      "discovery_score": 0.0,
+      "expert_score": 0.0,
+      "ordering_score": 0.001
+    },
+    "verifier_pass": false,
+    "full_episode_solve": false,
+    "deadline_hit_rate": 0.001,
+    "privilege_trap_avoidance": 1,
+    "review_before_act_rate": 1.0,
+    "invalid_action_rate": 0.0,
+    "mean_successful_steps": 0.0,
+    "unique_action_trace_count": 0,
+    "trace_integrity": {
+      "run_kind": "trace_dir",
+      "exact_scripted_match": false
+    },
+    "outcome_correctness": 0.0,
+    "process_compliance": 0.0,
+    "deadline_or_latency": 0.0,
+    "safety_or_anti_cheat": 0.0
+  },
+  {
+    "run_name": "base",
+    "run_kind": "trace_dir",
+    "task_id": "task_3",
+    "suite": "randomized",
+    "seed": 37,
+    "trace_source": "outputs\\policies\\base\\task_3__randomized__37.json",
+    "episode_config": {
+      "seed": 37,
+      "content_style": "ops_brief",
+      "client_order": [
+        "CLIENT-002",
+        "CLIENT-004",
+        "CLIENT-003",
+        "CLIENT-001",
+        "CLIENT-005",
+        "CLIENT-006"
+      ],
+      "document_order": [
+        "DOC-001",
+        "DOC-007",
+        "DOC-009",
+        "DOC-003",
+        "DOC-005",
+        "DOC-004",
+        "DOC-010",
+        "DOC-002",
+        "DOC-008",
+        "DOC-006"
+      ],
+      "event_order": [
+        "EVENT-003",
+        "EVENT-005",
+        "EVENT-006",
+        "EVENT-001",
+        "EVENT-002",
+        "EVENT-004"
+      ],
+      "deadline_overrides": {
+        "EVENT-001": 4,
+        "EVENT-002": 11,
+        "EVENT-003": 12,
+        "EVENT-006": 15,
+        "EVENT-005": 19
+      }
+    },
+    "final_score": 0.001,
+    "cumulative_reward": 0,
+    "done": false,
+    "steps": 0,
+    "grader_breakdown": {
+      "deadline_accuracy": 0.001,
+      "ethical_score": 0.0007,
+      "adversarial_f1": 0.001,
+      "discovery_score": 0.0,
+      "expert_score": 0.0,
+      "ordering_score": 0.001
+    },
+    "verifier_pass": false,
+    "full_episode_solve": false,
+    "deadline_hit_rate": 0.001,
+    "privilege_trap_avoidance": 1,
+    "review_before_act_rate": 1.0,
+    "invalid_action_rate": 0.0,
+    "mean_successful_steps": 0.0,
+    "unique_action_trace_count": 0,
+    "trace_integrity": {
+      "run_kind": "trace_dir",
+      "exact_scripted_match": false
+    },
+    "outcome_correctness": 0.0,
+    "process_compliance": 0.0,
+    "deadline_or_latency": 0.0,
+    "safety_or_anti_cheat": 0.0
+  },
+  {
+    "run_name": "base",
+    "run_kind": "trace_dir",
+    "task_id": "task_3",
+    "suite": "randomized",
+    "seed": 41,
+    "trace_source": "outputs\\policies\\base\\task_3__randomized__41.json",
+    "episode_config": {
+      "seed": 41,
+      "content_style": "ops_brief",
+      "client_order": [
+        "CLIENT-005",
+        "CLIENT-006",
+        "CLIENT-001",
+        "CLIENT-002",
+        "CLIENT-003",
+        "CLIENT-004"
+      ],
+      "document_order": [
+        "DOC-002",
+        "DOC-003",
+        "DOC-007",
+        "DOC-001",
+        "DOC-008",
+        "DOC-006",
+        "DOC-004",
+        "DOC-009",
+        "DOC-005",
+        "DOC-010"
+      ],
+      "event_order": [
+        "EVENT-001",
+        "EVENT-006",
+        "EVENT-003",
+        "EVENT-005",
+        "EVENT-002",
+        "EVENT-004"
+      ],
+      "deadline_overrides": {
+        "EVENT-001": 5,
+        "EVENT-002": 9,
+        "EVENT-003": 14,
+        "EVENT-006": 17,
+        "EVENT-005": 16
+      }
+    },
+    "final_score": 0.001,
+    "cumulative_reward": 0,
+    "done": false,
+    "steps": 0,
+    "grader_breakdown": {
+      "deadline_accuracy": 0.001,
+      "ethical_score": 0.0007,
+      "adversarial_f1": 0.001,
+      "discovery_score": 0.0,
+      "expert_score": 0.0,
+      "ordering_score": 0.001
+    },
+    "verifier_pass": false,
+    "full_episode_solve": false,
+    "deadline_hit_rate": 0.001,
+    "privilege_trap_avoidance": 1,
+    "review_before_act_rate": 1.0,
+    "invalid_action_rate": 0.0,
+    "mean_successful_steps": 0.0,
+    "unique_action_trace_count": 0,
+    "trace_integrity": {
+      "run_kind": "trace_dir",
+      "exact_scripted_match": false
+    },
+    "outcome_correctness": 0.0,
+    "process_compliance": 0.0,
+    "deadline_or_latency": 0.0,
+    "safety_or_anti_cheat": 0.0
+  },
+  {
+    "run_name": "base",
+    "run_kind": "trace_dir",
+    "task_id": "task_3",
+    "suite": "randomized",
+    "seed": 53,
+    "trace_source": "outputs\\policies\\base\\task_3__randomized__53.json",
+    "episode_config": {
+      "seed": 53,
+      "content_style": "ops_brief",
+      "client_order": [
+        "CLIENT-001",
+        "CLIENT-006",
+        "CLIENT-003",
+        "CLIENT-004",
+        "CLIENT-002",
+        "CLIENT-005"
+      ],
+      "document_order": [
+        "DOC-003",
+        "DOC-005",
+        "DOC-004",
+        "DOC-002",
+        "DOC-007",
+        "DOC-001",
+        "DOC-010",
+        "DOC-008",
+        "DOC-006",
+        "DOC-009"
+      ],
+      "event_order": [
+        "EVENT-006",
+        "EVENT-004",
+        "EVENT-005",
+        "EVENT-002",
+        "EVENT-001",
+        "EVENT-003"
+      ],
+      "deadline_overrides": {
+        "EVENT-001": 5,
+        "EVENT-002": 10,
+        "EVENT-003": 11,
+        "EVENT-006": 14,
+        "EVENT-005": 17
+      }
+    },
+    "final_score": 0.001,
+    "cumulative_reward": 0,
+    "done": false,
+    "steps": 0,
+    "grader_breakdown": {
+      "deadline_accuracy": 0.001,
+      "ethical_score": 0.0007,
+      "adversarial_f1": 0.001,
+      "discovery_score": 0.0,
+      "expert_score": 0.0,
+      "ordering_score": 0.001
+    },
+    "verifier_pass": false,
+    "full_episode_solve": false,
+    "deadline_hit_rate": 0.001,
+    "privilege_trap_avoidance": 1,
+    "review_before_act_rate": 1.0,
+    "invalid_action_rate": 0.0,
+    "mean_successful_steps": 0.0,
+    "unique_action_trace_count": 0,
+    "trace_integrity": {
+      "run_kind": "trace_dir",
+      "exact_scripted_match": false
+    },
+    "outcome_correctness": 0.0,
+    "process_compliance": 0.0,
+    "deadline_or_latency": 0.0,
+    "safety_or_anti_cheat": 0.0
+  },
+  {
+    "run_name": "sft",
+    "run_kind": "trace_dir",
+    "task_id": "task_1",
+    "suite": "fixed",
+    "seed": null,
+    "trace_source": "outputs\\policies\\sft\\task_1__fixed.json",
+    "episode_config": {
+      "seed": null,
+      "content_style": "default",
+      "client_order": [
+        "CLIENT-001",
+        "CLIENT-002",
+        "CLIENT-003",
+        "CLIENT-004",
+        "CLIENT-005",
+        "CLIENT-006"
+      ],
+      "document_order": [
+        "DOC-001",
+        "DOC-002",
+        "DOC-003",
+        "DOC-004",
+        "DOC-005",
+        "DOC-006",
+        "DOC-007",
+        "DOC-008",
+        "DOC-009",
+        "DOC-010"
+      ],
+      "event_order": [
+        "EVENT-001",
+        "EVENT-002",
+        "EVENT-003",
+        "EVENT-004",
+        "EVENT-005",
+        "EVENT-006"
+      ],
+      "deadline_overrides": {
+        "EVENT-001": 6,
+        "EVENT-002": 9,
+        "EVENT-003": 12,
+        "EVENT-006": 15,
+        "EVENT-005": 18
+      }
+    },
+    "final_score": 0.001,
+    "cumulative_reward": 0,
+    "done": false,
+    "steps": 0,
+    "grader_breakdown": {
+      "pair_f1": 0.001,
+      "decision_accuracy": 0.001,
+      "rule_accuracy": 0.001
+    },
+    "verifier_pass": false,
+    "full_episode_solve": false,
+    "deadline_hit_rate": 1.0,
+    "privilege_trap_avoidance": 1,
+    "review_before_act_rate": 1.0,
+    "invalid_action_rate": 0.0,
+    "mean_successful_steps": 0.0,
+    "unique_action_trace_count": 0,
+    "trace_integrity": {
+      "run_kind": "trace_dir",
+      "exact_scripted_match": false
+    },
+    "outcome_correctness": 0.0,
+    "process_compliance": 0.0,
+    "deadline_or_latency": 0.0,
+    "safety_or_anti_cheat": 0.0
+  },
+  {
+    "run_name": "sft",
+    "run_kind": "trace_dir",
+    "task_id": "task_1",
+    "suite": "randomized",
+    "seed": 11,
+    "trace_source": "outputs\\policies\\sft\\task_1__randomized__11.json",
+    "episode_config": {
+      "seed": 11,
+      "content_style": "ops_brief",
+      "client_order": [
+        "CLIENT-003",
+        "CLIENT-001",
+        "CLIENT-002",
+        "CLIENT-006",
+        "CLIENT-005",
+        "CLIENT-004"
+      ],
+      "document_order": [
+        "DOC-004",
+        "DOC-010",
+        "DOC-007",
+        "DOC-001",
+        "DOC-002",
+        "DOC-005",
+        "DOC-006",
+        "DOC-008",
+        "DOC-009",
+        "DOC-003"
+      ],
+      "event_order": [
+        "EVENT-004",
+        "EVENT-006",
+        "EVENT-003",
+        "EVENT-005",
+        "EVENT-001",
+        "EVENT-002"
+      ],
+      "deadline_overrides": {
+        "EVENT-001": 6,
+        "EVENT-002": 9,
+        "EVENT-003": 12,
+        "EVENT-006": 15,
+        "EVENT-005": 18
+      }
+    },
+    "final_score": 0.001,
+    "cumulative_reward": 0,
+    "done": false,
+    "steps": 0,
+    "grader_breakdown": {
+      "pair_f1": 0.001,
+      "decision_accuracy": 0.001,
+      "rule_accuracy": 0.001
+    },
+    "verifier_pass": false,
+    "full_episode_solve": false,
+    "deadline_hit_rate": 1.0,
+    "privilege_trap_avoidance": 1,
+    "review_before_act_rate": 1.0,
+    "invalid_action_rate": 0.0,
+    "mean_successful_steps": 0.0,
+    "unique_action_trace_count": 0,
+    "trace_integrity": {
+      "run_kind": "trace_dir",
+      "exact_scripted_match": false
+    },
+    "outcome_correctness": 0.0,
+    "process_compliance": 0.0,
+    "deadline_or_latency": 0.0,
+    "safety_or_anti_cheat": 0.0
+  },
+  {
+    "run_name": "sft",
+    "run_kind": "trace_dir",
+    "task_id": "task_1",
+    "suite": "randomized",
+    "seed": 23,
+    "trace_source": "outputs\\policies\\sft\\task_1__randomized__23.json",
+    "episode_config": {
+      "seed": 23,
+      "content_style": "ops_brief",
+      "client_order": [
+        "CLIENT-004",
+        "CLIENT-002",
+        "CLIENT-006",
+        "CLIENT-005",
+        "CLIENT-001",
+        "CLIENT-003"
+      ],
+      "document_order": [
+        "DOC-004",
+        "DOC-001",
+        "DOC-005",
+        "DOC-003",
+        "DOC-009",
+        "DOC-008",
+        "DOC-002",
+        "DOC-006",
+        "DOC-010",
+        "DOC-007"
+      ],
+      "event_order": [
+        "EVENT-006",
+        "EVENT-003",
+        "EVENT-001",
+        "EVENT-004",
+        "EVENT-005",
+        "EVENT-002"
+      ],
+      "deadline_overrides": {
+        "EVENT-001": 6,
+        "EVENT-002": 9,
+        "EVENT-003": 12,
+        "EVENT-006": 15,
+        "EVENT-005": 18
+      }
+    },
+    "final_score": 0.001,
+    "cumulative_reward": 0,
+    "done": false,
+    "steps": 0,
+    "grader_breakdown": {
+      "pair_f1": 0.001,
+      "decision_accuracy": 0.001,
+      "rule_accuracy": 0.001
+    },
+    "verifier_pass": false,
+    "full_episode_solve": false,
+    "deadline_hit_rate": 1.0,
+    "privilege_trap_avoidance": 1,
+    "review_before_act_rate": 1.0,
+    "invalid_action_rate": 0.0,
+    "mean_successful_steps": 0.0,
+    "unique_action_trace_count": 0,
+    "trace_integrity": {
+      "run_kind": "trace_dir",
+      "exact_scripted_match": false
+    },
+    "outcome_correctness": 0.0,
+    "process_compliance": 0.0,
+    "deadline_or_latency": 0.0,
+    "safety_or_anti_cheat": 0.0
+  },
+  {
+    "run_name": "sft",
+    "run_kind": "trace_dir",
+    "task_id": "task_1",
+    "suite": "randomized",
+    "seed": 37,
+    "trace_source": "outputs\\policies\\sft\\task_1__randomized__37.json",
+    "episode_config": {
+      "seed": 37,
+      "content_style": "ops_brief",
+      "client_order": [
+        "CLIENT-002",
+        "CLIENT-004",
+        "CLIENT-003",
+        "CLIENT-001",
+        "CLIENT-005",
+        "CLIENT-006"
+      ],
+      "document_order": [
+        "DOC-001",
+        "DOC-007",
+        "DOC-009",
+        "DOC-003",
+        "DOC-005",
+        "DOC-004",
+        "DOC-010",
+        "DOC-002",
+        "DOC-008",
+        "DOC-006"
+      ],
+      "event_order": [
+        "EVENT-003",
+        "EVENT-005",
+        "EVENT-006",
+        "EVENT-001",
+        "EVENT-002",
+        "EVENT-004"
+      ],
+      "deadline_overrides": {
+        "EVENT-001": 6,
+        "EVENT-002": 9,
+        "EVENT-003": 12,
+        "EVENT-006": 15,
+        "EVENT-005": 18
+      }
+    },
+    "final_score": 0.001,
+    "cumulative_reward": 0,
+    "done": false,
+    "steps": 0,
+    "grader_breakdown": {
+      "pair_f1": 0.001,
+      "decision_accuracy": 0.001,
+      "rule_accuracy": 0.001
+    },
+    "verifier_pass": false,
+    "full_episode_solve": false,
+    "deadline_hit_rate": 1.0,
+    "privilege_trap_avoidance": 1,
+    "review_before_act_rate": 1.0,
+    "invalid_action_rate": 0.0,
+    "mean_successful_steps": 0.0,
+    "unique_action_trace_count": 0,
+    "trace_integrity": {
+      "run_kind": "trace_dir",
+      "exact_scripted_match": false
+    },
+    "outcome_correctness": 0.0,
+    "process_compliance": 0.0,
+    "deadline_or_latency": 0.0,
+    "safety_or_anti_cheat": 0.0
+  },
+  {
+    "run_name": "sft",
+    "run_kind": "trace_dir",
+    "task_id": "task_1",
+    "suite": "randomized",
+    "seed": 41,
+    "trace_source": "outputs\\policies\\sft\\task_1__randomized__41.json",
+    "episode_config": {
+      "seed": 41,
+      "content_style": "ops_brief",
+      "client_order": [
+        "CLIENT-005",
+        "CLIENT-006",
+        "CLIENT-001",
+        "CLIENT-002",
+        "CLIENT-003",
+        "CLIENT-004"
+      ],
+      "document_order": [
+        "DOC-002",
+        "DOC-003",
+        "DOC-007",
+        "DOC-001",
+        "DOC-008",
+        "DOC-006",
+        "DOC-004",
+        "DOC-009",
+        "DOC-005",
+        "DOC-010"
+      ],
+      "event_order": [
+        "EVENT-001",
+        "EVENT-006",
+        "EVENT-003",
+        "EVENT-005",
+        "EVENT-002",
+        "EVENT-004"
+      ],
+      "deadline_overrides": {
+        "EVENT-001": 6,
+        "EVENT-002": 9,
+        "EVENT-003": 12,
+        "EVENT-006": 15,
+        "EVENT-005": 18
+      }
+    },
+    "final_score": 0.001,
+    "cumulative_reward": 0,
+    "done": false,
+    "steps": 0,
+    "grader_breakdown": {
+      "pair_f1": 0.001,
+      "decision_accuracy": 0.001,
+      "rule_accuracy": 0.001
+    },
+    "verifier_pass": false,
+    "full_episode_solve": false,
+    "deadline_hit_rate": 1.0,
+    "privilege_trap_avoidance": 1,
+    "review_before_act_rate": 1.0,
+    "invalid_action_rate": 0.0,
+    "mean_successful_steps": 0.0,
+    "unique_action_trace_count": 0,
+    "trace_integrity": {
+      "run_kind": "trace_dir",
+      "exact_scripted_match": false
+    },
+    "outcome_correctness": 0.0,
+    "process_compliance": 0.0,
+    "deadline_or_latency": 0.0,
+    "safety_or_anti_cheat": 0.0
+  },
+  {
+    "run_name": "sft",
+    "run_kind": "trace_dir",
+    "task_id": "task_1",
+    "suite": "randomized",
+    "seed": 53,
+    "trace_source": "outputs\\policies\\sft\\task_1__randomized__53.json",
+    "episode_config": {
+      "seed": 53,
+      "content_style": "ops_brief",
+      "client_order": [
+        "CLIENT-001",
+        "CLIENT-006",
+        "CLIENT-003",
+        "CLIENT-004",
+        "CLIENT-002",
+        "CLIENT-005"
+      ],
+      "document_order": [
+        "DOC-003",
+        "DOC-005",
+        "DOC-004",
+        "DOC-002",
+        "DOC-007",
+        "DOC-001",
+        "DOC-010",
+        "DOC-008",
+        "DOC-006",
+        "DOC-009"
+      ],
+      "event_order": [
+        "EVENT-006",
+        "EVENT-004",
+        "EVENT-005",
+        "EVENT-002",
+        "EVENT-001",
+        "EVENT-003"
+      ],
+      "deadline_overrides": {
+        "EVENT-001": 6,
+        "EVENT-002": 9,
+        "EVENT-003": 12,
+        "EVENT-006": 15,
+        "EVENT-005": 18
+      }
+    },
+    "final_score": 0.001,
+    "cumulative_reward": 0,
+    "done": false,
+    "steps": 0,
+    "grader_breakdown": {
+      "pair_f1": 0.001,
+      "decision_accuracy": 0.001,
+      "rule_accuracy": 0.001
+    },
+    "verifier_pass": false,
+    "full_episode_solve": false,
+    "deadline_hit_rate": 1.0,
+    "privilege_trap_avoidance": 1,
+    "review_before_act_rate": 1.0,
+    "invalid_action_rate": 0.0,
+    "mean_successful_steps": 0.0,
+    "unique_action_trace_count": 0,
+    "trace_integrity": {
+      "run_kind": "trace_dir",
+      "exact_scripted_match": false
+    },
+    "outcome_correctness": 0.0,
+    "process_compliance": 0.0,
+    "deadline_or_latency": 0.0,
+    "safety_or_anti_cheat": 0.0
+  },
+  {
+    "run_name": "sft",
+    "run_kind": "trace_dir",
+    "task_id": "task_2",
+    "suite": "fixed",
+    "seed": null,
+    "trace_source": "outputs\\policies\\sft\\task_2__fixed.json",
+    "episode_config": {
+      "seed": null,
+      "content_style": "default",
+      "client_order": [
+        "CLIENT-001",
+        "CLIENT-002",
+        "CLIENT-003",
+        "CLIENT-004",
+        "CLIENT-005",
+        "CLIENT-006"
+      ],
+      "document_order": [
+        "DOC-001",
+        "DOC-002",
+        "DOC-003",
+        "DOC-004",
+        "DOC-005",
+        "DOC-006",
+        "DOC-007",
+        "DOC-008",
+        "DOC-009",
+        "DOC-010"
+      ],
+      "event_order": [
+        "EVENT-001",
+        "EVENT-002",
+        "EVENT-003",
+        "EVENT-004",
+        "EVENT-005",
+        "EVENT-006"
+      ],
+      "deadline_overrides": {
+        "EVENT-001": 6,
+        "EVENT-002": 9,
+        "EVENT-003": 12,
+        "EVENT-006": 15,
+        "EVENT-005": 18
+      }
+    },
+    "final_score": 0.001,
+    "cumulative_reward": 0,
+    "done": false,
+    "steps": 0,
+    "grader_breakdown": {
+      "classification_accuracy": 0.001,
+      "doctrine_accuracy": 0.3007,
+      "waiver_f1": 0.001,
+      "exception_accuracy": 0.001,
+      "recommendation_accuracy": 0.001
+    },
+    "verifier_pass": false,
+    "full_episode_solve": false,
+    "deadline_hit_rate": 1.0,
+    "privilege_trap_avoidance": 1,
+    "review_before_act_rate": 1.0,
+    "invalid_action_rate": 0.0,
+    "mean_successful_steps": 0.0,
+    "unique_action_trace_count": 0,
+    "trace_integrity": {
+      "run_kind": "trace_dir",
+      "exact_scripted_match": false
+    },
+    "outcome_correctness": 0.0,
+    "process_compliance": 0.0,
+    "deadline_or_latency": 0.0,
+    "safety_or_anti_cheat": 0.0
+  },
+  {
+    "run_name": "sft",
+    "run_kind": "trace_dir",
+    "task_id": "task_2",
+    "suite": "randomized",
+    "seed": 11,
+    "trace_source": "outputs\\policies\\sft\\task_2__randomized__11.json",
+    "episode_config": {
+      "seed": 11,
+      "content_style": "ops_brief",
+      "client_order": [
+        "CLIENT-003",
+        "CLIENT-001",
+        "CLIENT-002",
+        "CLIENT-006",
+        "CLIENT-005",
+        "CLIENT-004"
+      ],
+      "document_order": [
+        "DOC-004",
+        "DOC-010",
+        "DOC-007",
+        "DOC-001",
+        "DOC-002",
+        "DOC-005",
+        "DOC-006",
+        "DOC-008",
+        "DOC-009",
+        "DOC-003"
+      ],
+      "event_order": [
+        "EVENT-004",
+        "EVENT-006",
+        "EVENT-003",
+        "EVENT-005",
+        "EVENT-001",
+        "EVENT-002"
+      ],
+      "deadline_overrides": {
+        "EVENT-001": 6,
+        "EVENT-002": 9,
+        "EVENT-003": 12,
+        "EVENT-006": 15,
+        "EVENT-005": 18
+      }
+    },
+    "final_score": 0.001,
+    "cumulative_reward": 0,
+    "done": false,
+    "steps": 0,
+    "grader_breakdown": {
+      "classification_accuracy": 0.001,
+      "doctrine_accuracy": 0.3007,
+      "waiver_f1": 0.001,
+      "exception_accuracy": 0.001,
+      "recommendation_accuracy": 0.001
+    },
+    "verifier_pass": false,
+    "full_episode_solve": false,
+    "deadline_hit_rate": 1.0,
+    "privilege_trap_avoidance": 1,
+    "review_before_act_rate": 1.0,
+    "invalid_action_rate": 0.0,
+    "mean_successful_steps": 0.0,
+    "unique_action_trace_count": 0,
+    "trace_integrity": {
+      "run_kind": "trace_dir",
+      "exact_scripted_match": false
+    },
+    "outcome_correctness": 0.0,
+    "process_compliance": 0.0,
+    "deadline_or_latency": 0.0,
+    "safety_or_anti_cheat": 0.0
+  },
+  {
+    "run_name": "sft",
+    "run_kind": "trace_dir",
+    "task_id": "task_2",
+    "suite": "randomized",
+    "seed": 23,
+    "trace_source": "outputs\\policies\\sft\\task_2__randomized__23.json",
+    "episode_config": {
+      "seed": 23,
+      "content_style": "ops_brief",
+      "client_order": [
+        "CLIENT-004",
+        "CLIENT-002",
+        "CLIENT-006",
+        "CLIENT-005",
+        "CLIENT-001",
+        "CLIENT-003"
+      ],
+      "document_order": [
+        "DOC-004",
+        "DOC-001",
+        "DOC-005",
+        "DOC-003",
+        "DOC-009",
+        "DOC-008",
+        "DOC-002",
+        "DOC-006",
+        "DOC-010",
+        "DOC-007"
+      ],
+      "event_order": [
+        "EVENT-006",
+        "EVENT-003",
+        "EVENT-001",
+        "EVENT-004",
+        "EVENT-005",
+        "EVENT-002"
+      ],
+      "deadline_overrides": {
+        "EVENT-001": 6,
+        "EVENT-002": 9,
+        "EVENT-003": 12,
+        "EVENT-006": 15,
+        "EVENT-005": 18
+      }
+    },
+    "final_score": 0.001,
+    "cumulative_reward": 0,
+    "done": false,
+    "steps": 0,
+    "grader_breakdown": {
+      "classification_accuracy": 0.001,
+      "doctrine_accuracy": 0.3007,
+      "waiver_f1": 0.001,
+      "exception_accuracy": 0.001,
+      "recommendation_accuracy": 0.001
+    },
+    "verifier_pass": false,
+    "full_episode_solve": false,
+    "deadline_hit_rate": 1.0,
+    "privilege_trap_avoidance": 1,
+    "review_before_act_rate": 1.0,
+    "invalid_action_rate": 0.0,
+    "mean_successful_steps": 0.0,
+    "unique_action_trace_count": 0,
+    "trace_integrity": {
+      "run_kind": "trace_dir",
+      "exact_scripted_match": false
+    },
+    "outcome_correctness": 0.0,
+    "process_compliance": 0.0,
+    "deadline_or_latency": 0.0,
+    "safety_or_anti_cheat": 0.0
+  },
+  {
+    "run_name": "sft",
+    "run_kind": "trace_dir",
+    "task_id": "task_2",
+    "suite": "randomized",
+    "seed": 37,
+    "trace_source": "outputs\\policies\\sft\\task_2__randomized__37.json",
+    "episode_config": {
+      "seed": 37,
+      "content_style": "ops_brief",
+      "client_order": [
+        "CLIENT-002",
+        "CLIENT-004",
+        "CLIENT-003",
+        "CLIENT-001",
+        "CLIENT-005",
+        "CLIENT-006"
+      ],
+      "document_order": [
+        "DOC-001",
+        "DOC-007",
+        "DOC-009",
+        "DOC-003",
+        "DOC-005",
+        "DOC-004",
+        "DOC-010",
+        "DOC-002",
+        "DOC-008",
+        "DOC-006"
+      ],
+      "event_order": [
+        "EVENT-003",
+        "EVENT-005",
+        "EVENT-006",
+        "EVENT-001",
+        "EVENT-002",
+        "EVENT-004"
+      ],
+      "deadline_overrides": {
+        "EVENT-001": 6,
+        "EVENT-002": 9,
+        "EVENT-003": 12,
+        "EVENT-006": 15,
+        "EVENT-005": 18
+      }
+    },
+    "final_score": 0.001,
+    "cumulative_reward": 0,
+    "done": false,
+    "steps": 0,
+    "grader_breakdown": {
+      "classification_accuracy": 0.001,
+      "doctrine_accuracy": 0.3007,
+      "waiver_f1": 0.001,
+      "exception_accuracy": 0.001,
+      "recommendation_accuracy": 0.001
+    },
+    "verifier_pass": false,
+    "full_episode_solve": false,
+    "deadline_hit_rate": 1.0,
+    "privilege_trap_avoidance": 1,
+    "review_before_act_rate": 1.0,
+    "invalid_action_rate": 0.0,
+    "mean_successful_steps": 0.0,
+    "unique_action_trace_count": 0,
+    "trace_integrity": {
+      "run_kind": "trace_dir",
+      "exact_scripted_match": false
+    },
+    "outcome_correctness": 0.0,
+    "process_compliance": 0.0,
+    "deadline_or_latency": 0.0,
+    "safety_or_anti_cheat": 0.0
+  },
+  {
+    "run_name": "sft",
+    "run_kind": "trace_dir",
+    "task_id": "task_2",
+    "suite": "randomized",
+    "seed": 41,
+    "trace_source": "outputs\\policies\\sft\\task_2__randomized__41.json",
+    "episode_config": {
+      "seed": 41,
+      "content_style": "ops_brief",
+      "client_order": [
+        "CLIENT-005",
+        "CLIENT-006",
+        "CLIENT-001",
+        "CLIENT-002",
+        "CLIENT-003",
+        "CLIENT-004"
+      ],
+      "document_order": [
+        "DOC-002",
+        "DOC-003",
+        "DOC-007",
+        "DOC-001",
+        "DOC-008",
+        "DOC-006",
+        "DOC-004",
+        "DOC-009",
+        "DOC-005",
+        "DOC-010"
+      ],
+      "event_order": [
+        "EVENT-001",
+        "EVENT-006",
+        "EVENT-003",
+        "EVENT-005",
+        "EVENT-002",
+        "EVENT-004"
+      ],
+      "deadline_overrides": {
+        "EVENT-001": 6,
+        "EVENT-002": 9,
+        "EVENT-003": 12,
+        "EVENT-006": 15,
+        "EVENT-005": 18
+      }
+    },
+    "final_score": 0.001,
+    "cumulative_reward": 0,
+    "done": false,
+    "steps": 0,
+    "grader_breakdown": {
+      "classification_accuracy": 0.001,
+      "doctrine_accuracy": 0.3007,
+      "waiver_f1": 0.001,
+      "exception_accuracy": 0.001,
+      "recommendation_accuracy": 0.001
+    },
+    "verifier_pass": false,
+    "full_episode_solve": false,
+    "deadline_hit_rate": 1.0,
+    "privilege_trap_avoidance": 1,
+    "review_before_act_rate": 1.0,
+    "invalid_action_rate": 0.0,
+    "mean_successful_steps": 0.0,
+    "unique_action_trace_count": 0,
+    "trace_integrity": {
+      "run_kind": "trace_dir",
+      "exact_scripted_match": false
+    },
+    "outcome_correctness": 0.0,
+    "process_compliance": 0.0,
+    "deadline_or_latency": 0.0,
+    "safety_or_anti_cheat": 0.0
+  },
+  {
+    "run_name": "sft",
+    "run_kind": "trace_dir",
+    "task_id": "task_2",
+    "suite": "randomized",
+    "seed": 53,
+    "trace_source": "outputs\\policies\\sft\\task_2__randomized__53.json",
+    "episode_config": {
+      "seed": 53,
+      "content_style": "ops_brief",
+      "client_order": [
+        "CLIENT-001",
+        "CLIENT-006",
+        "CLIENT-003",
+        "CLIENT-004",
+        "CLIENT-002",
+        "CLIENT-005"
+      ],
+      "document_order": [
+        "DOC-003",
+        "DOC-005",
+        "DOC-004",
+        "DOC-002",
+        "DOC-007",
+        "DOC-001",
+        "DOC-010",
+        "DOC-008",
+        "DOC-006",
+        "DOC-009"
+      ],
+      "event_order": [
+        "EVENT-006",
+        "EVENT-004",
+        "EVENT-005",
+        "EVENT-002",
+        "EVENT-001",
+        "EVENT-003"
+      ],
+      "deadline_overrides": {
+        "EVENT-001": 6,
+        "EVENT-002": 9,
+        "EVENT-003": 12,
+        "EVENT-006": 15,
+        "EVENT-005": 18
+      }
+    },
+    "final_score": 0.001,
+    "cumulative_reward": 0,
+    "done": false,
+    "steps": 0,
+    "grader_breakdown": {
+      "classification_accuracy": 0.001,
+      "doctrine_accuracy": 0.3007,
+      "waiver_f1": 0.001,
+      "exception_accuracy": 0.001,
+      "recommendation_accuracy": 0.001
+    },
+    "verifier_pass": false,
+    "full_episode_solve": false,
+    "deadline_hit_rate": 1.0,
+    "privilege_trap_avoidance": 1,
+    "review_before_act_rate": 1.0,
+    "invalid_action_rate": 0.0,
+    "mean_successful_steps": 0.0,
+    "unique_action_trace_count": 0,
+    "trace_integrity": {
+      "run_kind": "trace_dir",
+      "exact_scripted_match": false
+    },
+    "outcome_correctness": 0.0,
+    "process_compliance": 0.0,
+    "deadline_or_latency": 0.0,
+    "safety_or_anti_cheat": 0.0
+  },
+  {
+    "run_name": "sft",
+    "run_kind": "trace_dir",
+    "task_id": "task_3",
+    "suite": "fixed",
+    "seed": null,
+    "trace_source": "outputs\\policies\\sft\\task_3__fixed.json",
+    "episode_config": {
+      "seed": null,
+      "content_style": "default",
+      "client_order": [
+        "CLIENT-001",
+        "CLIENT-002",
+        "CLIENT-003",
+        "CLIENT-004",
+        "CLIENT-005",
+        "CLIENT-006"
+      ],
+      "document_order": [
+        "DOC-001",
+        "DOC-002",
+        "DOC-003",
+        "DOC-004",
+        "DOC-005",
+        "DOC-006",
+        "DOC-007",
+        "DOC-008",
+        "DOC-009",
+        "DOC-010"
+      ],
+      "event_order": [
+        "EVENT-001",
+        "EVENT-002",
+        "EVENT-003",
+        "EVENT-004",
+        "EVENT-005",
+        "EVENT-006"
+      ],
+      "deadline_overrides": {
+        "EVENT-001": 6,
+        "EVENT-002": 9,
+        "EVENT-003": 12,
+        "EVENT-006": 15,
+        "EVENT-005": 18
+      }
+    },
+    "final_score": 0.001,
+    "cumulative_reward": 0,
+    "done": false,
+    "steps": 0,
+    "grader_breakdown": {
+      "deadline_accuracy": 0.001,
+      "ethical_score": 0.0007,
+      "adversarial_f1": 0.001,
+      "discovery_score": 0.0,
+      "expert_score": 0.0,
+      "ordering_score": 0.001
+    },
+    "verifier_pass": false,
+    "full_episode_solve": false,
+    "deadline_hit_rate": 0.001,
+    "privilege_trap_avoidance": 1,
+    "review_before_act_rate": 1.0,
+    "invalid_action_rate": 0.0,
+    "mean_successful_steps": 0.0,
+    "unique_action_trace_count": 0,
+    "trace_integrity": {
+      "run_kind": "trace_dir",
+      "exact_scripted_match": false
+    },
+    "outcome_correctness": 0.0,
+    "process_compliance": 0.0,
+    "deadline_or_latency": 0.0,
+    "safety_or_anti_cheat": 0.0
+  },
+  {
+    "run_name": "sft",
+    "run_kind": "trace_dir",
+    "task_id": "task_3",
+    "suite": "randomized",
+    "seed": 11,
+    "trace_source": "outputs\\policies\\sft\\task_3__randomized__11.json",
+    "episode_config": {
+      "seed": 11,
+      "content_style": "ops_brief",
+      "client_order": [
+        "CLIENT-003",
+        "CLIENT-001",
+        "CLIENT-002",
+        "CLIENT-006",
+        "CLIENT-005",
+        "CLIENT-004"
+      ],
+      "document_order": [
+        "DOC-004",
+        "DOC-010",
+        "DOC-007",
+        "DOC-001",
+        "DOC-002",
+        "DOC-005",
+        "DOC-006",
+        "DOC-008",
+        "DOC-009",
+        "DOC-003"
+      ],
+      "event_order": [
+        "EVENT-004",
+        "EVENT-006",
+        "EVENT-003",
+        "EVENT-005",
+        "EVENT-001",
+        "EVENT-002"
+      ],
+      "deadline_overrides": {
+        "EVENT-001": 7,
+        "EVENT-002": 11,
+        "EVENT-003": 11,
+        "EVENT-006": 17,
+        "EVENT-005": 16
+      }
+    },
+    "final_score": 0.001,
+    "cumulative_reward": 0,
+    "done": false,
+    "steps": 0,
+    "grader_breakdown": {
+      "deadline_accuracy": 0.001,
+      "ethical_score": 0.0007,
+      "adversarial_f1": 0.001,
+      "discovery_score": 0.0,
+      "expert_score": 0.0,
+      "ordering_score": 0.001
+    },
+    "verifier_pass": false,
+    "full_episode_solve": false,
+    "deadline_hit_rate": 0.001,
+    "privilege_trap_avoidance": 1,
+    "review_before_act_rate": 1.0,
+    "invalid_action_rate": 0.0,
+    "mean_successful_steps": 0.0,
+    "unique_action_trace_count": 0,
+    "trace_integrity": {
+      "run_kind": "trace_dir",
+      "exact_scripted_match": false
+    },
+    "outcome_correctness": 0.0,
+    "process_compliance": 0.0,
+    "deadline_or_latency": 0.0,
+    "safety_or_anti_cheat": 0.0
+  },
+  {
+    "run_name": "sft",
+    "run_kind": "trace_dir",
+    "task_id": "task_3",
+    "suite": "randomized",
+    "seed": 23,
+    "trace_source": "outputs\\policies\\sft\\task_3__randomized__23.json",
+    "episode_config": {
+      "seed": 23,
+      "content_style": "ops_brief",
+      "client_order": [
+        "CLIENT-004",
+        "CLIENT-002",
+        "CLIENT-006",
+        "CLIENT-005",
+        "CLIENT-001",
+        "CLIENT-003"
+      ],
+      "document_order": [
+        "DOC-004",
+        "DOC-001",
+        "DOC-005",
+        "DOC-003",
+        "DOC-009",
+        "DOC-008",
+        "DOC-002",
+        "DOC-006",
+        "DOC-010",
+        "DOC-007"
+      ],
+      "event_order": [
+        "EVENT-006",
+        "EVENT-003",
+        "EVENT-001",
+        "EVENT-004",
+        "EVENT-005",
+        "EVENT-002"
+      ],
+      "deadline_overrides": {
+        "EVENT-001": 4,
+        "EVENT-002": 10,
+        "EVENT-003": 13,
+        "EVENT-006": 13,
+        "EVENT-005": 20
+      }
+    },
+    "final_score": 0.001,
+    "cumulative_reward": 0,
+    "done": false,
+    "steps": 0,
+    "grader_breakdown": {
+      "deadline_accuracy": 0.001,
+      "ethical_score": 0.0007,
+      "adversarial_f1": 0.001,
+      "discovery_score": 0.0,
+      "expert_score": 0.0,
+      "ordering_score": 0.001
+    },
+    "verifier_pass": false,
+    "full_episode_solve": false,
+    "deadline_hit_rate": 0.001,
+    "privilege_trap_avoidance": 1,
+    "review_before_act_rate": 1.0,
+    "invalid_action_rate": 0.0,
+    "mean_successful_steps": 0.0,
+    "unique_action_trace_count": 0,
+    "trace_integrity": {
+      "run_kind": "trace_dir",
+      "exact_scripted_match": false
+    },
+    "outcome_correctness": 0.0,
+    "process_compliance": 0.0,
+    "deadline_or_latency": 0.0,
+    "safety_or_anti_cheat": 0.0
+  },
+  {
+    "run_name": "sft",
+    "run_kind": "trace_dir",
+    "task_id": "task_3",
+    "suite": "randomized",
+    "seed": 37,
+    "trace_source": "outputs\\policies\\sft\\task_3__randomized__37.json",
+    "episode_config": {
+      "seed": 37,
+      "content_style": "ops_brief",
+      "client_order": [
+        "CLIENT-002",
+        "CLIENT-004",
+        "CLIENT-003",
+        "CLIENT-001",
+        "CLIENT-005",
+        "CLIENT-006"
+      ],
+      "document_order": [
+        "DOC-001",
+        "DOC-007",
+        "DOC-009",
+        "DOC-003",
+        "DOC-005",
+        "DOC-004",
+        "DOC-010",
+        "DOC-002",
+        "DOC-008",
+        "DOC-006"
+      ],
+      "event_order": [
+        "EVENT-003",
+        "EVENT-005",
+        "EVENT-006",
+        "EVENT-001",
+        "EVENT-002",
+        "EVENT-004"
+      ],
+      "deadline_overrides": {
+        "EVENT-001": 4,
+        "EVENT-002": 11,
+        "EVENT-003": 12,
+        "EVENT-006": 15,
+        "EVENT-005": 19
+      }
+    },
+    "final_score": 0.001,
+    "cumulative_reward": 0,
+    "done": false,
+    "steps": 0,
+    "grader_breakdown": {
+      "deadline_accuracy": 0.001,
+      "ethical_score": 0.0007,
+      "adversarial_f1": 0.001,
+      "discovery_score": 0.0,
+      "expert_score": 0.0,
+      "ordering_score": 0.001
+    },
+    "verifier_pass": false,
+    "full_episode_solve": false,
+    "deadline_hit_rate": 0.001,
+    "privilege_trap_avoidance": 1,
+    "review_before_act_rate": 1.0,
+    "invalid_action_rate": 0.0,
+    "mean_successful_steps": 0.0,
+    "unique_action_trace_count": 0,
+    "trace_integrity": {
+      "run_kind": "trace_dir",
+      "exact_scripted_match": false
+    },
+    "outcome_correctness": 0.0,
+    "process_compliance": 0.0,
+    "deadline_or_latency": 0.0,
+    "safety_or_anti_cheat": 0.0
+  },
+  {
+    "run_name": "sft",
+    "run_kind": "trace_dir",
+    "task_id": "task_3",
+    "suite": "randomized",
+    "seed": 41,
+    "trace_source": "outputs\\policies\\sft\\task_3__randomized__41.json",
+    "episode_config": {
+      "seed": 41,
+      "content_style": "ops_brief",
+      "client_order": [
+        "CLIENT-005",
+        "CLIENT-006",
+        "CLIENT-001",
+        "CLIENT-002",
+        "CLIENT-003",
+        "CLIENT-004"
+      ],
+      "document_order": [
+        "DOC-002",
+        "DOC-003",
+        "DOC-007",
+        "DOC-001",
+        "DOC-008",
+        "DOC-006",
+        "DOC-004",
+        "DOC-009",
+        "DOC-005",
+        "DOC-010"
+      ],
+      "event_order": [
+        "EVENT-001",
+        "EVENT-006",
+        "EVENT-003",
+        "EVENT-005",
+        "EVENT-002",
+        "EVENT-004"
+      ],
+      "deadline_overrides": {
+        "EVENT-001": 5,
+        "EVENT-002": 9,
+        "EVENT-003": 14,
+        "EVENT-006": 17,
+        "EVENT-005": 16
+      }
+    },
+    "final_score": 0.001,
+    "cumulative_reward": 0,
+    "done": false,
+    "steps": 0,
+    "grader_breakdown": {
+      "deadline_accuracy": 0.001,
+      "ethical_score": 0.0007,
+      "adversarial_f1": 0.001,
+      "discovery_score": 0.0,
+      "expert_score": 0.0,
+      "ordering_score": 0.001
+    },
+    "verifier_pass": false,
+    "full_episode_solve": false,
+    "deadline_hit_rate": 0.001,
+    "privilege_trap_avoidance": 1,
+    "review_before_act_rate": 1.0,
+    "invalid_action_rate": 0.0,
+    "mean_successful_steps": 0.0,
+    "unique_action_trace_count": 0,
+    "trace_integrity": {
+      "run_kind": "trace_dir",
+      "exact_scripted_match": false
+    },
+    "outcome_correctness": 0.0,
+    "process_compliance": 0.0,
+    "deadline_or_latency": 0.0,
+    "safety_or_anti_cheat": 0.0
+  },
+  {
+    "run_name": "sft",
+    "run_kind": "trace_dir",
+    "task_id": "task_3",
+    "suite": "randomized",
+    "seed": 53,
+    "trace_source": "outputs\\policies\\sft\\task_3__randomized__53.json",
+    "episode_config": {
+      "seed": 53,
+      "content_style": "ops_brief",
+      "client_order": [
+        "CLIENT-001",
+        "CLIENT-006",
+        "CLIENT-003",
+        "CLIENT-004",
+        "CLIENT-002",
+        "CLIENT-005"
+      ],
+      "document_order": [
+        "DOC-003",
+        "DOC-005",
+        "DOC-004",
+        "DOC-002",
+        "DOC-007",
+        "DOC-001",
+        "DOC-010",
+        "DOC-008",
+        "DOC-006",
+        "DOC-009"
+      ],
+      "event_order": [
+        "EVENT-006",
+        "EVENT-004",
+        "EVENT-005",
+        "EVENT-002",
+        "EVENT-001",
+        "EVENT-003"
+      ],
+      "deadline_overrides": {
+        "EVENT-001": 5,
+        "EVENT-002": 10,
+        "EVENT-003": 11,
+        "EVENT-006": 14,
+        "EVENT-005": 17
+      }
+    },
+    "final_score": 0.001,
+    "cumulative_reward": 0,
+    "done": false,
+    "steps": 0,
+    "grader_breakdown": {
+      "deadline_accuracy": 0.001,
+      "ethical_score": 0.0007,
+      "adversarial_f1": 0.001,
+      "discovery_score": 0.0,
+      "expert_score": 0.0,
+      "ordering_score": 0.001
+    },
+    "verifier_pass": false,
+    "full_episode_solve": false,
+    "deadline_hit_rate": 0.001,
+    "privilege_trap_avoidance": 1,
+    "review_before_act_rate": 1.0,
+    "invalid_action_rate": 0.0,
+    "mean_successful_steps": 0.0,
+    "unique_action_trace_count": 0,
+    "trace_integrity": {
+      "run_kind": "trace_dir",
+      "exact_scripted_match": false
+    },
+    "outcome_correctness": 0.0,
+    "process_compliance": 0.0,
+    "deadline_or_latency": 0.0,
+    "safety_or_anti_cheat": 0.0
+  }
+]
