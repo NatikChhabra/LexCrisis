@@ -15,6 +15,31 @@ from lexcrisis_env.policy_runtime import build_user_message, parse_action_payloa
 from lexcrisis_env.tasks import SCRIPTED_BASELINES, TASK_DEFINITIONS
 
 
+def _init_wandb_grpo(args: argparse.Namespace) -> bool:
+    """Initialize W&B for the GRPO run. Returns True if successful."""
+    try:
+        import wandb  # noqa: PLC0415
+    except ImportError:
+        print("[tracking] wandb not installed — skipping. Run `pip install wandb` to enable.")
+        return False
+
+    project = getattr(args, "wandb_project", None) or "lexcrisis-grpo"
+    run_name = getattr(args, "wandb_run_name", None) or (
+        f"grpo-tasks={'_'.join(args.task_ids)}-steps{args.max_train_steps}"
+    )
+    config = {
+        "model_path": str(args.model_path),
+        "task_ids": args.task_ids,
+        "max_train_steps": args.max_train_steps,
+        "learning_rate": args.learning_rate,
+        "seed": args.seed,
+        "environment": "lexcrisis",
+    }
+    wandb.init(project=project, name=run_name, config=config, tags=["grpo", "lexcrisis", "openenv"])
+    print(f"[tracking] W&B GRPO run started: {wandb.run.url}")
+    return True
+
+
 def completion_to_text(completion: Any) -> str:
     """Normalise TRL completion payloads into raw text."""
 
@@ -124,6 +149,21 @@ def main() -> None:
     parser.add_argument("--seeds", nargs="*", type=int, default=[11, 23, 37, 41, 53])
     parser.add_argument("--learning-rate", type=float, default=5e-6)
     parser.add_argument("--seed", type=int, default=42)
+    parser.add_argument(
+        "--wandb-project",
+        default="lexcrisis-grpo",
+        help="W&B project name (default: lexcrisis-grpo).",
+    )
+    parser.add_argument(
+        "--wandb-run-name",
+        default=None,
+        help="W&B run name. Auto-generated if omitted.",
+    )
+    parser.add_argument(
+        "--no-wandb",
+        action="store_true",
+        help="Disable W&B tracking.",
+    )
     args = parser.parse_args()
 
     try:
@@ -131,6 +171,8 @@ def main() -> None:
         from trl import GRPOConfig, GRPOTrainer
     except ImportError as exc:
         raise RuntimeError("train_grpo.py requires datasets and trl.") from exc
+
+    _wandb_active = False if getattr(args, "no_wandb", False) else _init_wandb_grpo(args)
 
     dataset_rows = build_step_dataset(args.task_ids, args.seeds)
     dataset = Dataset.from_list(dataset_rows)
@@ -174,7 +216,7 @@ def main() -> None:
         "per_device_train_batch_size": 1,
         "gradient_accumulation_steps": 4,
         "seed": args.seed,
-        "report_to": [],
+        "report_to": "wandb" if _wandb_active else "none",
     }
     optional_config = {
         "num_generations": 4,
@@ -223,6 +265,25 @@ def main() -> None:
     }
     merge_metrics_file(args.metrics, payload)
     print(json.dumps(payload, indent=2))
+
+    if _wandb_active:
+        try:
+            import wandb  # noqa: PLC0415
+            if reward_curve:
+                wandb.log({
+                    "grpo/mean_reward_final": reward_curve[-1],
+                    "grpo/mean_reward_max": max(reward_curve),
+                    "grpo/reward_curve": wandb.plot.line_series(
+                        xs=list(range(len(reward_curve))),
+                        ys=[reward_curve],
+                        keys=["mean_reward"],
+                        title="GRPO Reward Curve",
+                        xname="step",
+                    ),
+                })
+            wandb.finish()
+        except Exception as exc:  # noqa: BLE001
+            print(f"[tracking] W&B finish failed (non-fatal): {exc}")
 
 
 if __name__ == "__main__":

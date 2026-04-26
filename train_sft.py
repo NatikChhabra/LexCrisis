@@ -7,7 +7,44 @@ import argparse
 import inspect
 import json
 from pathlib import Path
-from typing import Any, Dict, List, Tuple
+from typing import Any, Dict, List, Optional, Tuple
+
+
+def _init_wandb(args: argparse.Namespace, extra_config: Optional[Dict[str, Any]] = None) -> bool:
+    """Initialize W&B if the library is installed and a project is configured.
+
+    Returns True if W&B was successfully initialized, False otherwise.
+    Training proceeds normally in both cases.
+    """
+    try:
+        import wandb  # noqa: PLC0415
+    except ImportError:
+        print("[tracking] wandb not installed — skipping experiment tracking. "
+              "Run `pip install wandb` to enable it.")
+        return False
+
+    project = args.wandb_project or "lexcrisis-sft"
+    run_name = args.wandb_run_name or (
+        f"sft-{Path(args.model).name}-steps{args.max_steps}-lr{args.learning_rate:.0e}"
+    )
+    config = {
+        "model": args.model,
+        "max_steps": args.max_steps,
+        "batch_size": args.batch_size,
+        "gradient_accumulation_steps": args.gradient_accumulation,
+        "learning_rate": args.learning_rate,
+        "lora_rank": args.lora_rank,
+        "lora_alpha": args.lora_alpha,
+        "max_seq_length": args.max_seq_length,
+        "seed": args.seed,
+        "environment": "lexcrisis",
+        "tasks": "task_1,task_2,task_3",
+    }
+    if extra_config:
+        config.update(extra_config)
+    wandb.init(project=project, name=run_name, config=config, tags=["sft", "lexcrisis", "openenv"])
+    print(f"[tracking] W&B run started: {wandb.run.url}")
+    return True
 
 
 TARGET_MODULES = [
@@ -151,7 +188,7 @@ def build_trainer(
         learning_rate=args.learning_rate,
         logging_steps=args.logging_steps,
         save_strategy="no",
-        report_to="none",
+        report_to="wandb" if _wandb_active else "none",
         lr_scheduler_type="linear",
         weight_decay=0.01,
         optim="adamw_8bit" if backend_info["backend"] == "unsloth" else "adamw_torch",
@@ -211,6 +248,21 @@ def main() -> None:
         action="store_true",
         help="Allow CPU-only training (very slow, not recommended for competition runs).",
     )
+    parser.add_argument(
+        "--wandb-project",
+        default="lexcrisis-sft",
+        help="Weights & Biases project name (default: lexcrisis-sft).",
+    )
+    parser.add_argument(
+        "--wandb-run-name",
+        default=None,
+        help="W&B run name. Auto-generated from model + hyperparams if omitted.",
+    )
+    parser.add_argument(
+        "--no-wandb",
+        action="store_true",
+        help="Disable W&B tracking even if wandb is installed.",
+    )
     args = parser.parse_args()
 
     try:
@@ -225,6 +277,8 @@ def main() -> None:
             "Best action for hackathon quality and speed: run on Colab/HF GPU and rerun this exact command there.\n"
             "If you still want a local smoke test, append --allow-cpu --max-steps 5 --max-seq-length 512."
         )
+
+    _wandb_active = False if args.no_wandb else _init_wandb(args)
 
     rows = load_jsonl(args.data)
     model, tokenizer, backend_info = load_model_and_tokenizer(args)
@@ -267,6 +321,20 @@ def main() -> None:
     }
     update_metrics_file(args.metrics, metrics_payload)
     print(json.dumps(metrics_payload, indent=2))
+
+    # Log final summary metrics to W&B and close the run.
+    if _wandb_active:
+        try:
+            import wandb  # noqa: PLC0415
+            wandb.log({
+                "sft/final_loss": sft_loss[-1] if sft_loss else None,
+                "sft/min_loss": min(sft_loss) if sft_loss else None,
+                "sft/train_runtime_seconds": metrics_payload["sft_train_runtime_seconds"],
+                "sft/examples": metrics_payload["sft_examples"],
+            })
+            wandb.finish()
+        except Exception as exc:  # noqa: BLE001
+            print(f"[tracking] W&B finish failed (non-fatal): {exc}")
 
 
 if __name__ == "__main__":
