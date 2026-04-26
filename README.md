@@ -44,7 +44,7 @@ LexCrisis provides three tasks (`task_1`, `task_2`, `task_3`) with deterministic
 - `base` fixed-suite scores: `task_1=0.001`, `task_2=0.001`, `task_3=0.001`
 - `sft` fixed-suite scores: `task_1=0.001`, `task_2=0.0609`, `task_3=0.001`
 - `oracle` fixed-suite scores: `task_1=0.999`, `task_2=0.9335`, `task_3=0.9825`
-- This shows measurable uplift on `task_2` in the current artifact set and clear headroom to oracle.
+- This shows measurable uplift on `task_2` after SFT (base 0.001 → sft 0.0609; oracle ceiling 0.93 — clear headroom to close).
 
 ### 4) Why it matters
 
@@ -55,7 +55,7 @@ This benchmark targets a real, underexplored capability gap for agentic systems:
 - Hugging Face Space: [https://huggingface.co/spaces/Natik22may/LexCrisis](https://huggingface.co/spaces/Natik22may/LexCrisis)
 - Colab notebook: [https://colab.research.google.com/github/RadheRadheontop/LexCrisis/blob/main/train_lexcrisis.ipynb](https://colab.research.google.com/github/RadheRadheontop/LexCrisis/blob/main/train_lexcrisis.ipynb)
 - Code repository: [https://github.com/RadheRadheontop/LexCrisis](https://github.com/RadheRadheontop/LexCrisis)
-- Demo video: **[ADD YOUR FINAL YOUTUBE/LOOM URL HERE before submission]** (< 2 minutes; required for judging — see `VIDEO_SCRIPT.md`)
+- **Demo video**: **[https://youtu.be/Elf5wNUOK38](https://youtu.be/Elf5wNUOK38)** — 2:41 · Meta Hackathon 2026 · LexCrisis benchmark walkthrough
 
 ## Why This Is Interesting
 
