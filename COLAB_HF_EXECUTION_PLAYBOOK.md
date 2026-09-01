@@ -43,7 +43,7 @@ The codebase has been upgraded to unblock execution and improve legal benchmark 
 set -euo pipefail
 cd /content
 rm -rf LexCrisis
-git clone https://github.com/RadheRadheontop/LexCrisis.git
+git clone https://github.com/NatikChhabra/LexCrisis.git
 cd LexCrisis
 
 pip install -U pip setuptools wheel

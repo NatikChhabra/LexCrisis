@@ -7,8 +7,8 @@
 *Meta × PyTorch OpenEnv Hackathon 2026*
 
 [![HF Space](https://img.shields.io/badge/🤗%20HF%20Space-Live%20Demo-blue)](https://huggingface.co/spaces/Natik22may/LexCrisis)
-[![GitHub](https://img.shields.io/badge/GitHub-Source%20Code-black)](https://github.com/RadheRadheontop/LexCrisis)
-[![Colab](https://img.shields.io/badge/Colab-Training%20Notebook-orange)](https://colab.research.google.com/github/RadheRadheontop/LexCrisis/blob/main/train_lexcrisis.ipynb)
+[![GitHub](https://img.shields.io/badge/GitHub-Source%20Code-black)](https://github.com/NatikChhabra/LexCrisis)
+[![Colab](https://img.shields.io/badge/Colab-Training%20Notebook-orange)](https://colab.research.google.com/github/NatikChhabra/LexCrisis/blob/main/train_lexcrisis.ipynb)
 [![YouTube](https://img.shields.io/badge/YouTube-Demo%20Video-red)](https://youtu.be/Elf5wNUOK38)
 
 </div>
@@ -149,7 +149,7 @@ This produces ~70–100 training examples per task — one per oracle step. The 
 
 ### Step 2: Fine-tune with Unsloth + TRL
 
-We fine-tune **Qwen2.5-1.5B-Instruct** with 4-bit NF4 quantisation and LoRA (rank 16) using Unsloth and TRL's `SFTTrainer`. Full pipeline in the [Colab notebook](https://colab.research.google.com/github/RadheRadheontop/LexCrisis/blob/main/train_lexcrisis.ipynb) — runs on a free T4 in ~20 minutes.
+We fine-tune **Qwen2.5-1.5B-Instruct** with 4-bit NF4 quantisation and LoRA (rank 16) using Unsloth and TRL's `SFTTrainer`. Full pipeline in the [Colab notebook](https://colab.research.google.com/github/NatikChhabra/LexCrisis/blob/main/train_lexcrisis.ipynb) — runs on a free T4 in ~20 minutes.
 
 ```python
 trainer = SFTTrainer(
@@ -306,6 +306,6 @@ The privilege-waiver trap is the environment's strongest statement: a reward-hac
 
 *LexCrisis — OpenEnv Hackathon | Meta × PyTorch × Hugging Face × Scaler*
 
-[HF Space](https://huggingface.co/spaces/Natik22may/LexCrisis) · [GitHub](https://github.com/RadheRadheontop/LexCrisis) · [Colab](https://colab.research.google.com/github/RadheRadheontop/LexCrisis/blob/main/train_lexcrisis.ipynb) · [YouTube](https://youtu.be/Elf5wNUOK38)
+[HF Space](https://huggingface.co/spaces/Natik22may/LexCrisis) · [GitHub](https://github.com/NatikChhabra/LexCrisis) · [Colab](https://colab.research.google.com/github/NatikChhabra/LexCrisis/blob/main/train_lexcrisis.ipynb) · [YouTube](https://youtu.be/Elf5wNUOK38)
 
 </div>
