@@ -136,12 +136,19 @@ def breakdown_task_2(findings: Dict[str, Any], ground_truth: Dict[str, Any]) -> 
         predicted_doctrine = normalize(predicted.get("doctrine"))
         truth_doctrine = normalize(truth.get("doctrine"))
         if truth_doctrine:
-            doctrine_score += _keyword_overlap(
-                predicted_doctrine,
-                [truth_doctrine, "iea", "section", "126", "129", "crime-fraud", "at-issue"],
-            )
-        else:
-            doctrine_score += 1.0 if not predicted_doctrine else 0.7
+            # Score against this document's doctrine only. The previous version
+            # also accepted the generic terms "iea", "section", "126", "129",
+            # "crime-fraud" and "at-issue", so one constant string containing
+            # them scored 0.81 here regardless of the document.
+            doctrine_score += _keyword_overlap(predicted_doctrine, [truth_doctrine])
+        elif predicted_doctrine == "none":
+            # An explicit assertion that no doctrine applies. Correct.
+            doctrine_score += 1.0
+        elif predicted_doctrine:
+            # Asserted some doctrine where none applies. Wrong, but engaged.
+            doctrine_score += 0.3
+        # Field absent entirely: no credit. Previously this scored a full 1.0,
+        # which gave an empty submission 0.0609 on this task.
 
         predicted_action = normalize(recommendations.get(doc_id, {}).get("action"))
         truth_action = normalize(truth.get("action"))
@@ -254,13 +261,21 @@ def breakdown_task_3(findings: Dict[str, Any], ground_truth: Dict[str, Any]) -> 
         event_id = action.get("event_id")
         if event_id and event_id not in action_order:
             action_order.append(event_id)
-    expected_order = [event_id for event_id in ground_truth.get("priority_order", []) if event_id in action_order]
+    # Score against the FULL ground-truth ordering. Filtering it down to events
+    # the agent happened to touch meant an agent that handled 2 of 6 events in
+    # the right order scored 0.999, identical to handling all six, because the
+    # untouched events could not contribute an incorrectly-ordered pair.
+    full_order = list(ground_truth.get("priority_order", []))
     ordering_pairs = 0
     correct_pairs = 0
-    for left_index, left_event in enumerate(expected_order):
-        for right_event in expected_order[left_index + 1 :]:
+    for left_index, left_event in enumerate(full_order):
+        for right_event in full_order[left_index + 1 :]:
             ordering_pairs += 1
-            if action_order.index(left_event) < action_order.index(right_event):
+            if (
+                left_event in action_order
+                and right_event in action_order
+                and action_order.index(left_event) < action_order.index(right_event)
+            ):
                 correct_pairs += 1
     ordering_score = _safe_divide(correct_pairs, ordering_pairs) if ordering_pairs else _SCORE_FLOOR
 
