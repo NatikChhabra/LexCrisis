@@ -187,19 +187,67 @@ The `--no-scripted-hints` flag is critical. The model sees only the current obse
 
 ## Results
 
-Scores from `outputs/evals/summary.json` (fixed-suite episodes, non-scripted model traces):
+> **Retraction, 1 September 2026.** The results below were wrong and are kept
+> here with the correction rather than deleted. The reported SFT score of 0.061
+> on task_2 is **what an empty submission scores**. Details follow the table.
+
+Scores as originally published from `outputs/evals/summary.json` (fixed-suite
+episodes, non-scripted model traces):
 
 | Policy | task_1 | task_2 | task_3 |
 |---|---|---|---|
 | **Base** (Qwen2.5-1.5B, no training) | 0.001 | 0.001 | 0.001 |
-| **SFT** (our fine-tuned model) | 0.001 | **0.061** | 0.001 |
+| **SFT** (our fine-tuned model) | 0.001 | ~~**0.061**~~ retracted | 0.001 |
 | Oracle ceiling | 0.999 | 0.934 | 0.983 |
 
 ![Score Comparison](assets/score_comparison.png)
 
-The SFT model shows **measurable uplift on task_2** — the privilege review task — rising from 0.001 to 0.061. This is where the oracle training signal is most direct: the trajectory explicitly handles DOC-006 and DOC-007, and the model learns to check waiver triggers before finalising classifications.
+### What was wrong
 
-The honest read on task_1 and task_3: both remain near-zero in the current artifact set. A 1.5B parameter model needs more training steps and richer curriculum to generalise to conflict screening and incident triage from SFT alone. The oracle ceiling (0.999 / 0.934 / 0.983) shows the headroom is there — a longer GRPO refinement pass is the clear next step.
+I claimed measurable uplift on task_2, from 0.001 to 0.061. Auditing my own
+grader four months later, I found three separate problems:
+
+1. **0.0609 is the score for submitting nothing.** In `breakdown_task_2`, a
+   document whose ground truth carries no doctrine awarded a full 1.0 when the
+   prediction was *absent*. Three of ten documents qualify. Silence scored
+   0.0609; a wrong but genuine answer scored 0.0429. The reward gradient
+   pointed at emitting nothing.
+2. **The figure was one fixed-seed episode.** The five-seed randomized suite
+   scores 0.001 for the same run. Every other SFT row, both suites, is 0.001.
+3. **The reported score disagreed with its own breakdown.** It was read from
+   the engine's running score, which is only updated inside `step()` and
+   initialises to the score floor, rather than from the grader applied to the
+   final findings.
+
+A constant keyword-stuffed string — `"section 126 129 iea crime-fraud
+at-issue"` — also scored 0.2849, roughly 4.7x the figure I was reporting as a
+training result, with no analysis performed at all.
+
+### What is true now
+
+The oracle ceiling survives, and improves slightly once the free credit is
+removed: **0.999 / 0.9391 / 0.9825**, identical across both suites, with zero
+score mismatches.
+
+The base and SFT figures are **unknown**. They cannot be regenerated from this
+repository, because the traces they derive from were never committed. They need
+re-running against the fixed grader before any claim is made in either
+direction.
+
+### What changed in the code
+
+Eight issues filed (#1–#8); five fixed and merged. `tests/test_grader_invariants.py`
+encodes five properties — four of which fail on the pre-fix grader:
+
+- an empty submission scores at the floor on every task
+- a wrong but genuine answer outscores silence
+- a constant keyword-stuffed string does not carry the doctrine column
+- partial coverage does not score the same as full coverage
+- `grade_task_2` equals the documented weighted sum of its own breakdown
+
+The lesson I would keep: an *exact* verifier is not the same as a *correct*
+one. I chose deterministic grading over an LLM judge to avoid unreliability,
+and then had no test for the thing doing the grading.
 
 ![Reward Curve](assets/reward_curve.png)
 

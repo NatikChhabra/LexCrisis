@@ -12,7 +12,7 @@ from statistics import mean
 from typing import Any, Dict, Iterable, List, Optional, Tuple
 
 from lexcrisis_env.env import LexCrisisEngine
-from lexcrisis_env.graders import GRADER_BREAKDOWNS, GROUND_TRUTH
+from lexcrisis_env.graders import GRADER_BREAKDOWNS, GRADERS, GROUND_TRUTH
 from lexcrisis_env.models import Action
 from lexcrisis_env.tasks import CRISIS_GROUND_TRUTH, SCRIPTED_BASELINES, TASK_DEFINITIONS
 
@@ -143,7 +143,20 @@ def run_episode(
         }
     breakdown = GRADER_BREAKDOWNS[task_id](findings, truth)
     total_steps = max(1, len(rewards))
-    final_score = engine.last_score
+
+    # Score the FINAL findings against the SAME truth the breakdown used.
+    #
+    # This previously read `engine.last_score`, which is only updated inside
+    # `step()` and initialises to the score floor. An episode with zero actions
+    # therefore reported 0.001 no matter what its breakdown said, and an episode
+    # whose last step predated its final findings reported a stale number. In
+    # the published artifacts that produced a reported 0.001 against a breakdown
+    # implying 0.0609 for `base`, and 0.0609 against 0.1089 for `sft`.
+    #
+    # `engine_score` is kept alongside so the two can be compared rather than
+    # silently reconciled.
+    final_score = GRADERS[task_id](findings, truth)
+    engine_score = engine.last_score
     done = engine.state().done
     last_verifier = engine.episode_info().get("verifier_columns", {})
     _debug_log(
@@ -167,6 +180,8 @@ def run_episode(
         "trace_source": trace_source,
         "episode_config": engine.episode_config,
         "final_score": round(final_score, 4),
+        "engine_score": round(engine_score, 4),
+        "engine_score_matches_grader": abs(engine_score - final_score) < 0.005,
         "cumulative_reward": round(sum(rewards), 4),
         "done": done,
         "steps": len(rewards),
@@ -218,6 +233,14 @@ def aggregate_rows(rows: Iterable[Dict[str, Any]]) -> List[Dict[str, Any]]:
                 "task_id": task_id,
                 "episodes": len(group),
                 "avg_final_score": round(mean(row["final_score"] for row in group), 4),
+                "avg_engine_score": round(mean(row["engine_score"] for row in group), 4),
+                # Episodes where the engine's running score disagreed with the
+                # grader applied to the final findings. Should be 0. Anything
+                # else means the two are drifting again and no figure in this
+                # file should be quoted until it is understood.
+                "episodes_with_score_mismatch": sum(
+                    0 if row["engine_score_matches_grader"] else 1 for row in group
+                ),
                 "avg_cumulative_reward": round(mean(row["cumulative_reward"] for row in group), 4),
                 "verifier_pass_rate": round(mean(1.0 if row["verifier_pass"] else 0.0 for row in group), 4),
                 "full_episode_solve_rate": round(mean(1.0 if row["full_episode_solve"] else 0.0 for row in group), 4),

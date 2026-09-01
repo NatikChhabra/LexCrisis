@@ -40,11 +40,30 @@ LexCrisis provides three tasks (`task_1`, `task_2`, `task_3`) with deterministic
 - Submission claims are grounded only in authentic model traces (`collect_traces.py`) and aggregate artifacts (`evaluate_runs.py`).
 - Run `python submission_audit.py` before submission; do not claim improvement if it fails.
 
-**Current evidence snapshot (from `outputs/evals/summary.json`):**
-- `base` fixed-suite scores: `task_1=0.001`, `task_2=0.001`, `task_3=0.001`
-- `sft` fixed-suite scores: `task_1=0.001`, `task_2=0.0609`, `task_3=0.001`
-- `oracle` fixed-suite scores: `task_1=0.999`, `task_2=0.9335`, `task_3=0.9825`
-- This shows measurable uplift on `task_2` after SFT (base 0.001 → sft 0.0609; oracle ceiling 0.93 — clear headroom to close).
+**Current evidence snapshot — the SFT claim is RETRACTED (1 Sep 2026).**
+
+This section previously reported "measurable uplift on `task_2` after SFT
+(base 0.001 → sft 0.0609)". That claim does not hold. **0.0609 is what an
+empty submission scores on task_2.** The doctrine column awarded full credit
+when the field was absent, on the three of ten documents whose ground truth
+carries no doctrine. See issues #1 and #6.
+
+Two further problems with the retracted figure: it came from the single
+fixed-seed episode, while the five-seed randomized suite scores 0.001 for the
+same run; and the reported score was read from the engine's running score
+rather than the grader applied to the final findings, so it disagreed with its
+own breakdown (issue #3).
+
+**What is currently defensible**, re-run against the fixed grader:
+- `oracle`: `task_1=0.999`, `task_2=0.9391`, `task_3=0.9825` — both suites,
+  0 score mismatches.
+
+**What is not yet known:** the `base` and `sft` figures. They cannot be
+regenerated from this repository because the traces they derive from were never
+committed (issue #7). They require re-running inference against the fixed
+grader, and until then no uplift should be claimed in either direction.
+
+Verify the grader yourself: `python tests/test_grader_invariants.py`
 
 ### 4) Why it matters
 
