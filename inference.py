@@ -135,7 +135,11 @@ def run_task(
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--model-name", default="Qwen/Qwen2.5-72B-Instruct")
+    parser.add_argument(
+        "--model-name",
+        default="Qwen/Qwen2.5-1.5B-Instruct",
+        help="Remote model name. Defaults to the model the README and Blog report.",
+    )
     parser.add_argument("--model-path", default=None)
     parser.add_argument("--api-base-url", default=None)
     parser.add_argument("--hf-token", default=None)
