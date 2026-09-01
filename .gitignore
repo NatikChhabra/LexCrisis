@@ -31,6 +31,12 @@ test_*.log
 stress_test.py
 output.txt
 
+# ...but the real test suite must be tracked. Without this the repository
+# cannot contain a test by construction, which is how it reached v1.0.0
+# with none.
+!tests/
+!tests/**/*.py
+
 # Dev files
 testsprite_tests/
 *.egg-info/
