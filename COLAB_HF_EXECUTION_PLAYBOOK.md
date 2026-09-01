@@ -77,7 +77,7 @@ python self_improve.py --phase sft --tasks task_1 task_2 task_3
 set -euo pipefail
 cd /content/LexCrisis
 python train_sft.py \
-  --model "unsloth/Qwen2.5-0.5B-Instruct" \
+  --model "unsloth/Qwen2.5-1.5B-Instruct" \
   --data "outputs/self_improve/sft_examples.jsonl" \
   --output-dir "outputs/models/sft" \
   --metrics "outputs/training_metrics.json" \
@@ -91,7 +91,7 @@ If OOM:
 
 ```bash
 python train_sft.py \
-  --model "unsloth/Qwen2.5-0.5B-Instruct" \
+  --model "unsloth/Qwen2.5-1.5B-Instruct" \
   --data "outputs/self_improve/sft_examples.jsonl" \
   --output-dir "outputs/models/sft" \
   --metrics "outputs/training_metrics.json" \
@@ -100,6 +100,14 @@ python train_sft.py \
   --gradient-accumulation 4 \
   --max-steps 60
 ```
+
+> **Base model.** `Qwen2.5-1.5B-Instruct` throughout, matching the README, the
+> Blog and `train_lexcrisis.ipynb`. This playbook previously used the 0.5B
+> model, which meant the numbers it produced could not honestly be reported
+> under the 1.5B name every other document uses (issue #16). Loaded in 4-bit,
+> 1.5B fits a free-tier T4 comfortably; if it does not fit on the runner you
+> have, reduce `--max-seq-length` and `--batch-size` first, and change the
+> model **only** if you also change the README and Blog to say so.
 
 ### 4) Collect traces (no API key mode)
 
@@ -110,7 +118,7 @@ cd /content/LexCrisis
 
 python collect_traces.py \
   --run-name base \
-  --model-path "unsloth/Qwen2.5-0.5B-Instruct" \
+  --model-path "unsloth/Qwen2.5-1.5B-Instruct" \
   --task-ids task_1 task_2 task_3 \
   --seeds 11 23 37 41 53 \
   --trace-dir outputs/policies/base \
