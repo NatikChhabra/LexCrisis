@@ -42,4 +42,19 @@ testsprite_tests/
 *.egg-info/
 
 # Outputs
-outputs/
+#
+# `outputs/*` rather than `outputs/`: git will not descend into an excluded
+# DIRECTORY, so a negation under `outputs/` can never re-include anything.
+# That is why commit 7bd866c had to *force*-add the eval artifacts, and why the
+# traces they derive from were silently never committed at all - `git add`
+# appeared to succeed and staged nothing.
+outputs/*
+
+# Evidence is tracked. Weights are not.
+!outputs/evals/
+!outputs/policies/
+!outputs/traces/
+!outputs/training_metrics.json
+
+# Weights and checkpoints stay excluded - large, and not evidence.
+outputs/models/
