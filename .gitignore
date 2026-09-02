@@ -58,3 +58,4 @@ outputs/*
 
 # Weights and checkpoints stay excluded - large, and not evidence.
 outputs/models/
+debug-*.log
