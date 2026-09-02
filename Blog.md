@@ -6,6 +6,10 @@
 
 *Meta × PyTorch OpenEnv Hackathon 2026*
 
+> **Before you watch:** the video states a 0.061 SFT result on task_2. That
+> number is retracted — see [Results](#results) below. It is what an empty
+> submission scores, not a fine-tuning gain.
+
 [![HF Space](https://img.shields.io/badge/🤗%20HF%20Space-Live%20Demo-blue)](https://huggingface.co/spaces/Natik22may/LexCrisis)
 [![GitHub](https://img.shields.io/badge/GitHub-Source%20Code-black)](https://github.com/NatikChhabra/LexCrisis)
 [![Colab](https://img.shields.io/badge/Colab-Training%20Notebook-orange)](https://colab.research.google.com/github/NatikChhabra/LexCrisis/blob/main/train_lexcrisis.ipynb)

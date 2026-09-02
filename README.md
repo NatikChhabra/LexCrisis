@@ -75,7 +75,7 @@ This benchmark targets a real, underexplored capability gap for agentic systems:
 - **Blog writeup (Blog.md)**: [Blog.md in HF Space](https://huggingface.co/spaces/Natik22may/LexCrisis/blob/main/Blog.md) — environment design, reward table, training pipeline, results
 - **Colab notebook**: [Open in Colab](https://colab.research.google.com/github/NatikChhabra/LexCrisis/blob/main/train_lexcrisis.ipynb)
 - **Code repository**: [https://github.com/NatikChhabra/LexCrisis](https://github.com/NatikChhabra/LexCrisis)
-- **Demo video**: [https://youtu.be/Elf5wNUOK38](https://youtu.be/Elf5wNUOK38) — 2:41 · Meta Hackathon 2026 · LexCrisis benchmark walkthrough
+- **Demo video**: [https://youtu.be/Elf5wNUOK38](https://youtu.be/Elf5wNUOK38) — 2:41 · Meta Hackathon 2026 · LexCrisis benchmark walkthrough. **States a 0.061 SFT result that is retracted** — see the retraction note above before treating any number in it as current.
 
 ## Why This Is Interesting
 
