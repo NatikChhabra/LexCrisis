@@ -586,6 +586,317 @@
         grid-template-columns: 1fr;
       }
     }
+
+    /* ---- audit-led landing sections ---- */
+
+    .hero-sub {
+      max-width: 70ch;
+      margin-top: 18px;
+      color: var(--text-muted);
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    .audit-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 24px;
+      flex-wrap: wrap;
+      margin-bottom: 18px;
+    }
+
+    .audit-title {
+      margin-top: 8px;
+      max-width: 30ch;
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+    }
+
+    .audit-tabs {
+      display: flex;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+
+    .audit-tab {
+      border-radius: 999px;
+      padding: 9px 18px;
+      font-family: var(--font-sans);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      cursor: pointer;
+      border: 1px solid var(--border-strong);
+      background: var(--bg-card);
+      color: var(--text-muted);
+    }
+
+    .audit-tab.is-active {
+      border-color: rgba(120, 174, 252, 0.9);
+      background: rgba(120, 174, 252, 0.14);
+      color: var(--blue);
+    }
+
+    .audit-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .audit-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 18px;
+      min-width: 0;
+    }
+
+    .audit-card.is-flagged {
+      background: rgba(238, 116, 106, 0.07);
+      border-color: rgba(238, 116, 106, 0.28);
+    }
+
+    .audit-card label {
+      display: block;
+      margin-bottom: 10px;
+      color: var(--text-muted);
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-weight: 800;
+    }
+
+    .audit-value {
+      margin-bottom: 10px;
+      font-family: var(--font-mono);
+      font-size: 34px;
+      font-weight: 600;
+      letter-spacing: -0.03em;
+    }
+
+    .audit-card p {
+      margin: 0;
+      color: var(--text-soft);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .audit-summary {
+      margin-top: 16px;
+      padding: 16px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      color: var(--text-soft);
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    .audit-chips {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 16px;
+    }
+
+    .chip {
+      border-radius: 999px;
+      padding: 6px 12px;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .chip-cyan { color: var(--cyan); background: rgba(107, 213, 200, 0.12); }
+    .chip-green { color: var(--green); background: rgba(149, 212, 127, 0.12); }
+    .chip-amber { color: var(--amber); background: rgba(228, 195, 111, 0.12); }
+
+    .defensible-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .defensible-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 16px;
+      min-width: 0;
+    }
+
+    .score-row {
+      display: flex;
+      gap: 18px;
+      align-items: baseline;
+      margin-top: 14px;
+    }
+
+    .score-row label {
+      display: block;
+      color: var(--text-muted);
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-weight: 800;
+    }
+
+    .mono-green {
+      font-family: var(--font-mono);
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--green);
+    }
+
+    .mono-soft {
+      font-family: var(--font-mono);
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--text-soft);
+    }
+
+    .substance {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(320px, 0.7fr);
+      gap: 20px;
+    }
+
+    .cite-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .cite-row {
+      display: flex;
+      gap: 12px;
+      align-items: baseline;
+    }
+
+    .cite-key {
+      flex-shrink: 0;
+      width: 92px;
+      font-family: var(--font-mono);
+      font-size: 13px;
+      color: var(--blue);
+    }
+
+    .cite-val {
+      color: var(--text-soft);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .open-question {
+      margin-top: 18px;
+      padding: 14px 15px;
+      background: rgba(228, 195, 111, 0.08);
+      border: 1px solid rgba(228, 195, 111, 0.2);
+      border-radius: var(--radius-md);
+    }
+
+    .open-question label {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--amber);
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-weight: 800;
+    }
+
+    .open-question div {
+      color: var(--text-soft);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .open-question code {
+      font-family: var(--font-mono);
+      color: var(--text);
+    }
+
+    .verifier-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .verifier-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 12px 14px;
+      font-family: var(--font-mono);
+      font-size: 13px;
+      color: var(--text-soft);
+    }
+
+    .penalty-note {
+      margin-top: 14px;
+      color: var(--text-muted);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .penalty-note .penalty {
+      font-family: var(--font-mono);
+      color: var(--red);
+    }
+
+    .who-block {
+      display: flex;
+      justify-content: space-between;
+      gap: 32px;
+      flex-wrap: wrap;
+      align-items: flex-start;
+    }
+
+    .who-copy { max-width: 62ch; }
+
+    .who-links {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+
+    .who-link {
+      background: var(--bg-card);
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius-md);
+      padding: 12px 18px;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-soft);
+      text-decoration: none;
+    }
+
+    .who-link:hover { border-color: rgba(120, 174, 252, 0.6); }
+
+    .who-link-primary {
+      background: rgba(120, 174, 252, 0.12);
+      border-color: rgba(120, 174, 252, 0.3);
+      color: var(--blue);
+    }
+
+    @media (max-width: 1080px) {
+      .audit-grid,
+      .defensible-grid,
+      .substance { grid-template-columns: minmax(0, 1fr); }
+
+      .audit-title { font-size: 24px; }
+    }
+
+    @media (max-width: 680px) {
+      .audit-head { flex-direction: column; gap: 14px; }
+      .audit-tab { flex: 1; }
+      .who-links { width: 100%; }
+      .cite-key { width: 84px; }
+    }
   </style>
 </head>
 <body>
@@ -593,13 +904,16 @@
     <section class="hero">
       <div class="panel">
         <div class="panel-inner">
-          <div class="eyebrow">Law + OpenEnv</div>
+          <div class="eyebrow">OpenEnv &middot; Legal operations</div>
           <h1>LexCrisis</h1>
           <div class="hero-copy">
-            A legal operations incident-response benchmark for <strong>product-liability litigation</strong>.
-            The current case study is pharmaceutical, but the benchmark is meant to represent broader
-            regulated-industry legal workflows: conflicts, privilege, deadlines, adversarial discovery,
-            and ethical escalation under pressure.
+            A reinforcement-learning benchmark that scores agents on <strong>running a legal matter</strong> &mdash;
+            conflicts, privilege, deadlines, adversarial discovery &mdash; using four deterministic verifiers
+            instead of an LLM judge.
+          </div>
+          <div class="hero-sub">
+            Its headline result was wrong. I found that myself, and this page opens with it because it is the
+            most useful thing I can tell you about the benchmark.
           </div>
         </div>
       </div>
@@ -608,36 +922,153 @@
         <div class="panel-inner">
           <div class="mini-grid">
             <div class="mini-card">
-              <label>Domain</label>
-              <div>Law</div>
-            </div>
-            <div class="mini-card">
-              <label>Tasks</label>
+              <label>Environments</label>
               <div>3</div>
             </div>
             <div class="mini-card">
-              <label>Scenario</label>
-              <div>Product Liability</div>
+              <label>Verifier columns</label>
+              <div>4</div>
             </div>
             <div class="mini-card">
-              <label>Focus</label>
-              <div>Legal Ops</div>
+              <label>Defects found</label>
+              <div>13</div>
+            </div>
+            <div class="mini-card">
+              <label>Fixed</label>
+              <div>12</div>
             </div>
           </div>
 
           <div class="hero-strip">
             <div class="hero-pill">
-              <label>Track One</label>
-              <div>Conflict screening and intake discipline</div>
+              <label>Jurisdiction</label>
+              <div>Indian &mdash; Bharatiya Sakshya Adhiniyam 2023, Bar Council rules</div>
             </div>
-            <div class="hero-pill">
-              <label>Track Two</label>
-              <div>Privilege review with waiver exposure</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="panel-inner">
+        <div class="audit-head">
+          <div>
+            <h2 class="section-title">The audit</h2>
+            <div class="audit-title">What I reported, and what was actually true</div>
+          </div>
+          <div class="audit-tabs">
+            <button class="audit-tab is-active" id="tabReported" onclick="setAuditView('reported')">Reported</button>
+            <button class="audit-tab" id="tabVerified" onclick="setAuditView('verified')">Verified</button>
+          </div>
+        </div>
+
+        <div class="audit-grid" id="auditGrid"></div>
+
+        <div class="audit-summary" id="auditSummary"></div>
+
+        <div class="audit-chips">
+          <span class="chip chip-cyan">13 issues filed</span>
+          <span class="chip chip-green">12 closed</span>
+          <span class="chip chip-amber">1 open &mdash; needs a GPU run</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="panel-inner">
+        <h2 class="section-title">Numbers currently defensible</h2>
+        <div class="hero-sub" style="margin-top: 12px; margin-bottom: 18px;">
+          The scripted oracle, re-run against the fixed grader. Base and fine-tuned figures are deliberately
+          absent: no rollout traces are committed yet, so nothing about a model can be checked. They return
+          when the traces do.
+        </div>
+        <div class="defensible-grid">
+          <div class="defensible-card">
+            <div class="task-top">
+              <span class="task-name">Client intake</span>
+              <span class="badge easy">Easy</span>
             </div>
-            <div class="hero-pill">
-              <label>Track Three</label>
-              <div>Deadline triage under live litigation pressure</div>
+            <div class="task-description">
+              Screen six prospective clients for conflicts, cite the governing Bar Council rule, and decide
+              accept or decline.
             </div>
+            <div class="score-row">
+              <div><label>Oracle</label><div class="mono-green">0.999</div></div>
+              <div><label>Horizon</label><div class="mono-soft">24</div></div>
+            </div>
+          </div>
+          <div class="defensible-card">
+            <div class="task-top">
+              <span class="task-name">Privilege review</span>
+              <span class="badge medium">Medium</span>
+            </div>
+            <div class="task-description">
+              Classify ten documents, name the doctrine, produce or withhold, and identify crime-fraud and
+              at-issue waiver.
+            </div>
+            <div class="score-row">
+              <div><label>Oracle</label><div class="mono-green">0.9391</div></div>
+              <div><label>Horizon</label><div class="mono-soft">34</div></div>
+            </div>
+          </div>
+          <div class="defensible-card">
+            <div class="task-top">
+              <span class="task-name">Incident command</span>
+              <span class="badge hard">Hard</span>
+            </div>
+            <div class="task-description">
+              Six events, five hard deadlines, one ethical trap and one adversarial push, under a fixed step
+              budget.
+            </div>
+            <div class="score-row">
+              <div><label>Oracle</label><div class="mono-green">0.9825</div></div>
+              <div><label>Horizon</label><div class="mono-soft">24</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="substance">
+      <div class="panel">
+        <div class="panel-inner">
+          <h2 class="section-title">Read the scenarios</h2>
+          <div class="hero-sub" style="margin-top: 12px; margin-bottom: 18px;">
+            Every scenario is synthetic, written by someone who has never seen a real matter file. They are
+            published in full &mdash; six intake clients with their conflict rules, ten privilege documents
+            with their ground truth, six crisis events with deadlines &mdash; so the flaws are findable
+            without reading Python.
+          </div>
+          <div class="cite-list">
+            <div class="cite-row"><span class="cite-key">BSA s.132</span><span class="cite-val">Professional communications &mdash; attorney&ndash;client privilege</span></div>
+            <div class="cite-row"><span class="cite-key">BSA s.134</span><span class="cite-val">Confidential communication with legal advisers</span></div>
+            <div class="cite-row"><span class="cite-key">BCI 22, 33</span><span class="cite-val">Bar Council conflict rules driving the intake decisions</span></div>
+          </div>
+          <div class="open-question">
+            <label>Open question</label>
+            <div>
+              The classification vocabulary includes <code>work_product</code>, a US doctrine with no clean
+              Indian equivalent, and the procedure throughout is US-style discovery. This may be US process
+              wearing Indian citations.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-inner">
+          <h2 class="section-title">How scoring works</h2>
+          <div class="hero-sub" style="margin-top: 12px; margin-bottom: 14px;">
+            Four deterministic verifier columns. No LLM judge anywhere in the loop.
+          </div>
+          <div class="verifier-list">
+            <div class="verifier-item">outcome_correctness</div>
+            <div class="verifier-item">process_compliance</div>
+            <div class="verifier-item">deadline_or_latency</div>
+            <div class="verifier-item">safety_or_anti_cheat</div>
+          </div>
+          <div class="penalty-note">
+            Producing a privileged document into discovery costs <code class="penalty">&minus;0.12</code>.
           </div>
         </div>
       </div>
@@ -772,6 +1203,23 @@
           </div>
         </div>
       </aside>
+    </section>
+
+    <section class="panel">
+      <div class="panel-inner who-block">
+        <div class="who-copy">
+          <h2 class="section-title">Who built this</h2>
+          <div class="hero-sub" style="margin-top: 10px;">
+            Natik Chhabra, Class 12, Delhi Public School Bilaspur, India. Qualified Round 1 of the Meta
+            PyTorch OpenEnv Hackathon. Looking for evaluation work someone else would otherwise not get to
+            &mdash; including the dull kind. Five to ten hours a week in term, full days in holidays.
+          </div>
+        </div>
+        <div class="who-links">
+          <a class="who-link who-link-primary" href="https://github.com/NatikChhabra/LexCrisis">Repository and issue log</a>
+          <a class="who-link" href="https://github.com/NatikChhabra/LexCrisis/blob/main/SCENARIOS.md">SCENARIOS.md &mdash; the legal content</a>
+        </div>
+      </div>
     </section>
   </div>
 
@@ -1328,6 +1776,104 @@
         }
       }
     }
+
+
+    /* ---- audit panel: the reported claim, and what verifying it showed ---- */
+
+    const AUDIT_VIEWS = {
+      reported: {
+        summary:
+          "This is what the repository claimed until 1 September 2026. It is retracted. " +
+          "Switch to Verified for what the graders actually do.",
+        cards: [
+          {
+            label: "Fine-tuned, privilege review",
+            value: "0.061",
+            note: "Published as evidence that supervised fine-tuning taught the model something.",
+            flagged: false
+          },
+          {
+            label: "Base model",
+            value: "0.001",
+            note: "Published as the floor the fine-tuned model climbed from.",
+            flagged: false
+          },
+          {
+            label: "Scripted oracle",
+            value: "0.933",
+            note: "Published as the ceiling a perfect run reaches.",
+            flagged: false
+          }
+        ]
+      },
+      verified: {
+        summary:
+          "A constant keyword-stuffed string scored 0.2849 with no analysis at all, 4.7 times the " +
+          "reported result. All of this was found by auditing my own grader, filed as issues, and fixed " +
+          "in pull requests with regression tests. The retraction is in the README, not only here.",
+        cards: [
+          {
+            label: "An empty submission scores",
+            value: "0.0609",
+            note:
+              "Identical to the reported result. The grader read an absent doctrine field as a correct " +
+              "answer, so submitting nothing earned full marks on three of the ten documents.",
+            flagged: true
+          },
+          {
+            label: "A wrong answer scored",
+            value: "0.0429",
+            note:
+              "Less than silence. The reward gradient pointed at emitting nothing at all rather than " +
+              "attempting the task.",
+            flagged: true
+          },
+          {
+            label: "Same run, five random seeds",
+            value: "0.001",
+            note:
+              "The headline was a single fixed-seed episode. Across the randomised suite the fine-tuned " +
+              "model scores exactly what the base model scores.",
+            flagged: true,
+            tone: "amber"
+          }
+        ]
+      }
+    };
+
+    function setAuditView(view) {
+      const config = AUDIT_VIEWS[view];
+      if (!config) return;
+
+      const grid = document.getElementById("auditGrid");
+      grid.innerHTML = "";
+      config.cards.forEach((card) => {
+        const el = document.createElement("div");
+        el.className = card.flagged ? "audit-card is-flagged" : "audit-card";
+
+        const label = document.createElement("label");
+        label.textContent = card.label;
+
+        const value = document.createElement("div");
+        value.className = "audit-value";
+        value.textContent = card.value;
+        if (card.flagged) {
+          value.style.color = card.tone === "amber" ? "var(--amber)" : "var(--red)";
+        }
+
+        const note = document.createElement("p");
+        note.textContent = card.note;
+
+        el.append(label, value, note);
+        grid.appendChild(el);
+      });
+
+      document.getElementById("auditSummary").textContent = config.summary;
+      document.getElementById("tabReported").classList.toggle("is-active", view === "reported");
+      document.getElementById("tabVerified").classList.toggle("is-active", view === "verified");
+    }
+
+    setAuditView("reported");
 
     refreshTasks()
       .then(() => resetEpisode())
