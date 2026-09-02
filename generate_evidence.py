@@ -339,7 +339,7 @@ def print_behavioral_comparison(all_rows: List[Dict[str, Any]]) -> None:
     print("PRIVILEGE TRAP CONTRAST (Task 3 / EVENT-003):")
     print("\nDEGRADED — never reaches EVENT-003, misses all deadline bonuses:")
     print("  - Missing: flag_adversarial(EVENT-003, threat_type='privilege_trap')")
-    print("  - Missing: respond_discovery(response_type='privilege_log', objections=IEA 126/129)")
+    print("  - Missing: respond_discovery(response_type='privilege_log', objections=BSA 132/134)")
     print("  - Result:  deadline_accuracy component drops to 0.25 partial credit")
     print("\nSCRIPTED ORACLE — full adversarial response sequence:")
     scripted_t3 = next((r for r in all_rows if r["run_name"] == "scripted_oracle" and r["task_id"] == "task_3" and r["seed"] == 0), None)

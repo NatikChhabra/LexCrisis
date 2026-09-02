@@ -12,9 +12,9 @@ review action before taking a score-bearing action.
 === LEGAL PRINCIPLES ===
 - BCI Rule 33: Do not represent directly adverse clients in the same matter.
 - BCI Rule 22: Be careful with substantially related matters involving former clients.
-- IEA Section 126: Attorney-client communications can be privileged.
-- IEA Section 129: Litigation-preparation materials can be protected work product.
-- IEA Section 45: Expert qualifications matter when relying on expert evidence.
+- BSA Section 132: Attorney-client communications can be privileged.
+- BSA Section 134: Litigation-preparation materials can be protected work product.
+- BSA Section 39: Expert qualifications matter when relying on expert evidence.
 - Crime-fraud exception: privilege does not protect communications used to further a crime or fraud.
 - At-issue waiver: privilege can be waived by publicly relying on legal advice.
 

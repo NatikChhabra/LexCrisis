@@ -8,12 +8,17 @@ Every scenario is **synthetic**. They were written by a Class 12 student in
 India with no access to real matter files and no experience of practice.
 Their internal legal coherence is bounded by that.
 
-**Known defect, stated up front:** the privilege scenario cites the Indian
-Evidence Act 1872, which was repealed by the Bharatiya Sakshya Adhiniyam
-2023 with effect from 1 July 2024. IEA s.126 is now BSA s.132, IEA s.129 is
-BSA s.134, and IEA s.45 is BSA s.39. Every statutory reference below is
-therefore to law that was not in force when the benchmark was built. See
-issue #19.
+**Statute:** citations are to the **Bharatiya Sakshya Adhiniyam 2023**, in
+force since 1 July 2024. Until issue #19 was fixed they were to the repealed
+Indian Evidence Act 1872, and the grader marked an agent wrong for citing the
+law actually in force. The repealed forms - IEA s.126, s.129, s.45 - still
+earn full credit, so a model trained on pre-2024 material is not punished.
+
+**The open question**, which renumbering does not answer: the classification
+vocabulary includes `work_product`, a United States doctrine with no clean
+Indian equivalent, and the procedure throughout - privilege logs,
+produce/withhold calls - is US-style discovery. This may be US procedure
+wearing Indian citations.
 
 ## Conflict-Safe Client Intake (`task_1`)
 
@@ -104,7 +109,7 @@ Attached is outside counsel's memo on settlement strategy for the National Consu
 ```
 
 - Classification: `attorney_client`
-- Doctrine: `IEA Section 126`
+- Doctrine: `BSA Section 132`
 - Action: `withhold`
 - Exception: `none`
 
@@ -115,7 +120,7 @@ Internal litigation team draft prepared in anticipation of the Delhi High Court 
 ```
 
 - Classification: `work_product`
-- Doctrine: `IEA Section 129`
+- Doctrine: `BSA Section 134`
 - Action: `withhold`
 - Exception: `none`
 
@@ -126,7 +131,7 @@ Handwritten advocate notes from a client briefing. The notes discuss weaknesses 
 ```
 
 - Classification: `both`
-- Doctrine: `IEA Sections 126 and 129`
+- Doctrine: `BSA Sections 132 and 134`
 - Action: `withhold`
 - Exception: `none`
 
@@ -148,7 +153,7 @@ Draft expert report commissioned by counsel for upcoming trial testimony. It inc
 ```
 
 - Classification: `work_product`
-- Doctrine: `IEA Section 129`
+- Doctrine: `BSA Section 134`
 - Action: `withhold`
 - Exception: `none`
 
@@ -196,7 +201,7 @@ Minutes from a joint-defense call between NovaChem and co-defendant counsel disc
 ```
 
 - Classification: `both`
-- Doctrine: `IEA Sections 126 and 129`
+- Doctrine: `BSA Sections 132 and 134`
 - Action: `withhold`
 - Exception: `none`
 

@@ -19,8 +19,8 @@ from lexcrisis_env.tasks import TASK_DEFINITIONS
 # directly affect grader scoring:
 #
 # BCI Rule 33 — conflict of interest prohibition
-# IEA Section 126 — attorney-client privilege shield
-# IEA Section 129 — litigation-preparation work-product protection
+# BSA Section 132 - attorney-client privilege shield
+# BSA Section 134 - litigation-preparation work-product protection
 #
 # The privilege_trap (respond_discovery with response_type="produce" and
 # no objections) triggers an irreversible -0.12 penalty and ethical alert.

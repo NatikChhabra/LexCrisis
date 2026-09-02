@@ -142,7 +142,7 @@ PRIVILEGE_DOCUMENTS: List[PrivilegeDocument] = [
     PrivilegeDocument(
         doc_id="DOC-001",
         title="External Counsel Settlement Memo",
-        doctrine="IEA Section 126",
+        doctrine="BSA Section 132",
         content=(
             "From: General Counsel\nTo: CEO\nAttached is outside counsel's memo on settlement "
             "strategy for the National Consumer Disputes matter. Counsel recommends early resolution."
@@ -151,7 +151,7 @@ PRIVILEGE_DOCUMENTS: List[PrivilegeDocument] = [
     PrivilegeDocument(
         doc_id="DOC-002",
         title="Draft Hearing Affidavit",
-        doctrine="IEA Section 129",
+        doctrine="BSA Section 134",
         content=(
             "Internal litigation team draft prepared in anticipation of the Delhi High Court hearing. "
             "Contains factual chronologies, legal theories, and witness preparation notes."
@@ -160,7 +160,7 @@ PRIVILEGE_DOCUMENTS: List[PrivilegeDocument] = [
     PrivilegeDocument(
         doc_id="DOC-003",
         title="Advocate Strategy Notes",
-        doctrine="IEA Sections 126 and 129",
+        doctrine="BSA Sections 132 and 134",
         content=(
             "Handwritten advocate notes from a client briefing. The notes discuss weaknesses in the "
             "defense narrative and privileged litigation strategy."
@@ -178,7 +178,7 @@ PRIVILEGE_DOCUMENTS: List[PrivilegeDocument] = [
     PrivilegeDocument(
         doc_id="DOC-005",
         title="Draft Toxicology Report",
-        doctrine="IEA Section 129",
+        doctrine="BSA Section 134",
         content=(
             "Draft expert report commissioned by counsel for upcoming trial testimony. "
             "It includes attorney comments and work product annotations."
@@ -214,7 +214,7 @@ PRIVILEGE_DOCUMENTS: List[PrivilegeDocument] = [
     PrivilegeDocument(
         doc_id="DOC-009",
         title="Joint Defense Coordination Minutes",
-        doctrine="IEA Sections 126 and 129",
+        doctrine="BSA Sections 132 and 134",
         content=(
             "Minutes from a joint-defense call between NovaChem and co-defendant counsel discussing "
             "shared defense themes, expert sequencing, and common-interest confidentiality boundaries."
@@ -234,19 +234,19 @@ PRIVILEGE_DOCUMENTS: List[PrivilegeDocument] = [
 PRIVILEGE_GROUND_TRUTH: Dict[str, Dict[str, str]] = {
     "DOC-001": {
         "classification": "attorney_client",
-        "doctrine": "IEA Section 126",
+        "doctrine": "BSA Section 132",
         "action": "withhold",
         "exception": "none",
     },
     "DOC-002": {
         "classification": "work_product",
-        "doctrine": "IEA Section 129",
+        "doctrine": "BSA Section 134",
         "action": "withhold",
         "exception": "none",
     },
     "DOC-003": {
         "classification": "both",
-        "doctrine": "IEA Sections 126 and 129",
+        "doctrine": "BSA Sections 132 and 134",
         "action": "withhold",
         "exception": "none",
     },
@@ -258,7 +258,7 @@ PRIVILEGE_GROUND_TRUTH: Dict[str, Dict[str, str]] = {
     },
     "DOC-005": {
         "classification": "work_product",
-        "doctrine": "IEA Section 129",
+        "doctrine": "BSA Section 134",
         "action": "withhold",
         "exception": "none",
     },
@@ -282,7 +282,7 @@ PRIVILEGE_GROUND_TRUTH: Dict[str, Dict[str, str]] = {
     },
     "DOC-009": {
         "classification": "both",
-        "doctrine": "IEA Sections 126 and 129",
+        "doctrine": "BSA Sections 132 and 134",
         "action": "withhold",
         "exception": "none",
     },
@@ -562,7 +562,7 @@ SCRIPTED_BASELINES: Dict[str, List[Dict[str, Any]]] = {
             "parameters": {
                 "doc_id": "DOC-001",
                 "classification": "attorney_client",
-                "doctrine": "IEA Section 126",
+                "doctrine": "BSA Section 132",
             },
         },
         {"action_type": "recommend_action", "parameters": {"doc_id": "DOC-001", "action": "withhold"}},
@@ -573,7 +573,7 @@ SCRIPTED_BASELINES: Dict[str, List[Dict[str, Any]]] = {
             "parameters": {
                 "doc_id": "DOC-002",
                 "classification": "work_product",
-                "doctrine": "IEA Section 129",
+                "doctrine": "BSA Section 134",
             },
         },
         {"action_type": "recommend_action", "parameters": {"doc_id": "DOC-002", "action": "withhold"}},
@@ -584,7 +584,7 @@ SCRIPTED_BASELINES: Dict[str, List[Dict[str, Any]]] = {
             "parameters": {
                 "doc_id": "DOC-003",
                 "classification": "both",
-                "doctrine": "IEA Sections 126 and 129",
+                "doctrine": "BSA Sections 132 and 134",
             },
         },
         {"action_type": "recommend_action", "parameters": {"doc_id": "DOC-003", "action": "withhold"}},
@@ -606,7 +606,7 @@ SCRIPTED_BASELINES: Dict[str, List[Dict[str, Any]]] = {
             "parameters": {
                 "doc_id": "DOC-005",
                 "classification": "work_product",
-                "doctrine": "IEA Section 129",
+                "doctrine": "BSA Section 134",
             },
         },
         {"action_type": "recommend_action", "parameters": {"doc_id": "DOC-005", "action": "withhold"}},
@@ -633,7 +633,7 @@ SCRIPTED_BASELINES: Dict[str, List[Dict[str, Any]]] = {
             "parameters": {
                 "doc_id": "DOC-006",
                 "exception_type": "crime_fraud",
-                "explanation": "Instruction to destroy evidence triggers the crime-fraud exception under IEA.",
+                "explanation": "Instruction to destroy evidence triggers the crime-fraud exception under the BSA.",
             },
         },
         {"action_type": "recommend_action", "parameters": {"doc_id": "DOC-006", "action": "produce"}},
@@ -682,7 +682,7 @@ SCRIPTED_BASELINES: Dict[str, List[Dict[str, Any]]] = {
             "parameters": {
                 "doc_id": "DOC-009",
                 "classification": "both",
-                "doctrine": "IEA Sections 126 and 129",
+                "doctrine": "BSA Sections 132 and 134",
             },
         },
         {"action_type": "recommend_action", "parameters": {"doc_id": "DOC-009", "action": "withhold"}},
@@ -740,7 +740,7 @@ SCRIPTED_BASELINES: Dict[str, List[Dict[str, Any]]] = {
             "parameters": {
                 "request_id": "REQ-14",
                 "response_type": "privilege_log",
-                "objections": "Object to advocate communications as privileged under IEA Sections 126 and 129 and produce a privilege log for withheld items.",
+                "objections": "Object to advocate communications as privileged under BSA Sections 132 and 134 and produce a privilege log for withheld items.",
             },
         },
         {"action_type": "review_event", "parameters": {"event_id": "EVENT-005"}},
@@ -748,7 +748,7 @@ SCRIPTED_BASELINES: Dict[str, List[Dict[str, Any]]] = {
             "action_type": "assess_expert",
             "parameters": {
                 "expert_id": "EXP-TOX-01",
-                "qualification": "Special skill in toxicology and regulatory science, with relevant expertise under IEA Section 45.",
+                "qualification": "Special skill in toxicology and regulatory science, with relevant expertise under BSA Section 39.",
             },
         },
         {"action_type": "review_event", "parameters": {"event_id": "EVENT-006"}},

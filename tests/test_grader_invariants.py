@@ -37,7 +37,7 @@ def _load(name, relative_path):
     return module
 
 
-_load("lexcrisis_env.tasks", "lexcrisis_env/tasks.py")
+tasks = _load("lexcrisis_env.tasks", "lexcrisis_env/tasks.py")
 graders = _load("lexcrisis_env.graders", "lexcrisis_env/graders.py")
 
 FLOOR = 0.001
@@ -139,6 +139,58 @@ def test_final_score_matches_its_own_breakdown():
     assert abs(recomputed - reported) < 0.005, (
         f"grade_task_2 reported {reported} but its own breakdown implies "
         f"{round(recomputed, 4)}."
+    )
+
+
+def test_ground_truth_cites_law_that_is_in_force():
+    """No scenario may cite the repealed Indian Evidence Act.
+
+    The IEA 1872 was repealed by the Bharatiya Sakshya Adhiniyam 2023 with
+    effect from 1 July 2024. Ground truth cites the BSA. Before this was fixed,
+    the doctrine column marked an agent wrong for citing the statute actually
+    in force. See issue #19.
+    """
+    cited = {
+        entry.get("doctrine", "")
+        for entry in tasks.PRIVILEGE_GROUND_TRUTH.values()
+    }
+    stale = {text for text in cited if "iea" in text.lower()}
+    assert not stale, f"ground truth still cites the repealed IEA: {sorted(stale)}"
+
+
+def test_repealed_citation_still_earns_credit():
+    """A model citing the old IEA numbering is out of date, not wrong.
+
+    Both forms must score the same, or the benchmark simply moves the unfairness
+    from new models to old ones.
+    """
+    current = graders._doctrine_credit("BSA Section 132", "BSA Section 132")
+    repealed = graders._doctrine_credit("IEA Section 126", "BSA Section 132")
+    wrong = graders._doctrine_credit("BSA Section 999", "BSA Section 132")
+
+    assert abs(current - repealed) < 1e-9, (
+        f"BSA scored {current} but the equivalent IEA citation scored {repealed}."
+    )
+    assert wrong < 0.5, f"an unrelated section scored {wrong}; it must not."
+
+
+def test_expert_keywords_do_not_hardcode_a_repealed_section():
+    """The grader's own keyword list cited IEA s.45, not just the scenarios.
+
+    Renumbering tasks.py alone dropped task_3 expert_score from 0.999 to 0.8333,
+    because "section 45" was hardcoded in breakdown_task_3's expected keywords.
+    Both numberings must now score alike.
+    """
+    base = "Special skill in toxicology and regulatory science, with relevant expertise under "
+    findings_new = {"expert_assessed": {"qualification": base + "BSA Section 39."}}
+    findings_old = {"expert_assessed": {"qualification": base + "IEA Section 45."}}
+
+    new_score = graders.breakdown_task_3(findings_new, tasks.CRISIS_GROUND_TRUTH)["expert_score"]
+    old_score = graders.breakdown_task_3(findings_old, tasks.CRISIS_GROUND_TRUTH)["expert_score"]
+
+    assert new_score > 0.99, f"current citation scored only {new_score}"
+    assert abs(new_score - old_score) < 1e-9, (
+        f"BSA scored {new_score} but IEA scored {old_score}."
     )
 
 
