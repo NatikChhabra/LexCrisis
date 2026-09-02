@@ -194,6 +194,109 @@ def test_expert_keywords_do_not_hardcode_a_repealed_section():
     )
 
 
+# --------------------------------------------------------------- issue #25
+# The graders take a ground_truth argument, so they must score the scenario
+# they are handed and not the one shipped in tasks.py. Three places read the
+# built-in scenario instead, which made held-out evaluation impossible.
+
+_HELD_OUT_PRIVILEGE = {
+    "XDOC-1": {"classification": "attorney_client", "doctrine": "BSA Section 132",
+               "action": "withhold", "exception": "none"},
+    "XDOC-2": {"classification": "attorney_client", "doctrine": "BSA Section 132",
+               "action": "produce", "exception": "crime_fraud"},
+}
+
+
+def _held_out_answers():
+    return {
+        "privilege_classifications": {
+            doc_id: {"classification": truth["classification"], "doctrine": truth["doctrine"]}
+            for doc_id, truth in _HELD_OUT_PRIVILEGE.items()
+        },
+        "recommendations": {
+            doc_id: {"action": truth["action"]}
+            for doc_id, truth in _HELD_OUT_PRIVILEGE.items()
+        },
+        "exceptions_identified": [{"doc_id": "XDOC-2", "exception_type": "crime_fraud"}],
+        "waivers_identified": [{"doc_id": "XDOC-2"}],
+    }
+
+
+def test_waivers_are_scored_against_the_scenario_supplied():
+    """A correct waiver call on an unseen scenario must earn credit."""
+
+    components = graders.breakdown_task_2(_held_out_answers(), _HELD_OUT_PRIVILEGE)
+    assert components["waiver_f1"] > 0.99, (
+        f"correct held-out waiver scored {components['waiver_f1']}; the grader is "
+        "still reading WAIVER_EVENTS from the built-in scenario"
+    )
+
+
+def test_reciting_the_built_in_waivers_earns_nothing_elsewhere():
+    """Naming documents that do not exist in the scenario must not score."""
+
+    answers = _held_out_answers()
+    answers["waivers_identified"] = [{"doc_id": d} for d in tasks.WAIVER_EVENTS]
+    components = graders.breakdown_task_2(answers, _HELD_OUT_PRIVILEGE)
+    assert components["waiver_f1"] < 0.01, (
+        f"memorising the built-in scenario scored {components['waiver_f1']} on data "
+        "that contains none of those documents"
+    )
+
+
+def test_built_in_waiver_scoring_is_unchanged():
+    """The rewrite must be a no-op on the shipped scenario."""
+
+    answers = {
+        "privilege_classifications": {},
+        "recommendations": {},
+        "exceptions_identified": [],
+        "waivers_identified": [{"doc_id": d} for d in tasks.WAIVER_EVENTS],
+    }
+    components = graders.breakdown_task_2(answers, tasks.PRIVILEGE_GROUND_TRUTH)
+    assert components["waiver_f1"] > 0.99, components["waiver_f1"]
+
+
+def test_discovery_objection_credits_the_law_in_force():
+    """BSA numbering must score at least as well as the repealed IEA numbering."""
+
+    def score(objections):
+        findings = {"discovery_response": {"response_type": "privilege_log",
+                                           "objections": objections}}
+        return graders.breakdown_task_3(findings, tasks.CRISIS_GROUND_TRUTH)["discovery_score"]
+
+    in_force = score("Withheld under BSA Section 132 and Section 134")
+    repealed = score("Withheld under Section 126 of the Indian Evidence Act")
+    assert in_force > 0.99, f"current law scored only {in_force}"
+    assert in_force >= repealed, (
+        f"repealed law scored {repealed} but law in force scored {in_force}"
+    )
+
+
+def test_ethical_resolution_bonus_is_not_welded_to_one_event_id():
+    """A contributed scenario's own ethical event must be able to earn the bonus."""
+
+    ground_truth = {
+        "deadlines": {},
+        "ethical_issues": {"XEVENT-9"},
+        "adversarial_items": set(),
+        "priority_order": ["XEVENT-9"],
+    }
+    findings = {
+        "ethical_issues_flagged": [{
+            "event_id": "XEVENT-9",
+            "resolution": "Withdraw, screen the team, disclose to the former client "
+                          "and obtain consent under rule 33.",
+        }],
+        "actions_taken": [{"event_id": "XEVENT-9"}],
+    }
+    components = graders.breakdown_task_3(findings, ground_truth)
+    assert components["ethical_score"] > 0.9, (
+        f"a well-written contributed scenario scored {components['ethical_score']}; "
+        "the bonus is still hardcoded to EVENT-004"
+    )
+
+
 if __name__ == "__main__":
     tests = [value for name, value in sorted(globals().items())
              if name.startswith("test_") and callable(value)]

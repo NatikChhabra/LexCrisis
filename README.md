@@ -77,6 +77,23 @@ This benchmark targets a real, underexplored capability gap for agentic systems:
 - **Code repository**: [https://github.com/NatikChhabra/LexCrisis](https://github.com/NatikChhabra/LexCrisis)
 - **Demo video**: [https://youtu.be/Elf5wNUOK38](https://youtu.be/Elf5wNUOK38) — 2:41 · Meta Hackathon 2026 · LexCrisis benchmark walkthrough. **States a 0.061 SFT result that is retracted** — see the retraction note above before treating any number in it as current.
 
+## The scenarios are synthetic, and that is the main open problem
+
+Every scenario here was written by the same person who wrote the graders, so
+every score is internally consistent and externally unchecked. Asked how an
+artificial legal task environment can establish construct validity, Prof. Gijs
+van Dijck (Maastricht) answered: test it on scenarios it has not seen, drafted
+by practitioners together with their answer keys, as LegalBench did.
+
+**[CONTRIBUTING_SCENARIOS.md](CONTRIBUTING_SCENARIOS.md)** is the intake for
+that. One scenario, three to ten documents, about twenty minutes, no code
+required. `python validate_contribution.py contrib/<file>.json` checks a
+contribution against the schema and then proves the graders can score it and
+that it separates a correct agent from a lazy one.
+
+Contributed scenarios are scored and reported separately from the built-in
+ones. If a model does well on mine and badly on yours, that gap is the result.
+
 ## Why This Is Interesting
 
 - **Original benchmark**: legal conflicts, privilege review, adversarial discovery, deadlines, and ethics constraints are much richer than toy gridworlds.
