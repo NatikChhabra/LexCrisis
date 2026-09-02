@@ -352,7 +352,7 @@ def _diagnose(
         return (
             "CRITICAL: respond_discovery used 'produce' without objections. "
             "This triggers a -0.12 privilege waiver penalty. "
-            "Always use 'privilege_log' with IEA Sections 126/129 objections."
+            "Always use 'privilege_log' with BSA Sections 132/134 objections."
         )
     return "Action ordering sub-score may be low. Follow priority: EVENT-001 → 004 → 002 → 003 → 005."
 

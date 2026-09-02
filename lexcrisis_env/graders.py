@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import Any, Dict, Iterable, Set
+from typing import Any, Dict, Iterable, Set, Tuple
 
 from lexcrisis_env.tasks import (
     CONFLICT_DECISIONS,
@@ -51,6 +51,27 @@ def _keyword_overlap(predicted: str, expected_keywords: Iterable[str]) -> float:
     matched = sum(1 for keyword in keywords if keyword in text)
     raw = matched / len(keywords)
     return _clamp_score(raw)
+
+
+# The Indian Evidence Act 1872 was repealed by the Bharatiya Sakshya Adhiniyam
+# 2023, in force from 1 July 2024. Ground truth cites the BSA, because that is
+# the law. A model trained on pre-2024 material that cites the IEA equivalent
+# is not wrong about the doctrine, only about the numbering, so both forms earn
+# full credit. See issue #19.
+_DOCTRINE_ALIASES: Dict[str, Tuple[str, ...]] = {
+    "bsa section 132": ("iea section 126",),
+    "bsa section 134": ("iea section 129",),
+    "bsa section 39": ("iea section 45",),
+    "bsa sections 132 and 134": ("iea sections 126 and 129",),
+    "section 39": ("section 45",),
+}
+
+
+def _doctrine_credit(predicted: str, truth: str) -> float:
+    """Score a doctrine citation, accepting the repealed equivalent."""
+
+    accepted = [truth] + list(_DOCTRINE_ALIASES.get(normalize(truth), ()))
+    return max(_keyword_overlap(predicted, [form]) for form in accepted)
 
 
 def breakdown_task_1(findings: Dict[str, Any], ground_truth: Dict[str, Any]) -> Dict[str, float]:
@@ -140,7 +161,7 @@ def breakdown_task_2(findings: Dict[str, Any], ground_truth: Dict[str, Any]) -> 
             # also accepted the generic terms "iea", "section", "126", "129",
             # "crime-fraud" and "at-issue", so one constant string containing
             # them scored 0.81 here regardless of the document.
-            doctrine_score += _keyword_overlap(predicted_doctrine, [truth_doctrine])
+            doctrine_score += _doctrine_credit(predicted_doctrine, truth_doctrine)
         elif predicted_doctrine == "none":
             # An explicit assertion that no doctrine applies. Correct.
             doctrine_score += 1.0
@@ -251,10 +272,14 @@ def breakdown_task_3(findings: Dict[str, Any], ground_truth: Dict[str, Any]) -> 
     expert_assessment = findings.get("expert_assessed", {})
     expert_score = 0.0
     if expert_assessment:
+        qualification = expert_assessment.get("qualification", "")
+        # "section 39" is BSA; "section 45" was the repealed IEA equivalent and
+        # is still accepted. This keyword list is why renumbering the scenarios
+        # alone was not enough - the citation was hardcoded in the grader too.
         expert_score = _keyword_overlap(
-            expert_assessment.get("qualification", ""),
-            ["special skill", "science", "regulatory", "toxicology", "section 45", "relevant"],
-        )
+            qualification,
+            ["special skill", "science", "regulatory", "toxicology", "relevant"],
+        ) * (5 / 6) + _doctrine_credit(qualification, "section 39") * (1 / 6)
 
     action_order = []
     for action in findings.get("actions_taken", []):
