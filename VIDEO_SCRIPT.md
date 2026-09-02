@@ -1,5 +1,12 @@
 # LexCrisis — Demo Video Script (≤ 2 Minutes)
 
+> **This script is stale.** The published video (youtu.be/Elf5wNUOK38) states a
+> 0.061 SFT uplift on task_2 that is retracted — see README.md and Blog.md. The
+> lines below are corrected so a re-record does not repeat the error, but the
+> whole narrative this script tells (a clean improvement story) is the wrong
+> shape for what the repository now says. A re-record should lead with the
+> audit, the way the redesigned demo page does, not patch this in place.
+>
 > **Recording target:** 1:45 – 2:00. Do NOT exceed 2:00.
 > **Resolution:** 1080p, text zoom ≥ 125%.
 > **Voice:** calm, confident, single speaker. No filler words.
@@ -74,8 +81,11 @@
 > aggregate evaluation, then plot generation.
 >
 > From our artifacts: base scores 0.001 on task 2.
-> After SFT, we see **measurable uplift to 0.061** on the fixed suite.
-> Oracle ceiling is 0.93 — there is clear headroom still to close.
+> The 0.061 SFT figure we published turned out to be what an empty
+> submission scores — the grader read an absent doctrine field as correct.
+> We found that ourselves, retracted it, and fixed it with regression tests.
+> Oracle ceiling is 0.933; base and SFT model figures are not republished
+> until rollout traces are committed, so they can be checked.
 >
 > All improvement claims come directly from `collect_traces.py` and
 > `evaluate_runs.py` artifacts. Nothing is hardcoded."
@@ -106,7 +116,7 @@
 | 0:45–1:05 | README reward table — **privilege-waiver trap row** zoomed |
 | 1:05–1:15 | `assets/training_loss.png`                               |
 | 1:15–1:25 | `assets/score_comparison.png`                            |
-| 1:25–1:30 | `summary.json` — sft task_2 block (`avg_final_score: 0.0609`) |
+| 1:25–1:30 | `outputs/evals/summary.json` — oracle task_2 block (`avg_final_score: 0.9391`) |
 | 1:30–1:40 | README submission links section                          |
 | 1:40–1:48 | HF Space `/health` live + `submission_audit.py` output   |
 
@@ -117,7 +127,7 @@
 | ❌ Do NOT say                                          | ✅ Say instead                                           |
 |-------------------------------------------------------|----------------------------------------------------------|
 | "SFT significantly improves all three tasks"          | "We observe measurable uplift on task 2 specifically"    |
-| "Our model achieves X% accuracy"                      | "Our SFT model scores 0.061 on task_2 vs base at 0.001" |
+| "Our model achieves X% accuracy"                      | "The oracle scores 0.9391 on task_2; base/SFT figures are withheld until traces are committed" |
 | "We achieve near-oracle performance"                  | "Oracle ceiling is 0.93; our SFT shows early movement"   |
 | "Training converges cleanly"                          | "Loss curve shows a downward trend over 65 steps"        |
 | "The model learns to avoid the privilege trap"        | "Our anti-cheat signal is tracked; trap avoidance is 1.0 in our artifacts" |
