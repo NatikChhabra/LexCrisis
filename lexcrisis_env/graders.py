@@ -9,7 +9,6 @@ from lexcrisis_env.tasks import (
     CONFLICT_RULES,
     CRISIS_GROUND_TRUTH,
     PRIVILEGE_GROUND_TRUTH,
-    WAIVER_EVENTS,
     normalize,
 )
 
@@ -182,7 +181,17 @@ def breakdown_task_2(findings: Dict[str, Any], ground_truth: Dict[str, Any]) -> 
     recommendation_accuracy = _safe_divide(recommendation_score, document_count)
 
     predicted_waivers = {entry.get("doc_id", "") for entry in waivers if entry.get("doc_id")}
-    actual_waivers = set(WAIVER_EVENTS.keys())
+    # Derive the waiver set from the ground truth passed in, not from the
+    # built-in scenario. Reading WAIVER_EVENTS here meant a correct answer on a
+    # held-out scenario scored waiver_f1 0.001 while naming DOC-006/DOC-007 --
+    # documents absent from that scenario -- scored 0.999. See issue #25.
+    # Equivalent on the built-in data: WAIVER_EVENTS is exactly the documents
+    # whose ground-truth exception is not "none".
+    actual_waivers = {
+        doc_id
+        for doc_id, truth in ground_truth.items()
+        if normalize(truth.get("exception")) not in ("", "none")
+    }
     waiver_f1 = _f1(predicted_waivers, actual_waivers)
 
     exception_lookup = {
@@ -244,15 +253,26 @@ def breakdown_task_3(findings: Dict[str, Any], ground_truth: Dict[str, Any]) -> 
     ethical_findings = findings.get("ethical_issues_flagged", [])
     ethical_events = {entry.get("event_id", "") for entry in ethical_findings if entry.get("event_id")}
     ethical_f1 = _f1(ethical_events, set(ground_truth.get("ethical_issues", set())))
+    # The resolution bonus applies to whichever events the ground truth marks
+    # ethical, and to the keywords that ground truth supplies. Hardcoding
+    # EVENT-004 and one keyword list meant every contributed scenario scored
+    # zero here no matter how well it was written. See issue #25.
+    expected_ethical = set(ground_truth.get("ethical_issues", set()))
+    resolution_keywords = ground_truth.get(
+        "ethical_resolution_keywords",
+        ["withdraw", "screen", "consent", "disclose", "rule 33", "former client"],
+    )
     ethical_resolution_bonus = 0.0
     for entry in ethical_findings:
-        if entry.get("event_id") != "EVENT-004":
+        if entry.get("event_id") not in expected_ethical:
             continue
-        ethical_resolution_bonus = _keyword_overlap(
-            entry.get("resolution", ""),
-            ["withdraw", "screen", "consent", "disclose", "rule 33", "former client"],
+        keywords = resolution_keywords
+        if isinstance(resolution_keywords, dict):
+            keywords = resolution_keywords.get(entry.get("event_id"), [])
+        ethical_resolution_bonus = max(
+            ethical_resolution_bonus,
+            _keyword_overlap(entry.get("resolution", ""), keywords),
         )
-        break
 
     adversarial_findings = findings.get("adversarial_flagged", [])
     adversarial_events = {entry.get("item_id", "") for entry in adversarial_findings if entry.get("item_id")}
@@ -265,7 +285,23 @@ def breakdown_task_3(findings: Dict[str, Any], ground_truth: Dict[str, Any]) -> 
         objections = normalize(discovery.get("objections"))
         if response_type in {"privilege_log", "object", "partial_produce"}:
             discovery_response_score += 0.6
-        if any(term in objections for term in ("privilege", "section 126", "section 129", "advocate")):
+        # This list only accepted the repealed IEA numbering, so "Withheld
+        # under BSA Section 132 and Section 134" scored 0.600 while the same
+        # objection citing the repealed Act scored 0.999. Issue #19 renumbered
+        # the scenarios and taught _doctrine_credit both forms, but missed this
+        # raw substring test. See issue #25.
+        objection_terms = ground_truth.get(
+            "discovery_objection_terms",
+            (
+                "privilege",
+                "advocate",
+                "section 132",
+                "section 134",
+                "section 126",
+                "section 129",
+            ),
+        )
+        if any(normalize(term) in objections for term in objection_terms):
             discovery_response_score += 0.4
     discovery_response_score = min(discovery_response_score, _SCORE_CEIL)
 

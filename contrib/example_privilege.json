@@ -1,0 +1,39 @@
+{
+  "task": "task_2",
+  "contributor": {
+    "name": "Worked example, not a real contribution",
+    "affiliation": "LexCrisis repository",
+    "jurisdiction": "India",
+    "credit": "no"
+  },
+  "notes": "Three documents illustrating the format: one plainly privileged, one plainly not, and one where an exception defeats an otherwise good claim.",
+  "documents": [
+    {
+      "doc_id": "EX-001",
+      "title": "Advice note from external counsel on regulatory exposure",
+      "content": "From: Retained advocate\nTo: Company Secretary\nOur view on the show-cause notice, the defences available, and the risk of prosecution if the response is filed late.",
+      "classification": "attorney_client",
+      "doctrine": "BSA Section 132",
+      "action": "withhold",
+      "exception": "none"
+    },
+    {
+      "doc_id": "EX-002",
+      "title": "Quarterly warehouse throughput report",
+      "content": "Dispatch volumes by depot for the quarter, with no legal input and no advocate on the circulation list.",
+      "classification": "none",
+      "doctrine": "None",
+      "action": "produce",
+      "exception": "none"
+    },
+    {
+      "doc_id": "EX-003",
+      "title": "Email seeking help to backdate a board resolution",
+      "content": "From: Director\nTo: Retained advocate\nCan you help us paper a resolution dated before the inspection so the register lines up?",
+      "classification": "attorney_client",
+      "doctrine": "BSA Section 132",
+      "action": "produce",
+      "exception": "crime_fraud"
+    }
+  ]
+}

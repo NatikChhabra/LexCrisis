@@ -1,0 +1,21 @@
+{
+  "task": "task_2",
+  "contributor": {
+    "name": "",
+    "affiliation": "",
+    "jurisdiction": "",
+    "credit": "yes"
+  },
+  "notes": "Anything the answer key does not capture: what makes a document borderline, where practice differs from the black-letter rule, what you would want an agent to get wrong.",
+  "documents": [
+    {
+      "doc_id": "DOC-A",
+      "title": "",
+      "content": "",
+      "classification": "attorney_client",
+      "doctrine": "BSA Section 132",
+      "action": "withhold",
+      "exception": "none"
+    }
+  ]
+}
