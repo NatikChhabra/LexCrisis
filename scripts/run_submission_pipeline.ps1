@@ -7,6 +7,9 @@ param(
 
 $ErrorActionPreference = "Stop"
 
+# Run from the repository root so relative paths (outputs/, *.py) resolve.
+Set-Location (Join-Path $PSScriptRoot "..")
+
 function Run-Step {
     param(
         [Parameter(Mandatory = $true)]

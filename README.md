@@ -85,7 +85,7 @@ artificial legal task environment can establish construct validity, Prof. Gijs
 van Dijck (Maastricht) answered: test it on scenarios it has not seen, drafted
 by practitioners together with their answer keys, as LegalBench did.
 
-**[CONTRIBUTING_SCENARIOS.md](CONTRIBUTING_SCENARIOS.md)** is the intake for
+**[docs/CONTRIBUTING_SCENARIOS.md](docs/CONTRIBUTING_SCENARIOS.md)** is the intake for
 that. One scenario, three to ten documents, about twenty minutes, no code
 required. `python validate_contribution.py contrib/<file>.json` checks a
 contribution against the schema and then proves the graders can score it and
@@ -127,7 +127,7 @@ ones. If a model does well on mine and badly on yours, that gap is the result.
 
 ## 2-Minute Demo Video Script (Judges)
 
-See `VIDEO_SCRIPT.md` for the full time-coded recording script. Summary:
+See [`docs/VIDEO_SCRIPT.md`](docs/VIDEO_SCRIPT.md) for the full time-coded recording script. Summary:
 
 1. Problem: why legal-ops RL matters.
 2. Environment mechanics — tasks, reward table, anti-hacking design.
@@ -393,6 +393,8 @@ lexcrisis/
 ├── train_grpo.py
 ├── train_sft.py
 ├── train_lexcrisis.ipynb
+├── docs/                  # scenarios, contribution guide, playbooks, video script
+├── scripts/               # PowerShell end-to-end pipelines
 ├── lexcrisis_env/
 │   ├── env.py
 │   ├── graders.py
@@ -408,7 +410,7 @@ lexcrisis/
 
 - Checked-in plot images are presentation assets only until you regenerate them from local artifacts.
 - This README intentionally avoids hardcoded trained-model score claims.
-- Submission execution checklist is documented in `SUBMISSION_PLAYBOOK.md`.
+- Submission execution checklist is documented in [`docs/SUBMISSION_PLAYBOOK.md`](docs/SUBMISSION_PLAYBOOK.md).
 - We only claim improvements that pass `submission_audit.py` and are backed by non-scripted trace artifacts.
 - The final submission flow is:
   1. generate real model traces
@@ -434,7 +436,7 @@ The audit fails fast on common score-killers:
 For a strict stop-on-error run in PowerShell:
 
 ```powershell
-./run_submission_pipeline.ps1 -HfToken "YOUR_REAL_HF_TOKEN"
+./scripts/run_submission_pipeline.ps1 -HfToken "YOUR_REAL_HF_TOKEN"
 ```
 
 ## Plot Readability (Judging Requirement)

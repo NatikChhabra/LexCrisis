@@ -1,5 +1,8 @@
 $ErrorActionPreference = "Stop"
 
+# Run from the repository root so relative paths (outputs/, *.py) resolve.
+Set-Location (Join-Path $PSScriptRoot "..")
+
 Write-Host "Installing dependencies..." -ForegroundColor Cyan
 pip install datasets transformers trl peft accelerate
 

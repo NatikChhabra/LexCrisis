@@ -2,11 +2,11 @@
 """Render the three LexCrisis scenarios as readable prose.
 
 The benchmark's scenarios live as Python data in lexcrisis_env/tasks.py, which
-is the wrong format for a lawyer to review. This writes SCENARIOS.md from those
+is the wrong format for a lawyer to review. This writes docs/SCENARIOS.md from those
 structures directly, so the document cannot drift away from what the graders
 actually score.
 
-    python gen_scenarios.py > SCENARIOS.md
+    python gen_scenarios.py > docs/SCENARIOS.md
 """
 
 from lexcrisis_env import tasks as T
