@@ -15,6 +15,8 @@ tags:
 
 # LexCrisis
 
+[![Tests](https://github.com/NatikChhabra/LexCrisis/actions/workflows/tests.yml/badge.svg)](https://github.com/NatikChhabra/LexCrisis/actions/workflows/tests.yml) [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+
 LexCrisis trains agents to act like legal incident commanders, not autocomplete systems.
 
 It is an OpenEnv benchmark for high-stakes legal-operations work in pharmaceutical product-liability litigation. The environment is built for verifiable RL: agents act step by step, hidden evidence must be reviewed before score-bearing decisions count, and outcome plus process are graded separately with deterministic verifiers.
